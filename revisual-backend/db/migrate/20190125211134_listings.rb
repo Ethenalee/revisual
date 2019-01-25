@@ -1,7 +1,7 @@
-class Listing < ActiveRecord::Migration[5.2]
+class Listings < ActiveRecord::Migration[5.2]
   def change
     create_table :listings do |t|
-      t.string :municipality
+      t.references :municipality, index: true, foreign_key: true
       t.integer :days_on_market
       t.integer :list_price
       t.integer :sold_price
