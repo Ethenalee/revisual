@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_25_211134) do
+ActiveRecord::Schema.define(version: 2019_01_25_214405) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2019_01_25_211134) do
     t.integer "days_on_market"
     t.integer "list_price"
     t.integer "sold_price"
-    t.string "type"
+    t.string "listing_type"
     t.string "sale_lease"
     t.datetime "sold_date"
     t.datetime "list_date"
