@@ -10,10 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_25_203904) do
+ActiveRecord::Schema.define(version: 2019_01_25_211134) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "listings", force: :cascade do |t|
-    t.string "municipality"
+    t.bigint "municipality_id"
     t.integer "days_on_market"
     t.integer "list_price"
     t.integer "sold_price"
@@ -23,6 +26,14 @@ ActiveRecord::Schema.define(version: 2019_01_25_203904) do
     t.datetime "list_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["municipality_id"], name: "index_listings_on_municipality_id"
   end
 
+  create_table "municipalities", force: :cascade do |t|
+    t.string "municipality"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "listings", "municipalities"
 end
