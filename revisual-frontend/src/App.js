@@ -15,8 +15,12 @@ class App extends Component {
             <Navbar.Toggle />
           </Navbar.Header>
           <Navbar.Collapse>
-            <Navbar.Link className="Register" href="#" pullRight>Register</Navbar.Link>
-            <Navbar.Text className="SignIn" pullRight>Welcom Ethena!</Navbar.Text>
+            <div className="SignIn-Register">
+            <Navbar.Text className="Register">
+            <Navbar.Link href="#">Register</Navbar.Link>
+            </Navbar.Text>
+            <Navbar.Text className="SignIn">Welcom Ethena!</Navbar.Text>
+            </div>
           </Navbar.Collapse>
         </Navbar>
         <Map />

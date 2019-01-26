@@ -4,4 +4,19 @@
 
 .map {
   display: flex;
+  justify-content: center;
+}
+
+.navbar {
+  background: transparent;
+  box-shadow: none;
+  font-weight: bold;
+}
+
+.navbar-default {
+  border-color: transparent;
+}
+
+.SignIn-Register {
+  float: right;
 }
