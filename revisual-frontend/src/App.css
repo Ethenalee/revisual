@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 .App {
   text-align: center;
+  font-family: "Montserrat";
 }
 
 .map {
@@ -19,4 +22,22 @@
 
 .SignIn-Register {
   float: right;
+}
+
+.main-section {
+  width: 100%;
+  height: 100vh;
+  background-image: url("./images/main.jpg");
+  background-size: cover;
+  text-align: center;
+}
+
+.main-text {
+  opacity: 0.6;
+  background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
+  color: transparent;
+  -webkit-background-clip: text;
+  font-size: 200px;
+  font-weight: bold;
+  padding-top: 20vh;
 }
