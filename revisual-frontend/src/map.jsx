@@ -1,6 +1,14 @@
 import React, {Component} from 'react';
 import MapImg from './images/Toronto_area.png';
 import { Jumbotron } from 'react-bootstrap';
+import C13dom from './images/C13dom.png';
+import C13Sale from './images/C13Sale.png';
+import W04dom from './images/W04dom.png';
+import W04Sale from './images/W04Sale.png';
+import W05dom from './images/W05dom.png';
+import W05Sale from './images/W05Sale.png';
+import W10dom from './images/W10dom.png';
+import W10Sale from './images/W10Sale.png';
 
 class Map extends Component {
   constructor() {
@@ -29,39 +37,39 @@ class Map extends Component {
 
   toggleMapW04 = (e) => {
     // function that will toggle active/false
-      e.preventDefault();
-      this.setState({
-        active: false,
-        w10active: false,
-        w05active: false,
-        w04active: true,
-        c13active: false     
-      });
-    }
+    e.preventDefault();
+    this.setState({
+      active: false,
+      w10active: false,
+      w05active: false,
+      w04active: true,
+      c13active: false     
+    });
+  }
 
   toggleMapW05 = (e) => {
     // function that will toggle active/false
-      e.preventDefault();
-      this.setState({
-        active: false,
-        w10active: false,
-        w04active: false,
-        w05active: true,
-        c13active: false
-      });
-    }
+    e.preventDefault();
+    this.setState({
+      active: false,
+      w10active: false,
+      w04active: false,
+      w05active: true,
+      c13active: false
+    });
+  }
 
   toggleMapC13 = (e) => {
     // function that will toggle active/false
-      e.preventDefault();
-      this.setState({
-        active: false,
-        w10active: false,
-        w04active: false,
-        w05active: false,
-        c13active: true
-      });
-    }
+    e.preventDefault();
+    this.setState({
+      active: false,
+      w10active: false,
+      w04active: false,
+      w05active: false,
+      c13active: true
+    });
+  }
 
   toggleIntro = (e) => {
     e.preventDefault();
@@ -79,48 +87,91 @@ class Map extends Component {
         <div className="map">
           <div className="map-img"><img className="map-img" alt='' src={MapImg} useMap="Map2"/></div>
           <div onClick={this.toggleIntro} className="description">
-          {this.state.active && 
-            <Jumbotron >
-              <h1>What we offer ?</h1>
-              <p >
-                Most recent data from Toronto Real Estate Board ! 
-                Generate Market Stats for each municipality in Toronto !
-                Customize own your Market Stats for your business !
-              </p>
-            </Jumbotron>
-          }
-          {this.state.w10active &&
-            <Jumbotron>
-              <h1>W10 Market Trends</h1>
-              <p >
-               Comunities: Rexdale, Clairville, Thistletown - Beaumond Heights, Smithfield: Mount Olive-Silverstone-Jamestown, The Elms (Elms-Old Rexdale)
-              </p>
-            </Jumbotron>
-          }
-          {this.state.w05active &&
-            <Jumbotron>
-              <h1>W05 Market Trends</h1>
-              <p >
-                Communities: Downsview, Humber Summit, Humbermede (Emery), Jane and Finch (Black Creek or Glenfield-Jane Heights), York University Heights
-              </p>
-            </Jumbotron>
-          }
-          {this.state.w04active &&
-            <Jumbotron>
-              <h1>W04 Market Trends</h1>
-              <p >
-               Communities: York, Glen Park, Amesbury (Brookhaven), Pelmo Park – Humberlea, Weston, Fairbank (Briar Hill-Belgravia), Maple Leaf, Mount Dennis
-              </p>
-            </Jumbotron>
-          }
-          {this.state.c13active &&
-            <Jumbotron>
-              <h1>C13 Market Trends</h1>
-              <p >
-               Communities: Don Mills, Parkwoods–Donalda, Victoria Village
-              </p>
-            </Jumbotron>
-          }
+            {this.state.active && 
+              <Jumbotron >
+                <h1>What we offer ?</h1>
+                <p >
+                  Up to date data from Toronto Real Estate Board ! <br/>
+                  You do not need to wait until TREB realease the monthly market report ! <br/>
+                  Generate Market Stats for each municipality in Toronto ! <br/>
+                  You can see the market trends for only area you work ! <br/>
+                  Customize own your Market Stats for your business ! <br/>
+                  Being more professional for your clients and agents
+                </p>
+              </Jumbotron>
+            }
+            {this.state.w10active &&
+              <Jumbotron>
+                <h1>W10 Market Trends</h1>
+                <p >
+                Comunities: Rexdale, Clairville, Thistletown - Beaumond Heights, Smithfield: Mount Olive-Silverstone-Jamestown, The Elms (Elms-Old Rexdale)
+                </p>
+                <div className="market-trend">
+                  <div>
+                    Average Days on the Market
+                    <img className="dom" alt='Average Days on the Market' src={W10dom}/>
+                  </div>
+                  <div>
+                    Average Sales price
+                  <img className="sale" alt='Average Sales price' src={W10Sale}/>
+                  </div>
+                </div>
+              </Jumbotron>
+            }
+            {this.state.w05active &&
+              <Jumbotron>
+                <h1>W05 Market Trends</h1>
+                <p >
+                  Communities: Downsview, Humber Summit, Humbermede (Emery), Jane and Finch (Black Creek or Glenfield-Jane Heights), York University Heights
+                </p>
+                <div className="market-trend">
+                  <div>
+                    Average Days on the Market
+                    <img className="dom" alt='Average Days on the Market' src={W05dom}/>
+                  </div>
+                  <div>
+                    Average Sales price
+                  <img className="sale" alt='Average Sales price' src={W05Sale}/>
+                  </div>
+                </div>
+              </Jumbotron>
+            }
+            {this.state.w04active &&
+              <Jumbotron>
+                <h1>W04 Market Trends</h1>
+                <p >
+                Communities: York, Glen Park, Amesbury (Brookhaven), Pelmo Park – Humberlea, Weston, Fairbank (Briar Hill-Belgravia), Maple Leaf, Mount Dennis
+                </p>
+                <div className="market-trend">
+                  <div>
+                    Average Days on the Market
+                    <img className="dom" alt='Average Days on the Market' src={W04dom}/>
+                  </div>
+                  <div>
+                    Average Sales price
+                  <img className="sale" alt='Average Sales price' src={W04Sale}/>
+                  </div>
+                </div>
+              </Jumbotron>
+            }
+            {this.state.c13active &&
+              <Jumbotron>
+                <h1>C13 Market Trends</h1>
+                <p >
+                Communities: Don Mills, Parkwoods–Donalda, Victoria Village
+                </p>
+                <div className="market-trend">
+                  <div>
+                    Average Days on the Market
+                    <img className="dom" alt='Average Days on the Market' src={C13dom}/>
+                  </div>
+                  <div>
+                    Average Sales price
+                  <img className="sale" alt='Average Sales price' src={C13Sale}/>
+                  </div>
+                </div>
+              </Jumbotron>
+            }
           </div>
           <map name="Map2" id="Map2">
             <area shape="poly" alt="" coords="6,196" className="#"/>
