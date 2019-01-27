@@ -3,24 +3,84 @@ import MapImg from './images/Toronto_area.png';
 import { Jumbotron } from 'react-bootstrap';
 
 class Map extends Component {
-  
+  constructor() {
+    super();
+
+    this.state = { 
+      active: true,
+      w10active: false,
+      w05active: false,
+    } 
+  }
+
+  toggleMapW10 = (e) => {
+  // function that will toggle active/false
+    e.preventDefault();
+    this.setState({
+      active: false,
+      w10active: true,
+      w05active: false
+    });
+  }
+
+  toggleMapW05 = (e) => {
+    // function that will toggle active/false
+      e.preventDefault();
+      this.setState({
+        active: false,
+        w10active: false,
+        w05active: true
+      });
+    }
+
+    toggleIntro = (e) => {
+      e.preventDefault();
+      this.setState({
+        active: true,
+        w10active: false,
+        w05active: false
+      });
+    }
+
   render() {
     return (
         <div className="map">
           <div className="map-img"><img className="map-img" alt='' src={MapImg} useMap="Map2"/></div>
-          <div className="description">
-            <Jumbotron>
-              <h1>Hello, world!</h1>
-              <p>
-                This is a simple hero unit, a simple jumbotron-style component for calling
-                extra attention to featured content or information.
+          <div onClick={this.toggleIntro} className="description">
+          {this.state.active && <Jumbotron >
+              <h1>What we offer ?</h1>
+              <p >
+                Most recent data from Toronto Real Estate Board ! 
+                Generate Market Stats for each municipality in Toronto !
+                Customize own your Market Stats for your business !
               </p>
             </Jumbotron>
+          }
+          {!this.state.active && this.state.w10active &&
+            <Jumbotron>
+              <h1>W10 neighbor</h1>
+              <p >
+                Most recent data from Toronto Real Estate Board ! 
+                Generate Market Stats for each municipality in Toronto !
+                Customize own your Market Stats for your business !
+              </p>
+            </Jumbotron>
+          }
+          {!this.state.active && this.state.w05active &&
+            <Jumbotron>
+              <h1>W05 neighbor</h1>
+              <p >
+                Most recent data from Toronto Real Estate Board ! 
+                Generate Market Stats for each municipality in Toronto !
+                Customize own your Market Stats for your business !
+              </p>
+            </Jumbotron>
+          }
           </div>
           <map name="Map2" id="Map2">
             <area shape="poly" alt="" coords="6,196" className="#"/>
-            <area shape="poly" alt="" coords="8,196,76,176,67,184,66,191,72,199,80,203,88,207,96,212,101,218,107,216,116,214,117,220,117,230,125,238,131,239,131,247,126,258,131,266,111,278,101,290,90,311,80,336,70,348,62,353,6,220" className="w10"/>
-            <area shape="poly" alt="" coords="83,175,230,128,240,199,244,201,250,202,254,207,247,212,249,222,253,229,244,238,191,256,174,259,148,260,137,266,131,254,138,241,138,234,134,230,128,231,122,218,115,211,105,205,98,207,83,191,75,184" className="w05"/>
+            <area onClick={this.toggleMapW10} shape="poly" alt="" coords="8,196,76,176,67,184,66,191,72,199,80,203,88,207,96,212,101,218,107,216,116,214,117,220,117,230,125,238,131,239,131,247,126,258,131,266,111,278,101,290,90,311,80,336,70,348,62,353,6,220" className="w10"/>
+            <area onClick={this.toggleMapW05} shape="poly" alt="" coords="83,175,230,128,240,199,244,201,250,202,254,207,247,212,249,222,253,229,244,238,191,256,174,259,148,260,137,266,131,254,138,241,138,234,134,230,128,231,122,218,115,211,105,205,98,207,83,191,75,184" className="w05"/>
             <area shape="poly" alt="" coords="239,126,301,107,317,188,284,221,280,190,292,181,286,181,273,170,260,154,246,150,255,140" className="c07"/>
             <area shape="poly" alt="" coords="252,239,272,235,279,223,274,189,278,182,266,171,252,163,240,155,237,150,246,143,248,137,235,130,244,188,254,200,259,209,252,214" className="c06"/>
             <area shape="poly" alt="" coords="305,106,322,187,333,172,348,169,335,97" className="c14"/>
