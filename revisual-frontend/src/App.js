@@ -24,7 +24,7 @@ class App extends Component {
              * <Route exact path="/" component={Component} />
              */}
 
-            <Route path="/municipality/:id" component={MunicipalityDetails} />
+            <Route path="/municipalities/:id" component={MunicipalityDetails} />
           </main>
         </div>
       </HashRouter>
