@@ -10,6 +10,8 @@ class Map extends Component {
       active: true,
       w10active: false,
       w05active: false,
+      w04active: false,
+      c13active: false
     } 
   }
 
@@ -19,9 +21,23 @@ class Map extends Component {
     this.setState({
       active: false,
       w10active: true,
-      w05active: false
+      w05active: false,
+      w04active: false,
+      c13active: false,
     });
   }
+
+  toggleMapW04 = (e) => {
+    // function that will toggle active/false
+      e.preventDefault();
+      this.setState({
+        active: false,
+        w10active: false,
+        w05active: false,
+        w04active: true,
+        c13active: false     
+      });
+    }
 
   toggleMapW05 = (e) => {
     // function that will toggle active/false
@@ -29,25 +45,42 @@ class Map extends Component {
       this.setState({
         active: false,
         w10active: false,
-        w05active: true
+        w04active: false,
+        w05active: true,
+        c13active: false
       });
     }
 
-    toggleIntro = (e) => {
+  toggleMapC13 = (e) => {
+    // function that will toggle active/false
       e.preventDefault();
       this.setState({
-        active: true,
+        active: false,
         w10active: false,
-        w05active: false
+        w04active: false,
+        w05active: false,
+        c13active: true
       });
     }
+
+  toggleIntro = (e) => {
+    e.preventDefault();
+    this.setState({
+      active: true,
+      w10active: false,
+      w05active: false,
+      w04active: false,
+      c13active: false
+    });
+  }
 
   render() {
     return (
         <div className="map">
           <div className="map-img"><img className="map-img" alt='' src={MapImg} useMap="Map2"/></div>
           <div onClick={this.toggleIntro} className="description">
-          {this.state.active && <Jumbotron >
+          {this.state.active && 
+            <Jumbotron >
               <h1>What we offer ?</h1>
               <p >
                 Most recent data from Toronto Real Estate Board ! 
@@ -56,23 +89,35 @@ class Map extends Component {
               </p>
             </Jumbotron>
           }
-          {!this.state.active && this.state.w10active &&
+          {this.state.w10active &&
             <Jumbotron>
-              <h1>W10 neighbor</h1>
+              <h1>W10 Market Trends</h1>
               <p >
-                Most recent data from Toronto Real Estate Board ! 
-                Generate Market Stats for each municipality in Toronto !
-                Customize own your Market Stats for your business !
+               Comunities: Rexdale, Clairville, Thistletown - Beaumond Heights, Smithfield: Mount Olive-Silverstone-Jamestown, The Elms (Elms-Old Rexdale)
               </p>
             </Jumbotron>
           }
-          {!this.state.active && this.state.w05active &&
+          {this.state.w05active &&
             <Jumbotron>
-              <h1>W05 neighbor</h1>
+              <h1>W05 Market Trends</h1>
               <p >
-                Most recent data from Toronto Real Estate Board ! 
-                Generate Market Stats for each municipality in Toronto !
-                Customize own your Market Stats for your business !
+                Communities: Downsview, Humber Summit, Humbermede (Emery), Jane and Finch (Black Creek or Glenfield-Jane Heights), York University Heights
+              </p>
+            </Jumbotron>
+          }
+          {this.state.w04active &&
+            <Jumbotron>
+              <h1>W04 Market Trends</h1>
+              <p >
+               Communities: York, Glen Park, Amesbury (Brookhaven), Pelmo Park – Humberlea, Weston, Fairbank (Briar Hill-Belgravia), Maple Leaf, Mount Dennis
+              </p>
+            </Jumbotron>
+          }
+          {this.state.c13active &&
+            <Jumbotron>
+              <h1>C13 Market Trends</h1>
+              <p >
+               Communities: Don Mills, Parkwoods–Donalda, Victoria Village
               </p>
             </Jumbotron>
           }
@@ -93,7 +138,7 @@ class Map extends Component {
             <area shape="poly" alt="" coords="554,291,547,275,542,256,554,236,550,223,546,216,526,225,523,215,552,213,555,211,560,204,565,195,575,222,583,212,603,197,633,188,651,185,658,191" className="e08"/>
             <area shape="poly" alt="" coords="450,163,460,160,507,147,522,193,520,200,517,212,524,232,534,233,546,226,545,234,519,290,509,291,501,263,494,279,494,293,485,286" className="e04"/>
             <area shape="poly" alt="" coords="504,352,490,305,500,301,501,289,508,302,516,302,526,298,541,269,550,303" className="e06"/>
-            <area shape="poly" alt="" coords="399,167,443,166,472,258,459,264,452,259,441,257,444,244,436,239,415,252,405,254,405,241,399,231,390,227,369,207,366,202,414,187,416,178,411,175" className="c13"/>
+            <area onClick={this.toggleMapC13} shape="poly" alt="" coords="399,167,443,166,472,258,459,264,452,259,441,257,444,244,436,239,415,252,405,254,405,241,399,231,390,227,369,207,366,202,414,187,416,178,411,175" className="c13"/>
             <area shape="poly" alt="" coords="469,264,454,271,433,285,423,297,395,310,389,319,384,333,387,342,432,326,457,318,464,311,475,308,483,306" className="e03"/>
             <area shape="poly" alt="" coords="443,328,455,362,447,367,458,369,459,374,498,355,484,316" className="e02"/>
             <area shape="poly" alt="" coords="389,343,435,331,446,357,430,366,426,380,439,376,451,374,449,425,435,461,405,459,408,410,410,391,422,387,407,380" className="e01"/>
@@ -106,7 +151,7 @@ class Map extends Component {
             <area shape="poly" alt="" coords="265,381,349,357,365,404,369,411,357,420,349,427,358,435,375,438,396,425,402,431,388,454,368,475,349,475,316,443,299,442,300,427,307,422,309,409,299,405,280,398" className="c01"/>
             <area shape="poly" alt="" coords="265,306,318,290,317,275,329,271,333,295,324,301,322,312,313,315,308,324,279,331,271,333" className="c03"/>
             <area shape="poly" alt="" coords="282,337,317,330,319,319,331,313,333,307,345,352,308,362,304,347,290,349" className="c02"/>
-            <area shape="poly" alt="" coords="137,273,157,268,175,266,212,257,233,248,261,244,272,284,272,296,250,305,210,316,204,324,197,327,190,321,178,321,179,303,175,295,161,293" className="w04"/>
+            <area onClick={this.toggleMapW04} shape="poly" alt="" coords="137,273,157,268,175,266,212,257,233,248,261,244,272,284,272,296,250,305,210,316,204,324,197,327,190,321,178,321,179,303,175,295,161,293" className="w04"/>
             <area shape="poly" alt="" coords="185,334,185,328,192,336,208,331,214,328,217,321,257,309,267,337,280,340,277,345,259,348,257,356,245,352,235,336,224,331,222,339,213,344,210,351,202,357,185,358,175,363,175,347" className="w03"/>
             <area shape="poly" alt="" coords="179,367,194,364,206,364,215,359,222,352,229,344,236,355,249,361,260,363,267,357,276,352,281,349,288,356,298,353,299,366,207,392,207,385,200,384,194,387,192,383,195,372" className="w02"/>
             <area shape="poly" alt="" coords="204,400,259,385,275,402,298,416,301,419,286,425,291,436,252,429,236,428,230,421,220,412,214,410,208,405" className="w01"/>
