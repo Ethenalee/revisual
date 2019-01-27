@@ -1,12 +1,22 @@
 import React, {Component} from 'react';
 import MapImg from './images/Toronto_area.png';
+import { Jumbotron } from 'react-bootstrap';
 
 class Map extends Component {
   
   render() {
     return (
         <div className="map">
-          <img className="map-img" alt='' src={MapImg} useMap="Map2"/>
+          <div className="map-img"><img className="map-img" alt='' src={MapImg} useMap="Map2"/></div>
+          <div className="description">
+            <Jumbotron>
+              <h1>Hello, world!</h1>
+              <p>
+                This is a simple hero unit, a simple jumbotron-style component for calling
+                extra attention to featured content or information.
+              </p>
+            </Jumbotron>
+          </div>
           <map name="Map2" id="Map2">
             <area shape="poly" alt="" coords="6,196" className="#"/>
             <area shape="poly" alt="" coords="8,196,76,176,67,184,66,191,72,199,80,203,88,207,96,212,101,218,107,216,116,214,117,220,117,230,125,238,131,239,131,247,126,258,131,266,111,278,101,290,90,311,80,336,70,348,62,353,6,220" className="w10"/>
