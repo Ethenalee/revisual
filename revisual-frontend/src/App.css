@@ -3,6 +3,7 @@
 .App {
   text-align: center;
   font-family: "Montserrat";
+  cursor: url("./images/pointer.png"), auto;
 }
 
 .map {
@@ -132,4 +133,16 @@
   background: none;
   box-shadow: none;
   -webkit-box-shadow: none;
+}
+
+area {
+  cursor: url("./images/mouse.png"), auto;
+}
+
+.btn {
+  cursor: url("./images/hand.png"), auto;
+}
+
+a:-webkit-any-link {
+  cursor: url("./images/hand.png"), auto;
 }
