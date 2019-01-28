@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import { Button } from 'react-bootstrap';
-import { BrowserRouter as Link } from 'react-router-dom';
+
 
 class MunicipalityHead extends Component {
 
