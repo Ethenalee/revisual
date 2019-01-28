@@ -28,7 +28,7 @@ class MunicipalitiesController < ApplicationController
 
     Municipality.where(municipality_id: params[:id])
       .where(sale_lease: is_sale ? "sale" : "lease")
-      .where("sold_date > ?", filter_datetime)
+      .where("sold_date > ?", filter_datetime) # TODO: Make sure this works
       .average(:sold_price)
   end
 
