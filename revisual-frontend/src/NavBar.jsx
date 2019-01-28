@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+import { NavLink } from 'react-router-dom';
+
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -21,7 +24,7 @@ const styles = {
   }
 };
 
-function ButtonAppBar(props) {
+function NavBar(props) {
   const { classes } = props;
   return (
     <div className={classes.root}>
@@ -34,9 +37,15 @@ function ButtonAppBar(props) {
           >
             <MenuIcon />
           </IconButton>
+
           <Typography variant="h6" color="inherit" className={classes.grow}>
             REvisual
           </Typography>
+
+          <Typography variant="h6" color="inherit" className={classes.grow}>
+            <NavLink to="/municipality/1">Municipality 1 Details</NavLink>
+          </Typography>
+
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
@@ -44,8 +53,8 @@ function ButtonAppBar(props) {
   );
 }
 
-ButtonAppBar.propTypes = {
+NavBar.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(ButtonAppBar);
+export default withStyles(styles)(NavBar);
