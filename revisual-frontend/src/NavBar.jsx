@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -43,7 +43,11 @@ function NavBar(props) {
           </Typography>
 
           <Typography variant="h6" color="inherit" className={classes.grow}>
-            <NavLink to="/municipalities/1">Municipality 1 Details</NavLink>
+            <Link to="/municipalities/1">Municipality 1</Link>
+          </Typography>
+
+          <Typography variant="h6" color="inherit" className={classes.grow}>
+            <Link to="/municipalities/2">Municipality 2</Link>
           </Typography>
 
           <Button color="inherit">Login</Button>

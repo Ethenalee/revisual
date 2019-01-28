@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, NavLink, HashRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import NavBar from './NavBar';
 import MunicipalityDetails from './MunicipalityDetails';
@@ -8,14 +8,14 @@ import MunicipalityDetails from './MunicipalityDetails';
 class App extends Component {
   render() {
     return (
-      <HashRouter>
+      <Router>
         <div className="App">
           <NavBar />
 
           <main className="content">
             {/*
-             * A link to another page is created with:
-             * <NavLink to="/path">Link</NavLink>
+             * An <a> link to another page is created with:
+             * <Link to="/path">Link</Link>
              *
              * Then, add the following inside this main .content element:
              * <Route path="/path" component={Component} />
@@ -27,7 +27,7 @@ class App extends Component {
             <Route path="/municipalities/:id" component={MunicipalityDetails} />
           </main>
         </div>
-      </HashRouter>
+      </Router>
     );
   }
 }
