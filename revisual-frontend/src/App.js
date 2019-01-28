@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import NavBar from './NavBar';
+import Home from './home.jsx';
 import MunicipalityDetails from './MunicipalityDetails';
 
 class App extends Component {
@@ -24,6 +25,7 @@ class App extends Component {
              * <Route exact path="/" component={Component} />
              */}
 
+            <Route path="/" component={Home} />
             <Route path="/municipalities/:id" component={MunicipalityDetails} />
           </main>
         </div>

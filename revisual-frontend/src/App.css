@@ -1,32 +1,111 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 .App {
+  text-align: center;
+  font-family: "Montserrat";
+}
+
+.map {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+.navbar {
+  background: transparent;
+  box-shadow: none;
+  font-weight: bold;
+}
+
+.navbar-default {
+  border-color: transparent;
+}
+
+.SignIn-Register {
+  float: right;
+}
+
+.main-section {
+  width: 100%;
+  height: 130vh;
+  background-image: url("./images/main.jpg");
+  background-size: cover;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.main-text {
+  opacity: 0.7;
+  background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
+  color: transparent;
+  -webkit-background-clip: text;
+  font-size: 200px;
+  font-weight: bold;
+  padding-top: 20vh;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.jumbotron {
+  margin: 40px;
+  padding: 20px;
+  background: transparent;
+}
+
+.jumbotron h1 {
+  margin: 0px;
+  font-weight: bold;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid black; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  animation: 
+    typing 3.5s steps(30, end),
+    blink-caret .5s step-end infinite;
+}
+
+.jumbotron p {
+  margin: 0px;
+  padding: 20px;
+  font-weight: bold;
+}
+
+img.map-img {
+  margin: 40px;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: black }
+}
+
+.description {
+  width: 50%;
+}
+
+.market-trend {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.dom {
+  width: 300px;
+  height: auto;
+  margin: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.sale {
+  width: 300px;
+  height: auto;
+  margin: 20px;
+}
+
+.footer {
+  width: 100%;
+  height: 40vh;
+  background-image: url("./images/footer.png");
+  background-size: cover;
+  text-align: center;
 }
