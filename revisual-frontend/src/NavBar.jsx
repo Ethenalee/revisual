@@ -43,7 +43,7 @@ function NavBar(props) {
           </Typography>
 
           <Typography variant="h6" color="inherit" className={classes.grow}>
-            <NavLink to="/municipality/1">Municipality 1 Details</NavLink>
+            <NavLink to="/municipalities/1">Municipality 1 Details</NavLink>
           </Typography>
 
           <Button color="inherit">Login</Button>
