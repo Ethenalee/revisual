@@ -18,7 +18,7 @@ class MunicipalitiesController < ApplicationController
   # TODO: Implement optional type filtering
   def average_sold_price(timeframe, is_sale, type)
     # Decide how far back to filter sales
-    # TODO: Refactor thos out into a private helper method
+    # TODO: Refactor this out into a private helper method
     filter_datetime = case timeframe
       when "today" then DateTime.beginning_of_day()
       when "3months" then 3.months.ago.to_datetime
