@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
-import Intro from './intro.jsx';
-import Map from './map.jsx';
-import Footer from './footer.jsx';
+import Home from './home.jsx';
+
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Intro/>
-        <Map />
-        <Footer />
+        <Home/>
       </div>
     );
   }
