@@ -25,7 +25,7 @@ class App extends Component {
              * <Route exact path="/" component={Component} />
              */}
 
-            <Route path="/" component={Home} />
+            <Route path="/" exact component={Home} />
             <Route path="/municipalities/:id" component={MunicipalityDetails} />
           </main>
         </div>
