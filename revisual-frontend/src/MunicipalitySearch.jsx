@@ -5,22 +5,22 @@ import MunicipalityFilter from './MunicipalityFilter';
 import MunicipalityIntro from './MunicipalityIntro';
 import MunicipalityBrief from './MunicipalityBrief';
 
-class MunicipalityDetails extends Component {
+class MunicipalitySearch extends Component {
   constructor() {
     super();
 
     this.state = {
-      data: null,
+      data: {areacode: "", municipality: ""},
       introactive: true,
       marketactive: false
     };
   }
 
-  toggleIntro = (municipality) => {
+  toggleIntro = (id, municipality) => {
     this.setState({
       introactive: false,
       marketactive: true,
-      data: municipality
+      data: {areacode: id, municipality: municipality}
     });
   }
   componentWillMount() {
@@ -44,10 +44,10 @@ class MunicipalityDetails extends Component {
             <MunicipalityIntro/>
           }
           {this.state.marketactive &&
-            <MunicipalityBrief data={this.state.data}/>
+            <MunicipalityBrief areacode={this.state.data.areacode} municipality={this.state.data.municipality}/>
           }
         </div>
-        <h3>Municipality: {this.state.data && this.state.data.municipality}</h3>
+        <h3>Municipality: {this.state.data.areacode}, {this.state.data.municipality}</h3>
         <h6>Raw Data: {JSON.stringify(this.state.data)}</h6>
       </section>
     );
@@ -61,4 +61,4 @@ class MunicipalityDetails extends Component {
   }
 }
 
-export default MunicipalityDetails;
+export default MunicipalitySearch;
