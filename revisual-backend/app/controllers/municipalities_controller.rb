@@ -56,6 +56,7 @@ class MunicipalitiesController < ApplicationController
 
   def filter_listings(timeframe, is_sale, type)
     # Choose timeframe to filter sales by
+    # TODO: Refactor this into a dict?
     filter_datetime = case timeframe
       when "today" then 1.day.ago.to_datetime
       when "3months" then 3.months.ago.to_datetime
