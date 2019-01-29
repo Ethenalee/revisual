@@ -35,3 +35,10 @@
 
 # Ignore db creds / settings
 /config/database.yml
+
+# Ignore api files
+/rets/toronto_listing/*
+/rets/OLD/*
+/rets/sample_data/*
+/rets/dataretrieve.rb
+/rets/test_sample.csv
