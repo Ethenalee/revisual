@@ -74,7 +74,7 @@ text = File.readlines(target).each do |line|
     
 
     #------------------------- setup for array. Will be used in CSV.
-    arrayRow = [nvalue01[2],nvalue02[2],nvalue03[2],nvalue04[2],'ResidentialProperty',nvalue06[2],nvalue07[2],nvalue08[2]]
+    arrayRow = [nvalue01[2],nvalue02[2],nvalue03[2],nvalue04[2], "ResidentialProperty",nvalue06[2],nvalue07[2],nvalue08[2]]
     
     #-------------------------- used for testing array is conforming to type and format requirement
     # puts arrayRow
@@ -95,7 +95,7 @@ text = File.readlines(target).each do |line|
         if csv_exists?
             CSV.open(@csv_name, 'a+') { |csv| csv << row }
         else
-            header = ["municipality_id", "days_on_market", "sold_price", "type", "sale_lease", "sold_date", "list_date", "create_at", "updated_at"]
+            header = ["municipality_id", "days_on_market","listing_price", "sold_price", "listing_type", "sale_lease", "sold_date", "list_date", "create_at", "updated_at"]
             # create and add headers if doesn't exist already
             CSV.open(@csv_name, 'wb') do |csv|
                 csv << header
