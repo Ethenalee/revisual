@@ -43,8 +43,8 @@ class MunicipalityDetails extends Component {
           {this.state.introactive &&
             <MunicipalityIntro/>
           }
-          {this.state.market &&
-            <MunicipalityBrief/>
+          {this.state.marketactive &&
+            <MunicipalityBrief data={this.state.data}/>
           }
         </div>
         <h3>Municipality: {this.state.data && this.state.data.municipality}</h3>

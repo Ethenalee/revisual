@@ -315,3 +315,14 @@ a:-webkit-any-link {
   animation: fadeInUp 1s ease-in-out 0s forwards;
   animation-delay: 3.5s;
 }
+
+.brief {
+  display: flex;
+  width: 40%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 20em;
+  border: solid 2px grey;
+  border-radius: 20px;
+}
