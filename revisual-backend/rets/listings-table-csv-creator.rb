@@ -1,6 +1,6 @@
 require 'csv'
 
-target = 'sample_data/listing01.xml'
+target = 'sample_data/listing-row.xml'
 @csv_name = 'test_sample.csv'
 
 
@@ -29,37 +29,48 @@ text = File.readlines(target).each do |line|
 
     fvalue01 = nvalue01[2].rpartition(/\./) #municipality_code 
 
-    #---------------------------  cleaning values prior to conversion to CSV (removing quotes and cleaning type)
+    #-------------------------- 
+    if (nvalue01[2] == "\"01.C01\"")
+        nvalue01[2].gsub!(/01.C01/, "3")
+    elsif (nvalue01[2] == "\"01.C14\"")
+        nvalue01[2].gsub!(/01.C14/, "1")
+    elsif (nvalue01[2] == "\"01.W01\"")
+        nvalue01[2].gsub!(/01.W01/, "2")
+    else
+        puts "no mun code change"
+    end
+
+    #--------------------------- OLD; REMOVE cleaning values prior to conversion to CSV (removing quotes and cleaning type)
     
-    nvalue01[2] = nvalue01[2].gsub!('"', '')
+    # nvalue01[2] = nvalue01[2].gsub!('"', '')
     
-    nvalue02[2] = nvalue02[2].gsub!('"', '')
-    nvalue02[2] = nvalue02[2].to_i
+    # nvalue02[2] = nvalue02[2].gsub!('"', '')
+    # nvalue02[2] = nvalue02[2].to_i
     
-    nvalue03[2] = nvalue03[2].gsub!('"', '')
-    if (nvalue03[2]) 
-        nvalue03[2].to_f
-    else 
+    # nvalue03[2] = nvalue03[2].gsub!('"', '')
+    if (nvalue03[2] == "\"\"") 
+    #     nvalue03[2].to_f
+    # else 
         nvalue03[2] = nil
     end
     
-    nvalue04[2] = nvalue04[2].gsub!('"', '')
-    if (nvalue04[2]) 
-        nvalue04[2].to_f
-    else 
+    # nvalue04[2] = nvalue04[2].gsub!('"', '')
+    if (nvalue04[2] == "\"\"") 
+    #     nvalue04[2].to_f
+    # else 
         nvalue04[2] = nil
     end 
 
-    nvalue06[2] = nvalue06[2].gsub!('"', '')
+    # nvalue06[2] = nvalue06[2].gsub!('"', '')
     
-    nvalue07[2] = nvalue07[2].gsub!('"', '')
-    if (nvalue07[2]) 
-        nvalue07[2]
-    else 
+    # nvalue07[2] = nvalue07[2].gsub!('"', '')
+    if (nvalue07[2] == "\"\"") 
+    #     nvalue07[2]
+    # else 
         nvalue07[2] = nil
     end 
     
-    nvalue08[2] = nvalue08[2].gsub!('"', '')
+    # nvalue08[2] = nvalue08[2].gsub!('"', '')
     
 
     #------------------------- setup for array. Will be used in CSV.
@@ -67,14 +78,13 @@ text = File.readlines(target).each do |line|
     
     #-------------------------- used for testing array is conforming to type and format requirement
     # puts arrayRow
+    puts nvalue01
     
-    #-------------------------- municipality FK reference
-
 
     #-------------------------- writes values to CSV. FIX REQUIRED - MISSING MUNICIPALITY_ID FK
 
     def is_writing_necessary(municipality_code, row)
-        if ( municipality_code === '01.C01' || municipality_code === '01.C14' || municipality_code === '01.W01'  )
+        if ( municipality_code === "\"1\"" || municipality_code === "\"2\"" || municipality_code === "\"3\""  )
             write_to_csv(row)
         else
             # puts "no matching municipalities"
