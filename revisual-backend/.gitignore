@@ -44,3 +44,4 @@
 /rets/rets-property-archived-data-retrieve.rb
 /rets/rets-residential-data-retrieve.rb
 /rets/dataretrieve.rb
+/rets/test_sample.csv
