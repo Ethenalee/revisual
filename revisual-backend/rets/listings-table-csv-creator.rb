@@ -1,6 +1,6 @@
 require 'csv'
 
-target = 'sample_data/listing-row.xml'
+target = 'toronto_listing/torontolistingwhole-row.txt'
 @csv_name = 'test_sample.csv'
 
 
