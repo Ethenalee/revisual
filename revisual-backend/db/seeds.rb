@@ -24,7 +24,7 @@ end
 
 puts "Finding or Creating Categories ..."
 
-t01 = Municipality.find_or_create_by! municipality: 'T01'
+c14 = Municipality.find_or_create_by! municipality: 'C14'
 w01 = Municipality.find_or_create_by! municipality: 'W01'
 c01 = Municipality.find_or_create_by! municipality: 'C01'
 
@@ -34,7 +34,7 @@ puts "Re-creating listing ..."
 
 Listing.destroy_all
 
-t01.listings.create!({
+c14.listings.create!({
   days_on_market: 10,
   list_price: 500_000,
   sold_price: 600_000,
@@ -44,7 +44,7 @@ t01.listings.create!({
   list_date: DateTime.new(2019,1,11)
 })
 
-t01.listings.create!({
+c14.listings.create!({
   days_on_market: 20,
   list_price: 400_000,
   sold_price: 500_000,
