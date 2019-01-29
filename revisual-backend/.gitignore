@@ -40,8 +40,5 @@
 /rets/toronto_listing/*
 /rets/OLD/*
 /rets/sample_data/*
-/rets/rets-condo-data-retrieve.rb
-/rets/rets-property-archived-data-retrieve.rb
-/rets/rets-residential-data-retrieve.rb
 /rets/dataretrieve.rb
 /rets/test_sample.csv
