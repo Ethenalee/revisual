@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MunicipalityHead from './MunicipalityHead.jsx';
 import MunicipalityMap from './MunicipalityMap.jsx';
+import MunicipalityFilter from './MunicipalityFilter';
 
 class MunicipalityDetails extends Component {
   constructor() {
@@ -26,6 +27,7 @@ class MunicipalityDetails extends Component {
       <section className="second-page">
         <MunicipalityHead/>
         <MunicipalityMap/>
+        <MunicipalityFilter/>
         <h3>Municipality: {this.state.data && this.state.data.municipality}</h3>
         <h6>Raw Data: {JSON.stringify(this.state.data)}</h6>
       </section>

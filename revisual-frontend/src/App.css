@@ -20,6 +20,14 @@
 
 .navbar-default {
   border-color: transparent;
+  margin: 0;
+  position: fixed;
+  width: 100%;
+}
+
+.container {
+    width: 100%;
+    margin: 0;
 }
 
 .SignIn-Register {
@@ -41,9 +49,10 @@
   -webkit-background-clip: text;
   font-size: 200px;
   font-weight: bold;
-  padding-top: 20vh;
+  padding-top: 40vh;
   background-repeat: no-repeat;
   background-size: cover;
+  margin-top: 0;
 }
 
 .jumbotron {
@@ -212,4 +221,8 @@ a:-webkit-any-link {
   color: #222;
   opacity: .15;
   display: flex;
+}
+
+.map-img-second {
+  padding: 20px;
 }

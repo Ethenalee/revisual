@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-import NavBar from './NavBar';
+import Nav from './Nav.jsx';
 import Home from './home.jsx';
 import MunicipalityDetails from './MunicipalityDetails';
 
@@ -11,7 +11,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <NavBar />
+          <Nav />
 
           <main className="content">
             {/*
@@ -26,7 +26,8 @@ class App extends Component {
              */}
 
             <Route path="/" exact component={Home} />
-            <Route path="/municipalities/:id" component={MunicipalityDetails} />
+            <Route path="/marketsearch" component={MunicipalityDetails} />
+            {/* <Route path="/municipalities/:id" component={MunicipalityDetails} /> */}
           </main>
         </div>
       </Router>
