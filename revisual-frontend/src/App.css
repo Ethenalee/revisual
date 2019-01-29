@@ -167,14 +167,14 @@ a:-webkit-any-link {
 }
 @keyframes frag1type{
   from { width: 0;}
-  37%{width:59.2%;}
+  37%{width:80.5%;}
   49%{width:0;}
   100%{width:0;}
 }
 
 @-webkit-keyframes frag1type{
   from { width: 0;}
-  37%{width:59.2%;}
+  37%{width:80.5%;}
   49%{width:0;}
   100%{width:0;}
 }
@@ -227,7 +227,6 @@ a:-webkit-any-link {
   padding: 20px;
   display: flex;
   flex-direction: row;
-  width: 50%;
 }
 
 .form-label {
@@ -240,4 +239,66 @@ a:-webkit-any-link {
   justify-content: center;
   align-items: center;
   width: 50%;
+}
+
+.intro {
+  display: flex;
+  width: 40%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 18em;
+  border: solid 2px grey;
+  border-radius: 20px;
+  font-size: 1vw;
+  padding: 40px;
+  letter-spacing: 0.2em;
+  text-align: left;
+}
+
+.second-middle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.steps {
+  font-weight: bold;
+  font-size: 1.3vw;
+}
+
+@keyframes fadeInUp {
+  from { 
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.steps-all {
+  opacity: 0; 
+  animation: fadeInUp 1s ease-in-out 0s forwards;
+}
+
+.one {
+  opacity: 0; 
+  animation: fadeInUp 1s ease-in-out 0s forwards;
+  animation-delay: 0.5s;
+}
+.two {
+  opacity: 0; 
+  animation: fadeInUp 1s ease-in-out 0s forwards;
+  animation-delay: 2s;
+}
+.three {
+  opacity: 0; 
+  animation: fadeInUp 1s ease-in-out 0s forwards;
+  animation-delay: 3.5s;
 }

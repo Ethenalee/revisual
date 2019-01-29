@@ -8,7 +8,7 @@ class MunicipalityMap extends Component {
 
   render() {
     return (
-      <section className="map-page">
+      <div className="map-page">
         <div><img className="map-img-second" alt='' src={MapImg} useMap="Map2"/></div>
         <map name="Map2" id="Map2">
             <area shape="poly" alt="" coords="6,196" className="#"/>
@@ -48,7 +48,7 @@ class MunicipalityMap extends Component {
             <area shape="poly" alt="" coords="66,357,80,350,90,352,125,341,170,331,175,331,166,345,168,356,166,368,169,375,177,376,182,374,182,382,181,392,152,402,166,449,130,456,119,460,103,475,100,468,106,454,106,448,105,437,97,429,84,433,72,428,71,413,67,401,56,398,47,401,41,398" className="w08"/>
             <area shape="poly" alt="" coords="132,517,128,509,126,499,122,494,115,485,113,478,128,469,152,461,198,449,223,436,229,435,234,449,218,470,196,495,180,515,170,522" className="w06"/>
           </map>
-      </section>
+      </div>
     );
   }
 }
