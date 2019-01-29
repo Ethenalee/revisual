@@ -1,19 +1,18 @@
 import React, {Component} from 'react';
 
  
-const options = ["Today", "3 months", "2 years"]
+const options = ["Today", "3months", "2years"]
 class MunicipalityFilter extends Component {
   constructor() {
     super();
-    this.state = { 
-      sale_lease: 'select',
-      duration: 'select'
-    };
   }
-  onChange(e) {
-    this.setState({
-      sale_lease: e.target.value
-    })
+
+  saleChange = (event) => {
+    this.props.saleChange(event.target.value);
+  }
+
+  durationChange = (event) => {
+    this.props.durationChange(event.target.value);
   }
 
   render() {
@@ -21,13 +20,12 @@ class MunicipalityFilter extends Component {
       <div className="filter">
         <div className="form-group">
           <label className="form-label" htmlFor="sale-lease" >Sale/Lease</label>
-          <select value={this.state.value} onChange={this.onChange.bind(this)} className="form-control">
-            <option value="All">All</option>
-            <option value="First">Sale</option>
-            <option value="Second">Lease</option>
+          <select onChange={this.saleChange} className="form-control">
+            <option value="Sale">Sale</option>
+            <option value="Lease">Lease</option>
           </select>
           <label className="form-label" htmlFor="duration" >Duration</label>
-          <select value={this.state.value} onChange={this.onChange.bind(this)} className="form-control">
+          <select onChange={this.durationChange} className="form-control">
           {options.map(option => {
             return <option value={option} key={option} >{option}</option>
           })}
