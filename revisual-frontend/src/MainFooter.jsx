@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import { Button } from 'react-bootstrap';
-import { BrowserRouter as Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 class Footer extends Component {
   
@@ -8,7 +7,7 @@ class Footer extends Component {
     return (
       <div>
         <div> 
-          <Button><Link to="/"><h1 className="button-text" >Get Started!</h1></Link></Button>
+          <Link className="button-text" to="/municipalitysearch">Get Started!</Link>
         </div>
         <div className="footer">
         </div>

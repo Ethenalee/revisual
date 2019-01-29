@@ -36,11 +36,10 @@
 # Ignore db creds / settings
 /config/database.yml
 
-#Ignore API sample data
-/rets/sample_data/*
+
+# Ignore api files
 /rets/toronto_listing/*
-/rets/rets-condo-data-retrieve.rb
-/rets/rets-property-archived-data-retrieve.rb
-/rets/rets-residential-data-retrieve.rb
-/rets/dataretrieve.rb
 /rets/OLD/*
+/rets/sample_data/*
+/rets/dataretrieve.rb
+/rets/test_sample.csv

@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-import NavBar from './NavBar';
-import Home from './home.jsx';
+import Nav from './Nav';
+import Home from './Home';
+import MunicipalitySearch from './MunicipalitySearch';
 import MunicipalityDetails from './MunicipalityDetails';
 
 class App extends Component {
@@ -11,7 +12,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <NavBar />
+          <Nav />
 
           <main className="content">
             {/*
@@ -26,6 +27,7 @@ class App extends Component {
              */}
 
             <Route path="/" exact component={Home} />
+            <Route path="/municipalitysearch" component={MunicipalitySearch} />
             <Route path="/municipalities/:id" component={MunicipalityDetails} />
           </main>
         </div>

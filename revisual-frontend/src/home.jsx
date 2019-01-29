@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import Intro from './intro.jsx';
-import Map from './map.jsx';
-import Footer from './footer.jsx';
+import Intro from './MainIntro.jsx';
+import Map from './MainMap.jsx';
+import Footer from './MainFooter.jsx';
 
 class Home extends Component {
   
