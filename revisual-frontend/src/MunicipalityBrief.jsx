@@ -8,7 +8,7 @@ class MunicipalityBrief extends Component {
     return (
       <div className="brief">
        This is Market trend space
-       {this.props.municipality}, {this.props.areacode}
+       {this.props.municipality}, {this.props.areacode}, {this.props.duration}, {this.props.sale_lease}
        <Link className="button-text" to={`/municipalities/${this.props.areacode}`}>Get Started!</Link>
       </div>
     );

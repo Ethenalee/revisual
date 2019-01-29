@@ -10,7 +10,10 @@ class MunicipalitySearch extends Component {
     super();
 
     this.state = {
-      data: {areacode: "", municipality: ""},
+      areacode: "", 
+      municipality: "", 
+      sale_lease: "select", 
+      duration: "select",
       introactive: true,
       marketactive: false
     };
@@ -20,9 +23,23 @@ class MunicipalitySearch extends Component {
     this.setState({
       introactive: false,
       marketactive: true,
-      data: {areacode: id, municipality: municipality}
+      areacode: id, 
+      municipality: municipality
     });
   }
+
+  saleChange = (sale) => {
+    this.setState({
+     sale_lease: sale
+    });
+  }
+  durationChange = (duration) => {
+    this.setState({
+      duration: duration
+    });
+  }
+
+
   componentWillMount() {
     this.updateData();
   }
@@ -37,18 +54,18 @@ class MunicipalitySearch extends Component {
     return (
       <section className="second-page">
         <MunicipalityHead/>
-        <MunicipalityFilter/>
+        <MunicipalityFilter saleChange={this.saleChange} durationChange={this.durationChange}/>
         <div className="second-middle">
           <MunicipalityMap toggleIntro={this.toggleIntro}/>
           {this.state.introactive &&
             <MunicipalityIntro/>
           }
           {this.state.marketactive &&
-            <MunicipalityBrief areacode={this.state.data.areacode} municipality={this.state.data.municipality}/>
+            <MunicipalityBrief areacode={this.state.areacode} municipality={this.state.municipality} sale_lease={this.state.sale_lease} duration={this.state.duration}/>
           }
         </div>
-        <h3>Municipality: {this.state.data.areacode}, {this.state.data.municipality}</h3>
-        <h6>Raw Data: {JSON.stringify(this.state.data)}</h6>
+        <h3>Municipality: {this.state.areacode}, {this.state.municipality}</h3>
+        {/* <h6>Raw Data: {JSON.stringify(this.state.data)}</h6> */}
       </section>
     );
   }
@@ -57,7 +74,7 @@ class MunicipalitySearch extends Component {
     // TODO: Soft-code this url
     fetch(`http://localhost:3001/municipalities/${id}`)
       .then(response => response.json())
-      .then(data => this.setState({ data }));
+      // .then(data => this.setState({ data }));
   }
 }
 
