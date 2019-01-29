@@ -49,24 +49,22 @@ text = File.readlines(target).each do |line|
     
     nvalue03[2] = nvalue03[2].gsub!('"', '')
     if (nvalue03[2] == "") 
-        nvalue03[2].to_f
-    else 
         nvalue03[2] = nil
+    else
+        nvalue03[2] = nvalue03[2].to_f
     end
     
     nvalue04[2] = nvalue04[2].gsub!('"', '')
     if (nvalue04[2] == "") 
-        nvalue04[2].to_f
-    else 
         nvalue04[2] = nil
+    else
+        nvalue04[2] = nvalue04[2].to_f
     end 
 
     nvalue06[2] = nvalue06[2].gsub!('"', '')
     
     nvalue07[2] = nvalue07[2].gsub!('"', '')
     if (nvalue07[2] == "") 
-        nvalue07[2]
-    else 
         nvalue07[2] = nil
     end 
     
@@ -77,8 +75,8 @@ text = File.readlines(target).each do |line|
     arrayRow = [nvalue01[2],nvalue02[2],nvalue03[2],nvalue04[2], "ResidentialProperty",nvalue06[2],nvalue07[2],nvalue08[2]]
     
     #-------------------------- used for testing array is conforming to type and format requirement
-    puts arrayRow
-    # puts nvalue01
+    # puts arrayRow
+    # puts nvalue03
     
 
     #-------------------------- writes values to CSV. FIX REQUIRED - MISSING MUNICIPALITY_ID FK
@@ -95,7 +93,7 @@ text = File.readlines(target).each do |line|
         if csv_exists?
             CSV.open(@csv_name, 'a+') { |csv| csv << row }
         else
-            header = ["municipality_id", "days_on_market","listing_price", "sold_price", "listing_type", "sale_lease", "sold_date", "list_date"]
+            header = ["municipality_id", "days_on_market","list_price", "sold_price", "listing_type", "sale_lease", "sold_date", "list_date"]
             # create and add headers if doesn't exist already
             CSV.open(@csv_name, 'wb') do |csv|
                 csv << header
