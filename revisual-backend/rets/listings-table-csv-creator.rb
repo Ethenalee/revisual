@@ -42,49 +42,49 @@ text = File.readlines(target).each do |line|
 
     #--------------------------- OLD; REMOVE cleaning values prior to conversion to CSV (removing quotes and cleaning type)
     
-    # nvalue01[2] = nvalue01[2].gsub!('"', '')
+    nvalue01[2] = nvalue01[2].gsub!('"', '')
     
-    # nvalue02[2] = nvalue02[2].gsub!('"', '')
-    # nvalue02[2] = nvalue02[2].to_i
+    nvalue02[2] = nvalue02[2].gsub!('"', '')
+    nvalue02[2] = nvalue02[2].to_i
     
-    # nvalue03[2] = nvalue03[2].gsub!('"', '')
-    if (nvalue03[2] == "\"\"") 
-    #     nvalue03[2].to_f
-    # else 
+    nvalue03[2] = nvalue03[2].gsub!('"', '')
+    if (nvalue03[2] == "") 
+        nvalue03[2].to_f
+    else 
         nvalue03[2] = nil
     end
     
-    # nvalue04[2] = nvalue04[2].gsub!('"', '')
-    if (nvalue04[2] == "\"\"") 
-    #     nvalue04[2].to_f
-    # else 
+    nvalue04[2] = nvalue04[2].gsub!('"', '')
+    if (nvalue04[2] == "") 
+        nvalue04[2].to_f
+    else 
         nvalue04[2] = nil
     end 
 
-    # nvalue06[2] = nvalue06[2].gsub!('"', '')
+    nvalue06[2] = nvalue06[2].gsub!('"', '')
     
-    # nvalue07[2] = nvalue07[2].gsub!('"', '')
-    if (nvalue07[2] == "\"\"") 
-    #     nvalue07[2]
-    # else 
+    nvalue07[2] = nvalue07[2].gsub!('"', '')
+    if (nvalue07[2] == "") 
+        nvalue07[2]
+    else 
         nvalue07[2] = nil
     end 
     
-    # nvalue08[2] = nvalue08[2].gsub!('"', '')
+    nvalue08[2] = nvalue08[2].gsub!('"', '')
     
 
     #------------------------- setup for array. Will be used in CSV.
     arrayRow = [nvalue01[2],nvalue02[2],nvalue03[2],nvalue04[2], "ResidentialProperty",nvalue06[2],nvalue07[2],nvalue08[2]]
     
     #-------------------------- used for testing array is conforming to type and format requirement
-    # puts arrayRow
-    puts nvalue01
+    puts arrayRow
+    # puts nvalue01
     
 
     #-------------------------- writes values to CSV. FIX REQUIRED - MISSING MUNICIPALITY_ID FK
 
     def is_writing_necessary(municipality_code, row)
-        if ( municipality_code === "\"1\"" || municipality_code === "\"2\"" || municipality_code === "\"3\""  )
+        if ( municipality_code === "1" || municipality_code === "2" || municipality_code === "3"  )
             write_to_csv(row)
         else
             # puts "no matching municipalities"
@@ -95,7 +95,7 @@ text = File.readlines(target).each do |line|
         if csv_exists?
             CSV.open(@csv_name, 'a+') { |csv| csv << row }
         else
-            header = ["municipality_id", "days_on_market","listing_price", "sold_price", "listing_type", "sale_lease", "sold_date", "list_date", "create_at", "updated_at"]
+            header = ["municipality_id", "days_on_market","listing_price", "sold_price", "listing_type", "sale_lease", "sold_date", "list_date"]
             # create and add headers if doesn't exist already
             CSV.open(@csv_name, 'wb') do |csv|
                 csv << header
