@@ -225,4 +225,19 @@ a:-webkit-any-link {
 
 .map-img-second {
   padding: 20px;
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+}
+
+.form-label {
+  padding: 20px;
+  margin: 0;
+}
+
+.form-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
 }

@@ -26,8 +26,8 @@ class MunicipalityDetails extends Component {
     return (
       <section className="second-page">
         <MunicipalityHead/>
-        <MunicipalityMap/>
         <MunicipalityFilter/>
+        <MunicipalityMap/>
         <h3>Municipality: {this.state.data && this.state.data.municipality}</h3>
         <h6>Raw Data: {JSON.stringify(this.state.data)}</h6>
       </section>
