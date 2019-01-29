@@ -22,3 +22,14 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+# Initial Run
+In terminal:
+
+1. Use 'Bundle Install' to setup all gem files. 
+
+2. Setup the '.env' file.
+
+3. Run 'rake db:migrate' to setup database.
+
+4. Run 'rake import:listings' to import sample data. 
