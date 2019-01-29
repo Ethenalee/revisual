@@ -17,24 +17,41 @@ class MunicipalitiesController < ApplicationController
     # TODO: Add all the stats to this json response
     json_response({
       municipality: @municipality,
-      average_sold_price: average_sold_price(@timeframe, @is_sale, @type)
+      average_sold_price: average_sold_price(
+        @timeframe,
+        @is_sale,
+        @type
+      ),
+      number_of_listings: number_of_listings(
+        @timeframe,
+        @is_sale,
+        @type
+      ),
+      average_days_on_market: average_days_on_market(
+        @timeframe,
+        @is_sale,
+        @type
+      )
     })
   end
 
   private
 
   # Returns the average sale price of sold properties that match the filter.
-  # TODO: Implement optional type filtering
   def average_sold_price(timeframe, is_sale, type)
     filter = filter_listings(timeframe, is_sale, type)
-    # Find the average sold price of filtered listings
-    filter.average(:sold_price)
+    filter.where.not(sold_date: [nil, ""]).average(:sold_price).to_f
   end
 
+  # Returns the number of listings that match the filter
   def number_of_listings(timeframe, is_sale, type)
+    filter = filter_listings(timeframe, is_sale, type)
+    filter.count
   end
 
   def average_days_on_market(timeframe, is_sale, type)
+    filter = filter_listings(timeframe, is_sale, type)
+    filter.where.not(sold_date: [nil, ""]).average(:days_on_market).to_f
   end
 
   def filter_listings(timeframe, is_sale, type)
