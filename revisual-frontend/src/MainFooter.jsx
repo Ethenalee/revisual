@@ -7,7 +7,7 @@ class Footer extends Component {
     return (
       <div>
         <div> 
-          <Link className="button-text" to="/marketsearch">Get Started!</Link>
+          <Link className="button-text" to="/municipalitysearch">Get Started!</Link>
         </div>
         <div className="footer">
         </div>

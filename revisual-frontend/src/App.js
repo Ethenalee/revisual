@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import Nav from './Nav';
 import Home from './Home';
+import MunicipalitySearch from './MunicipalitySearch';
 import MunicipalityDetails from './MunicipalityDetails';
 
 class App extends Component {
@@ -26,8 +27,8 @@ class App extends Component {
              */}
 
             <Route path="/" exact component={Home} />
-            <Route path="/marketsearch" component={MunicipalityDetails} />
-            {/* <Route path="/municipalities/:id" component={MunicipalityDetails} /> */}
+            <Route path="/municipalitysearch" component={MunicipalitySearch} />
+            <Route path="/municipalities/:id" component={MunicipalityDetails} />
           </main>
         </div>
       </Router>
