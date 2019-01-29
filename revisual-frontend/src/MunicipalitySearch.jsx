@@ -3,16 +3,26 @@ import MunicipalityHead from './MunicipalityHead';
 import MunicipalityMap from './MunicipalityMap';
 import MunicipalityFilter from './MunicipalityFilter';
 import MunicipalityIntro from './MunicipalityIntro';
+import MunicipalityBrief from './MunicipalityBrief';
 
 class MunicipalityDetails extends Component {
   constructor() {
     super();
 
     this.state = {
-      data: null
+      data: null,
+      introactive: true,
+      marketactive: false
     };
   }
 
+  toggleIntro = (municipality) => {
+    this.setState({
+      introactive: false,
+      marketactive: true,
+      data: municipality
+    });
+  }
   componentWillMount() {
     this.updateData();
   }
@@ -29,8 +39,13 @@ class MunicipalityDetails extends Component {
         <MunicipalityHead/>
         <MunicipalityFilter/>
         <div className="second-middle">
-          <MunicipalityMap/>
-          <MunicipalityIntro/>
+          <MunicipalityMap toggleIntro={this.toggleIntro}/>
+          {this.state.introactive &&
+            <MunicipalityIntro/>
+          }
+          {this.state.market &&
+            <MunicipalityBrief/>
+          }
         </div>
         <h3>Municipality: {this.state.data && this.state.data.municipality}</h3>
         <h6>Raw Data: {JSON.stringify(this.state.data)}</h6>
