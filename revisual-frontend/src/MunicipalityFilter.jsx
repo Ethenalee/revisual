@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
  
-const options = ["Today", "3 months", "2 years"]
+const options = ["Today", "3months", "2years"]
 class MunicipalityFilter extends Component {
   constructor() {
     super();
@@ -21,7 +21,6 @@ class MunicipalityFilter extends Component {
         <div className="form-group">
           <label className="form-label" htmlFor="sale-lease" >Sale/Lease</label>
           <select onChange={this.saleChange} className="form-control">
-            <option value="All">All</option>
             <option value="Sale">Sale</option>
             <option value="Lease">Lease</option>
           </select>

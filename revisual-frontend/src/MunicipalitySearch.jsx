@@ -12,8 +12,8 @@ class MunicipalitySearch extends Component {
     this.state = {
       areacode: "", 
       municipality: "", 
-      sale_lease: "select", 
-      duration: "select",
+      sale_lease: "", 
+      duration: "",
       introactive: true,
       marketactive: false
     };
@@ -39,17 +39,6 @@ class MunicipalitySearch extends Component {
     });
   }
 
-
-  componentWillMount() {
-    this.updateData();
-  }
-
-  // Ensure that component will update even when changing from one details page
-  // to another.
-  componentWillReceiveProps(nextProps) {
-    this.updateData(nextProps.match.params.id);
-  }
-
   render() {
     return (
       <section className="second-page">
@@ -64,18 +53,10 @@ class MunicipalitySearch extends Component {
             <MunicipalityBrief areacode={this.state.areacode} municipality={this.state.municipality} sale_lease={this.state.sale_lease} duration={this.state.duration}/>
           }
         </div>
-        <h3>Municipality: {this.state.areacode}, {this.state.municipality}</h3>
-        {/* <h6>Raw Data: {JSON.stringify(this.state.data)}</h6> */}
       </section>
     );
   }
 
-  updateData(id = this.props.match.params) {
-    // TODO: Soft-code this url
-    fetch(`http://localhost:3001/municipalities/${id}`)
-      .then(response => response.json())
-      // .then(data => this.setState({ data }));
-  }
 }
 
 export default MunicipalitySearch;
