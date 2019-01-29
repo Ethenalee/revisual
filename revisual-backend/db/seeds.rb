@@ -34,62 +34,62 @@ puts "Re-creating listing ..."
 
 Listing.destroy_all
 
-c14.listings.create!({
-  days_on_market: 10,
-  list_price: 500_000,
-  sold_price: 600_000,
-  listing_type: 'townhouse',
-  sale_lease: 'sale',
-  sold_date: DateTime.new(2019,1,20),
-  list_date: DateTime.new(2019,1,11)
-})
+# c14.listings.create!({
+#   days_on_market: 10,
+#   list_price: 500_000,
+#   sold_price: 600_000,
+#   listing_type: 'townhouse',
+#   sale_lease: 'sale',
+#   sold_date: DateTime.new(2019,1,20),
+#   list_date: DateTime.new(2019,1,11)
+# })
 
-c14.listings.create!({
-  days_on_market: 20,
-  list_price: 400_000,
-  sold_price: 500_000,
-  listing_type: 'semi-detached',
-  sale_lease: 'sale',
-  sold_date: DateTime.new(2019,1,10),
-  list_date: DateTime.new(2019,1,1)
-})
+# c14.listings.create!({
+#   days_on_market: 20,
+#   list_price: 400_000,
+#   sold_price: 500_000,
+#   listing_type: 'semi-detached',
+#   sale_lease: 'sale',
+#   sold_date: DateTime.new(2019,1,10),
+#   list_date: DateTime.new(2019,1,1)
+# })
 
-w01.listings.create!({
-  days_on_market: 14,
-  list_price: 600_000,
-  sold_price: 1_000_000,
-  listing_type: 'detached',
-  sale_lease: 'sale',
-  sold_date: DateTime.new(2019,1,20),
-  list_date: DateTime.new(2019,1,10)
-})
+# w01.listings.create!({
+#   days_on_market: 14,
+#   list_price: 600_000,
+#   sold_price: 1_000_000,
+#   listing_type: 'detached',
+#   sale_lease: 'sale',
+#   sold_date: DateTime.new(2019,1,20),
+#   list_date: DateTime.new(2019,1,10)
+# })
 
-w01.listings.create!({
-  days_on_market: 2,
-  list_price: 1_500,
-  sold_price: 1_500,
-  listing_type: 'condo',
-  sale_lease: 'lease',
-  sold_date: DateTime.new(2019,1,11),
-  list_date: DateTime.new(2019,1,11)
-})
+# w01.listings.create!({
+#   days_on_market: 2,
+#   list_price: 1_500,
+#   sold_price: 1_500,
+#   listing_type: 'condo',
+#   sale_lease: 'lease',
+#   sold_date: DateTime.new(2019,1,11),
+#   list_date: DateTime.new(2019,1,11)
+# })
 
-c01.listings.create!({
-  days_on_market: 1,
-  list_price: 2_500,
-  sold_price: 2_500,
-  listing_type: 'condo',
-  sale_lease: 'lease',
-  sold_date: DateTime.new(2019,1,21),
-  list_date: DateTime.new(2019,1,21)
-})
+# c01.listings.create!({
+#   days_on_market: 1,
+#   list_price: 2_500,
+#   sold_price: 2_500,
+#   listing_type: 'condo',
+#   sale_lease: 'lease',
+#   sold_date: DateTime.new(2019,1,21),
+#   list_date: DateTime.new(2019,1,21)
+# })
 
-c01.listings.create!({
-  days_on_market: 4,
-  list_price: 4_500,
-  sold_price: 4_500,
-  listing_type: 'condo',
-  sale_lease: 'lease',
-  sold_date: DateTime.new(2019,1,20),
-  list_date: DateTime.new(2019,1,20)
-})
+# c01.listings.create!({
+#   days_on_market: 4,
+#   list_price: 4_500,
+#   sold_price: 4_500,
+#   listing_type: 'condo',
+#   sale_lease: 'lease',
+#   sold_date: DateTime.new(2019,1,20),
+#   list_date: DateTime.new(2019,1,20)
+# })
