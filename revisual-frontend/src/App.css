@@ -326,3 +326,11 @@ a:-webkit-any-link {
   border: solid 2px grey;
   border-radius: 20px;
 }
+
+select {
+  cursor: url("./images/pointer.png"), auto;
+}
+
+label {
+  cursor: url("./images/pointer.png"), auto;
+}
