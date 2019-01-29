@@ -26,8 +26,19 @@ class MunicipalitiesController < ApplicationController
   # Returns the average sale price of sold properties that match the filter.
   # TODO: Implement optional type filtering
   def average_sold_price(timeframe, is_sale, type)
+    filter = filter_listings(timeframe, is_sale, type)
+    # Find the average sold price of filtered listings
+    filter.average(:sold_price)
+  end
+
+  def number_of_listings(timeframe, is_sale, type)
+  end
+
+  def average_days_on_market(timeframe, is_sale, type)
+  end
+
+  def filter_listings(timeframe, is_sale, type)
     # Choose timeframe to filter sales by
-    # TODO: Refactor this out into a private helper method
     filter_datetime = case timeframe
       when "today" then 1.day.ago.to_datetime
       when "3months" then 3.months.ago.to_datetime
@@ -38,19 +49,12 @@ class MunicipalitiesController < ApplicationController
     # Filter listings by required fields
     filter = Listing.where(municipality_id: params[:id])
       .where(sale_lease: is_sale ? "sale" : "lease")
-      .where("sold_date > ?", filter_datetime) # TODO: Make sure this works
+      .where("sold_date > ?", filter_datetime)
 
     # Further filter by type, if provided
     filter = filter.where(listing_type: type) if type
 
-    # Find the average sold price of filtered listings
-    filter.average(:sold_price)
-  end
-
-  def number_of_listings(timeframe, is_sale, type)
-  end
-
-  def average_days_on_market(timeframe, is_sale, type)
+    return filter
   end
 
 end
