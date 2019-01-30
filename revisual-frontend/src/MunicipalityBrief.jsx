@@ -27,12 +27,12 @@ class MunicipalityBrief extends Component {
 
 
   render() {
-    var data =JSON.stringify(this.state.data);
+    var data =this.state.data;
     return (
       <div className="brief">
        This is Market trend space
        {this.props.municipality}, {this.props.areacode}, {this.props.duration}, {this.props.sale_lease}
-       {data}
+       {data && data.average_sold_price}
        <Link className="button-text"  to ={{
         pathname: `/municipalities/${this.props.areacode}`, 
         state: { 
