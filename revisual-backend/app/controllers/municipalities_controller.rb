@@ -68,7 +68,7 @@ class MunicipalitiesController < ApplicationController
 
     # Filter listings by required fields
     filter = Listing.where(municipality_id: params[:id])
-      .where(sale_lease: sale_lease || "sale")
+      .where(sale_lease: sale_lease || "Sale")
       .where("sold_date > ?", filter_datetime)
 
     # Further filter by type, if provided
