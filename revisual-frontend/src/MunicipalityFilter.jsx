@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
- 
+//Municipality Search filter bar
 const options = ["Today", "3months", "2years"]
 class MunicipalityFilter extends Component {
   constructor() {
