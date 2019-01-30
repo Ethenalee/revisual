@@ -9,11 +9,16 @@ class Nav extends Component {
     return (
       <Navbar>
         <Navbar.Collapse>
-          <div className="SignIn-Register">
-            <Navbar.Text className="Register">
+          <div className="go-main">
+            <Navbar.Text className="go-Home">
+              <Navbar.Link href="/">REvisual</Navbar.Link>
+            </Navbar.Text>
+          </div>
+          <div className="signin-register">
+            <Navbar.Text className="register">
               <Navbar.Link href="#">Register</Navbar.Link>
             </Navbar.Text>
-            <Navbar.Text className="SignIn">Welcom Ethena!</Navbar.Text>
+            <Navbar.Text className="signin">Welcom Ethena!</Navbar.Text>
           </div>
         </Navbar.Collapse>
       </Navbar>
