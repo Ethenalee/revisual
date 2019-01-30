@@ -11,18 +11,36 @@ class MunicipalityBrief extends Component {
     };
   }
 
-  componentDidMount() {
-    fetch('https://')
+  componentWillMount = () => {
+    this.updateData(this.props);
+  }
+
+  componentWillReceiveProps = (nextProps) => {
+    this.updateData(nextProps);
+  }
+
+  updateData = (props) => {
+    fetch(`http://localhost:3001/municipalities/${props.areacode}?timeframe=${props.duration}&sale_lease=${props.sale_lease}`)
       .then(response => response.json())
       .then(data => this.setState({ data }));
   }
 
+
   render() {
+    var data =JSON.stringify(this.state.data);
     return (
       <div className="brief">
        This is Market trend space
        {this.props.municipality}, {this.props.areacode}, {this.props.duration}, {this.props.sale_lease}
-       <Link className="button-text" to={`/municipalities/${this.props.areacode}`}>Get Started!</Link>
+       {data}
+       <Link className="button-text"  to ={{
+        pathname: `/municipalities/${this.props.areacode}`, 
+        state: { 
+            data: this.state.data
+        }
+        }}>
+        Get Started!
+        </Link>
       </div>
     );
   }
