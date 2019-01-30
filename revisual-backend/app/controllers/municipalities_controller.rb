@@ -52,6 +52,8 @@ class MunicipalitiesController < ApplicationController
   end
 
   def number_of_sold(timeframe, sale_lease, type)
+    filter = filter_listings(timeframe, sale_lease, type)
+    filter.where.not(sold_date: [nil, ""]).count
   end
 
   def average_days_on_market(timeframe, sale_lease, type)
