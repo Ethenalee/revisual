@@ -57,6 +57,14 @@ class MunicipalitiesController < ApplicationController
     filter.where.not(sold_date: nil).average(:sold_price).to_f
   end
 
+  def monthly_average_sold_price(timeframe, sale_lease, type)
+    # TODO: Change average_sold_price to use start_datetime, end_datetime
+    # Implement logic to iterate over timeframe monthly, building an array
+    # Make sure base function still works with end_datetime = nil
+    # Repeat for all other aggregated data
+    # Remove type??
+  end
+
   # Returns the number of listings that match the filter
   def number_of_listings(timeframe, sale_lease, type)
     filter = filter_listings(timeframe, sale_lease, type)
