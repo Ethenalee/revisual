@@ -13,9 +13,6 @@ class MunicipalitiesController < ApplicationController
     @sale_lease = params[:sale_lease]
     @type = params[:type]
 
-    puts("Query params:")
-    puts(@timeframe, @sale_lease, @type)
-
     # TODO: Add all the stats to this json response
     json_response({
       municipality: @municipality,
