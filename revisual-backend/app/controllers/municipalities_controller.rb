@@ -141,9 +141,12 @@ class MunicipalitiesController < ApplicationController
 
   # The base filter to find a list of listings, to be further processed.
   def filter_listings(start_datetime, end_datetime, sale_lease, type)
+    # Default to nil (which resolves to "Sale" if empty string provided
+    filter_sale_lease = sale_lease == "" ? nil : sale_lease
+    
     # Filter listings by required fields
     filter = Listing.where(municipality_id: params[:id])
-      .where(sale_lease: sale_lease || "Sale")
+      .where(sale_lease: filter_sale_lease || "Sale")
       .where(
         "(sold_date > ? OR sold_date IS NULL) AND list_date < ?",
         start_datetime,
