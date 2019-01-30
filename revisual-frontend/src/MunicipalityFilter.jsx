@@ -2,9 +2,6 @@ import React, {Component} from 'react';
 
  
 class MunicipalityFilter extends Component {
-  constructor() {
-    super();
-  }
 
   saleChange = (event) => {
     this.props.saleChange(event.target.value);
