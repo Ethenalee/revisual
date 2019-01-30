@@ -51,11 +51,26 @@ class MunicipalitiesController < ApplicationController
     filter.count
   end
 
+  def number_of_sold(timeframe, sale_lease, type)
+  end
+
   def average_days_on_market(timeframe, sale_lease, type)
     filter = filter_listings(timeframe, sale_lease, type)
     filter.where.not(sold_date: [nil, ""]).average(:days_on_market).to_f
   end
 
+  def highest_priced_sale(timeframe, sale_lease, type)
+    filter = filter_listings(timeframe, sale_lease, type)
+    filter.where.not(sold_date: [nil, ""]).maximum(:sold_price).to_f
+  end
+
+  def lowest_priced_sale(timeframe, sale_lease, type)
+    filter = filter_listings(timeframe, sale_lease, type)
+    filter.where.not(sold_date: [nil, ""]).minimum(:sold_price).to_f
+  end
+
+
+  # The base filter to find a list of listings, to be further processed.
   def filter_listings(timeframe, sale_lease, type)
     # Choose timeframe to filter sales by
     # TODO: Refactor this into a dict?
