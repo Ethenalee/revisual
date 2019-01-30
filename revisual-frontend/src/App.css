@@ -28,10 +28,17 @@
 .container {
     width: 100%;
     margin: 0;
+    padding-left: 0;
 }
 
-.SignIn-Register {
+.signin-register {
   float: right;
+}
+
+.go-main {
+  float: left;
+  font-weight: bold;
+  font-size: 1vw;
 }
 
 .main-section {
@@ -225,7 +232,7 @@ a:-webkit-any-link {
 .head-small {
   display: flex;
   padding-left: 100px;
-  padding-top: 50px;
+  padding-top: 55px;
 }
 
 .head-big {
@@ -333,4 +340,11 @@ select {
 
 label {
   cursor: url("./images/pointer.png"), auto;
+}
+
+.detail-head {
+  background: #fafafa;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
 }

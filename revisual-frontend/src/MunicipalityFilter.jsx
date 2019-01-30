@@ -21,8 +21,8 @@ class MunicipalityFilter extends Component {
         <div className="form-group">
           <label className="form-label" htmlFor="sale-lease" >Sale/Lease</label>
           <select onChange={this.saleChange} className="form-control">
-            <option value="sale">Sale</option>
-            <option value="lease">Lease</option>
+            <option value="Sale">Sale</option>
+            <option value="Lease">Lease</option>
           </select>
           <label className="form-label" htmlFor="duration" >Duration</label>
           <select onChange={this.durationChange} className="form-control">
