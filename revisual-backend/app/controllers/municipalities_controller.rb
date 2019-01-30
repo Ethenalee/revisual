@@ -95,9 +95,11 @@ class MunicipalitiesController < ApplicationController
       else 5.years.ago.to_datetime
     end
 
+    filter_sale_lease = sale_lease == "" ? nil : sale_lease
+
     # Filter listings by required fields
     filter = Listing.where(municipality_id: params[:id])
-      .where(sale_lease: sale_lease || "Sale")
+      .where(sale_lease: filter_sale_lease || "Sale")
       .where("sold_date > ? OR sold_date IS NULL", filter_datetime)
 
     # Further filter by type, if provided
