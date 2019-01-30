@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
+//Landing page get started at page bottom
 class Footer extends Component {
   
   render() {
