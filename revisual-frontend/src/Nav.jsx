@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import { Navbar } from 'react-bootstrap';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-
 
 class Nav extends Component {
 
