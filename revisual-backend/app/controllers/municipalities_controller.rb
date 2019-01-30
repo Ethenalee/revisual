@@ -54,7 +54,7 @@ class MunicipalitiesController < ApplicationController
   # Returns the average sale price of sold properties that match the filter.
   def average_sold_price(timeframe, sale_lease, type)
     filter = filter_listings(timeframe, sale_lease, type)
-    filter.where.not(sold_date: [nil, ""]).average(:sold_price).to_f
+    filter.where.not(sold_date: nil).average(:sold_price).to_f
   end
 
   # Returns the number of listings that match the filter
@@ -65,22 +65,22 @@ class MunicipalitiesController < ApplicationController
 
   def number_of_sold(timeframe, sale_lease, type)
     filter = filter_listings(timeframe, sale_lease, type)
-    filter.where.not(sold_date: [nil, ""]).count
+    filter.where.not(sold_date: nil).count
   end
 
   def average_days_on_market(timeframe, sale_lease, type)
     filter = filter_listings(timeframe, sale_lease, type)
-    filter.where.not(sold_date: [nil, ""]).average(:days_on_market).to_f
+    filter.where.not(sold_date: nil).average(:days_on_market).to_f
   end
 
   def highest_priced_sale(timeframe, sale_lease, type)
     filter = filter_listings(timeframe, sale_lease, type)
-    filter.where.not(sold_date: [nil, ""]).maximum(:sold_price).to_f
+    filter.where.not(sold_date: nil).maximum(:sold_price).to_f
   end
 
   def lowest_priced_sale(timeframe, sale_lease, type)
     filter = filter_listings(timeframe, sale_lease, type)
-    filter.where.not(sold_date: [nil, ""]).minimum(:sold_price).to_f
+    filter.where.not(sold_date: nil).minimum(:sold_price).to_f
   end
 
 
@@ -98,7 +98,7 @@ class MunicipalitiesController < ApplicationController
     # Filter listings by required fields
     filter = Listing.where(municipality_id: params[:id])
       .where(sale_lease: sale_lease || "Sale")
-      .where("sold_date > ?", filter_datetime)
+      .where("sold_date > ? OR sold_date IS NULL", filter_datetime)
 
     # Further filter by type, if provided
     filter = filter.where(listing_type: type) if type
