@@ -29,7 +29,22 @@ class MunicipalitiesController < ApplicationController
         @sale_lease,
         @type
       ),
+      number_of_sold: number_of_sold(
+        @timeframe,
+        @sale_lease,
+        @type
+      ),
       average_days_on_market: average_days_on_market(
+        @timeframe,
+        @sale_lease,
+        @type
+      ),
+      highest_priced_sale: highest_priced_sale(
+        @timeframe,
+        @sale_lease,
+        @type
+      ),
+      lowest_priced_sale: lowest_priced_sale(
         @timeframe,
         @sale_lease,
         @type
