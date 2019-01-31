@@ -10,10 +10,10 @@ class MunicipalityBriefTable extends Component {
   }
 
   salelease = (data) => {
-    if (data == "Sale") {
+    if (data === "Sale") {
       return "Sold"
     }
-    else if (data == "Lease") {
+    else if (data === "Lease") {
       return "Leased"
     }
   }

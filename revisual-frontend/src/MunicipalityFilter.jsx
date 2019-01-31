@@ -24,7 +24,7 @@ class MunicipalityFilter extends Component {
           <label className="form-label" htmlFor="duration" >Duration</label>
           <select onChange={this.durationChange} className="form-control">
             <option value="">Select</option>
-            <option value="Today">Today</option>
+            <option value="1month">1 month</option>
             <option value="3months">3 Months</option>
             <option value="2years">2 Years</option>
           </select>
