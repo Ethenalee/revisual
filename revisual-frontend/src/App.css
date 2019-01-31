@@ -320,7 +320,7 @@ a:-webkit-any-link {
   align-items: flex-start;
   justify-content: space-around;
   height: 55em;
-  border: solid 2px grey;
+  border: solid 2px rgba(63, 117, 191, 0.26);
   border-radius: 20px;
   padding: 20px;
   flex-wrap: wrap;
@@ -384,6 +384,9 @@ label {
   font-weight: bold;
   font-size: 3vw;
   align-self: center;
+  color: rgba(63, 157, 191, 0.66);
+  padding: 20px;
+  border-radius: 20px;
 }
 
 .charts {
