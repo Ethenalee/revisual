@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-
+// municipality search page header text
 class MunicipalityHead extends Component {
 
   render() {

@@ -10,7 +10,7 @@ class MunicipalityFilter extends Component {
   durationChange = (event) => {
     this.props.durationChange(event.target.value);
   }
-
+  
   render() {
     return (
       <div className="filter">

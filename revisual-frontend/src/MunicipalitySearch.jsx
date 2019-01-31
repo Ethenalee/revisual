@@ -5,6 +5,7 @@ import MunicipalityFilter from './MunicipalityFilter';
 import MunicipalityIntro from './MunicipalityIntro';
 import MunicipalityBrief from './MunicipalityBrief';
 
+//Municipality Search page which loads when landing page "Gettings Started" is clicked.
 class MunicipalitySearch extends Component {
   constructor() {
     super();
@@ -12,8 +13,8 @@ class MunicipalitySearch extends Component {
     this.state = {
       areacode: "", 
       municipality: "", 
-      sale_lease: "", 
-      duration: "",
+      sale_lease: "Sale", 
+      duration: "Today",
       introactive: true,
       marketactive: false
     };
