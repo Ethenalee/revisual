@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import MunicipalityDetailsHead from './MunicipalityDetailsHead';
+import MunicipalityDetailsTable from './MunicipalityBriefTable';
 
 //Report Details page general content
 class MunicipalityDetails extends Component {
@@ -19,13 +20,7 @@ class MunicipalityDetails extends Component {
       <section className="third-page">
         <MunicipalityDetailsHead/>
         <div className="details">
-          <div className="brief">
-          March Market Status
-          <div>{data.average_sold_price}</div>
-          <div>{data.municipality.municipality}</div>
-          <div>{duration}</div>
-          <div>{sale_lease}</div>
-          </div>
+          <MunicipalityDetailsTable data = {data} duration={duration} sale_lease={sale_lease}/>
         </div>
       </section>
     );
