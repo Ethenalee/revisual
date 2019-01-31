@@ -41,7 +41,7 @@ class MunicipalityBrief extends Component {
               data: this.state.data
           }
           }}>
-          Generate Report good
+          Generate Report
         </Link>
       </div>
     );
