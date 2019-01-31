@@ -1,14 +1,16 @@
 import React, {Component} from 'react';
+ // eslint-disable-next-line
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import MunicipalityBriefChart from './MunicipalityBriefChart';
+import MunicipalityBriefTable from './MunicipalityBriefTable';
 
 // Municipality Search page post click detail summary and link to Municipality Search
 class MunicipalityBrief extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       data: null,
-    };
+    }
   }
 
   componentWillMount = () => {
@@ -27,23 +29,19 @@ class MunicipalityBrief extends Component {
 
 
   render() {
-    const data =JSON.stringify(this.state.data);
-    const duration = this.props.duration;
-    const sale_lease = this.props.sale_lease;
+    let data = this.state.data;
     return (
       <div className="brief">
-       This is Market trend space
-       {this.props.municipality}, {this.props.areacode}, {this.props.duration}, {this.props.sale_lease}
-       {data}
-       <Link className="button-text"  to ={{
+        <div className="market-trends">{data && data.municipality.municipality} Market Trends</div>
+        <MunicipalityBriefTable data={this.state.data}/>
+        <MunicipalityBriefChart data={this.state.data}/>
+        <Link className="go-to-detail"  to ={{
           pathname: `/municipalities/${this.props.areacode}`, 
           state: { 
-            data: this.state.data,
-            duration: duration,
-            sale_lease: sale_lease,
+              data: this.state.data
           }
-        }}>
-        Get Started!
+          }}>
+          Generate Report good
         </Link>
       </div>
     );
