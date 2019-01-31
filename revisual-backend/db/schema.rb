@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_25_214405) do
+ActiveRecord::Schema.define(version: 2019_01_31_172828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,5 +35,31 @@ ActiveRecord::Schema.define(version: 2019_01_25_214405) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "report_templates", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "primary_color"
+    t.string "logo_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_report_templates_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "phone_cell"
+    t.string "phone_office"
+    t.string "phone_fax"
+    t.string "address_1"
+    t.string "address_2"
+    t.string "city"
+    t.string "state"
+    t.string "zip_code"
+    t.string "email"
+    t.string "website_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "listings", "municipalities"
+  add_foreign_key "report_templates", "users"
 end
