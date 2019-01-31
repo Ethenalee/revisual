@@ -318,9 +318,9 @@ a:-webkit-any-link {
   width: 40%;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: space-around;
   height: 55em;
-  border: solid 2px grey;
+  border: solid 2px rgba(63, 117, 191, 0.26);
   border-radius: 20px;
   padding: 20px;
   flex-wrap: wrap;
@@ -352,8 +352,8 @@ label {
 .brief-chart {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
+  align-items: center;
+  flex-direction: row;
 }
 
 .community {
@@ -384,4 +384,36 @@ label {
   font-weight: bold;
   font-size: 3vw;
   align-self: center;
+  color: rgba(63, 157, 191, 0.66);
+  padding: 20px;
+  border-radius: 20px;
 }
+
+.charts {
+  padding: 10px;
+}
+
+.go-to-detail {
+  display: flex;
+  align-self: center;
+  font-size: 30px;
+  font-weight: bold;
+  background-image: url(https://media.giphy.com/media/n3xSURtNE62t2/giphy.gif);
+  color: transparent;
+  opacity: 0.7;
+  -webkit-background-clip: text;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.go-to-detail:-webkit-any-link {
+  font-size: 30px;
+  font-weight: bold;
+  background-image: url(https://media.giphy.com/media/n3xSURtNE62t2/giphy.gif);
+  color: transparent;
+  opacity: 0.7;
+  -webkit-background-clip: text;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+

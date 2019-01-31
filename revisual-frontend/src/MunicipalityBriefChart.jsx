@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import { Bar } from "react-chartjs-2";
-import { MDBContainer } from "mdbreact";
-
 
 
 class MunicipalityBriefChart extends Component {
@@ -13,20 +11,31 @@ class MunicipalityBriefChart extends Component {
       barChartOptions: {
         responsive: false,
         maintainAspectRatio: false,
+        tooltips: {
+          callbacks: {
+              label: function(tooltipItem) {
+                  return Number(tooltipItem.yLabel).toFixed(0).replace(/./g, function(c, i, a) {
+                      return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
+                  });
+              }
+          }
+        },
         scales: {
           xAxes: [
               {
+                display: false,
                 barPercentage: 1,
                 gridLines: {
-                  display: true,
+                  display: false,
                   color: "rgba(0, 0, 0, 0.1)"
                 }
               }
             ],
           yAxes: [
             {
+              display: false,
               gridLines: {
-                display: true,
+                display: false,
                 color: "rgba(0, 0, 0, 0.1)"
               },
               ticks: {
@@ -39,38 +48,58 @@ class MunicipalityBriefChart extends Component {
     };
   }
 
-  
+  label = (data) => {
+    if (data && data.monthly_average_sold_price.length === 13) {
+      return ["Current Month", "Last Year Same Month"].reverse()
+    } else if (data && data.monthly_average_sold_price.length === 3) {
+      return ["Current Month", "Past 2 month", "Past 3 months"].reverse()
+    } else if (data && data.monthly_average_sold_price.length === 24){
+      return ["Current Month", "Past 2 months", "Past 3 months", "Past 4 months", "Past 5 months", "Past 6 months", "Past 7 months", "Past 8 months", "Past 9 months", "Past 10 months", "Past 11 months", "Past 12 months", "Past 13 months", "Past 14 months", "Past 15 months", "Past 16 months", "Past 17 months", "Past 18 months",  "Past 19 months", "Past 20 months", "Past 21 months", "Past 22 months", "Past 23 months"].reverse()
+    }
+  }
+
+  dataArrayPrice = (data) => {
+    if (data && data.monthly_average_sold_price) {
+      return data.monthly_average_sold_price.reverse().map(item => ( 
+        Math.floor(item)
+      ))
+    }
+  }
+
+  dataArrayNumListings = (data) => {
+    if (data && data.monthly_number_of_listings) {
+      return data.monthly_number_of_listings.reverse().map(item => ( 
+        Math.floor(item)
+      ))
+    }
+  }
 
   render() {
-    let dataBar = {
-      labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+    let data = this.props.data
+    let dataBarPrice = {
+      labels: this.label(data),
       datasets: [
         {
-          label: "#1",
-          data: [12, 39, 3, 50, 2, 32, 84],
-          backgroundColor: "rgba(245, 74, 85, 0.5)",
-          borderWidth: 1
-        },
+          label: "Average price",
+          data: this.dataArrayPrice(data),
+          backgroundColor: "rgba(127, 145, 204, 0.54)"
+        }
+      ]
+    };
+    let dataBarNumberofListings = {
+      labels: this.label(data),
+      datasets: [
         {
-          label: "#2",
-          data: [56, 24, 5, 16, 45, 24, 8],
-          backgroundColor: "rgba(90, 173, 246, 0.5)",
-          borderWidth: 1
-        },
-        {
-          label: "#3",
-          data: [12, 25, 54, 3, 15, 44, 3],
-          backgroundColor: "rgba(245, 192, 50, 0.5)",
-          borderWidth: 1
+          label: "Number of Listings",
+          data: this.dataArrayNumListings(data),
+          backgroundColor: "rgba(63, 127, 191, 0.66)"
         }
       ]
     };
     return (
       <div className="brief-chart">
-          <MDBContainer>
-            <h3 className="mt-5">Radar chart</h3>
-            <Bar data={dataBar} options={this.state.barChartOptions} />
-          </MDBContainer>
+        <div className="charts"><Bar data={dataBarPrice} options={this.state.barChartOptions} /></div>
+        <div className="charts"><Bar data={dataBarNumberofListings} options={this.state.barChartOptions} /></div>     
       </div>
     );
   }

@@ -33,7 +33,7 @@ class MunicipalityBrief extends Component {
     return (
       <div className="brief">
         <div className="market-trends">{data && data.municipality.municipality} Market Trends</div>
-        <MunicipalityBriefTable data={this.state.data}/>
+        <MunicipalityBriefTable data={this.state.data} sale_lease={this.props.sale_lease}/>
         <MunicipalityBriefChart data={this.state.data}/>
         <Link className="go-to-detail"  to ={{
           pathname: `/municipalities/${this.props.areacode}`, 
@@ -41,7 +41,7 @@ class MunicipalityBrief extends Component {
               data: this.state.data
           }
           }}>
-          Generate Report good
+          Generate Report
         </Link>
       </div>
     );
