@@ -177,45 +177,33 @@ a:-webkit-any-link {
 }
 
 #head-big-one {
-  width: 25em;
+  width: 20em;
   white-space:nowrap;
   overflow:hidden;
-  -webkit-animation: frag1type 10s steps(50, end) 0s infinite;
-  animation: frag1type 10s steps(50, end) 0s infinite;
+  -webkit-animation: frag1type 10s steps(40, end) 0s infinite;
+  animation: frag1type 10s steps(40, end) 0s infinite;
   font-weight: bold;
   font-size: 4vw;
 }
 @keyframes frag1type{
   from { width: 0;}
-  37%{width:90.5%;}
+  37%{width:80.5%;}
   49%{width:0;}
   100%{width:0;}
 }
 
-@-webkit-keyframes frag1type{
-  from { width: 0;}
-  37%{width:90.5%;}
-  49%{width:0;}
-  100%{width:0;}
-}
 #head-big-two {
   opacity: 0;
-  width: 25em;
+  width: 20em;
   white-space:nowrap;
   overflow:hidden;
-  -webkit-animation: frag2type 10s steps(50, end) 5s infinite;
-  animation: frag2type 10s steps(50, end) 5s infinite;
+  -webkit-animation: frag2type 10s steps(40, end) 5s infinite;
+  animation: frag2type 10s steps(40, end) 5s infinite;
   font-weight: bold;
   font-size: 4vw;
+  margin-top: -5%;
 }
 @keyframes frag2type{  
-  from { width: 0; opacity:1; }
-  37%{width:90.5%;opacity:1; }
-  49%{width:0;opacity:1; }
-  100%{width:0;opacity:1; }
-}
-
-@-webkit-keyframes frag2type{
   from { width: 0; opacity:1; }
   37%{width:90.5%;opacity:1; }
   49%{width:0;opacity:1; }
@@ -241,6 +229,7 @@ a:-webkit-any-link {
   color: #222;
   opacity: .15;
   display: flex;
+  flex-direction: column;
 }
 
 .map-img-second {
