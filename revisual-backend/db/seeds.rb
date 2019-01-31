@@ -20,17 +20,17 @@ end
 
 # Let's do this ...
 
-## CATEGORIES
+## Municipalities
 
-puts "Finding or Creating Categories ..."
+puts "Finding or Creating Municipalities ..."
 
 c14 = Municipality.find_or_create_by! municipality: 'C14'
 w01 = Municipality.find_or_create_by! municipality: 'W01'
 c01 = Municipality.find_or_create_by! municipality: 'C01'
 
-## PRODUCTS
+## Listings
 
-puts "Re-creating listing ..."
+puts "Dropping Listings ..."
 
 Listing.destroy_all
 
@@ -93,3 +93,29 @@ Listing.destroy_all
 #   sold_date: DateTime.new(2019,1,20),
 #   list_date: DateTime.new(2019,1,20)
 # })
+
+## USERS
+
+puts "Creating Users ..."
+
+user1 = User.find_or_create_by!(
+  name: "Bobert Thompkins",
+  phone_cell: "555 555 5555",
+  phone_office: "555 555 5556",
+  phone_fax: "911",
+  address_1: "35 Rawlings Ave",
+  address_2: "Apt. 101",
+  city: "Richmond Hill",
+  state: "ON",
+  zip_code: "L4S 1B5",
+  email: "bobthompkins@gmail.com",
+  website_url: "github.com/zixialu"
+)
+
+## REPORT TEMPLATES
+puts "Creating Report Templates ..."
+
+user1.report_templates.find_or_create_by!(
+  primary_color: "#555555",
+  logo_url: "https://i.redd.it/4y087bkpopd21.jpg"
+)
