@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import MapImg from './images/Toronto_area.png';
 
-//map component for Municipality Search page
 class MunicipalityMap extends Component {
 
   toggleIntro = (event) => {
