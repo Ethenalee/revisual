@@ -3,9 +3,7 @@ import MapImg from './images/Toronto_area.png';
 
 //map component for Municipality Search page
 class MunicipalityMap extends Component {
-  constructor() {
-    super();
-  }
+
   toggleIntro = (event) => {
     this.props.toggleIntro(event.target.id, event.target.className);
   }
