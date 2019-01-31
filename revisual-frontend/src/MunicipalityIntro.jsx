@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-
+// Municipality Search page step by step instructions 
 class MunicipalityInfro extends Component {
 
   render() {

@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import MunicipalityBriefChart from './MunicipalityBriefChart';
 import MunicipalityBriefTable from './MunicipalityBriefTable';
 
-
+// Municipality Search page post click detail summary and link to Municipality Search
 class MunicipalityBrief extends Component {
   constructor(props) {
     super(props);

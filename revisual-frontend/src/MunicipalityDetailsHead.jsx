@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-
+// Report Details header
 class MunicipalityDetailsHead extends Component {
 
   render() {

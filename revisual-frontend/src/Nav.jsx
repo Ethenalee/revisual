@@ -16,7 +16,7 @@ class Nav extends Component {
             <Navbar.Text className="register">
               <Navbar.Link href="#">Register</Navbar.Link>
             </Navbar.Text>
-            <Navbar.Text className="signin">Welcom Ethena!</Navbar.Text>
+            <Navbar.Text className="signin">Welcome Ethena!</Navbar.Text>
           </div>
         </Navbar.Collapse>
       </Navbar>
