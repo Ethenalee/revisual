@@ -20,6 +20,11 @@ class MunicipalityBriefChart extends Component {
               }
           }
         },
+        plugins: {
+          datalabels: {
+             display: false,
+          }
+       },
         scales: {
           xAxes: [
               {

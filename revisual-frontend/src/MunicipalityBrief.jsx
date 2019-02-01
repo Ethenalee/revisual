@@ -38,7 +38,8 @@ class MunicipalityBrief extends Component {
         <Link className="go-to-detail"  to ={{
           pathname: `/municipalities/${this.props.areacode}`, 
           state: { 
-              data: this.state.data
+              data: this.state.data,
+              sale_lease: this.props.sale_lease
           }
           }}>
           Generate Report

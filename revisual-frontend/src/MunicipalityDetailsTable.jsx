@@ -29,7 +29,15 @@ class MunicipalityDetailsTable extends Component {
         </div>
         <div className="avg-sold-price">
           <div className="labels"><div>Average {this.salelease(this.props.sale_lease)} Price</div></div>
-          <div className="values"><div>{data && (data.average_sold_price).toString().split('.')[0].replace(/(.)(?=(.{3})+$)/g,"$1,")} CAD</div></div>
+          <div className="values"><div>$ {data && (data.average_sold_price).toString().split('.')[0].replace(/(.)(?=(.{3})+$)/g,"$1,")} CAD</div></div>
+        </div>
+        <div className="highest-price">
+          <div className="labels"><div>Highest priced listing</div></div>
+          <div className="values"><div>$ {data && (data.highest_priced_sale).toString().split('.')[0].replace(/(.)(?=(.{3})+$)/g,"$1,")} CAD</div></div>
+        </div>
+        <div className="lowest-price">
+          <div className="labels"><div>Lowest priced listing</div></div>
+          <div className="values"><div>$ {data && (data.lowest_priced_sale).toString().split('.')[0].replace(/(.)(?=(.{3})+$)/g,"$1,")} CAD</div></div>
         </div>
         <div className="num-listings">
           <div className="labels"><div>Number of listings</div></div>
@@ -40,16 +48,8 @@ class MunicipalityDetailsTable extends Component {
           <div className="values"><div>{data && (data.number_of_sold.toString().split('.')[0])}</div></div>
         </div>
         <div className="num-days">
-          <div className="labels"><div>Number of {this.salelease(this.props.sale_lease)} listings</div></div>
+          <div className="labels"><div>Average days on Market</div></div>
           <div className="values"><div>{data && (data.average_days_on_market.toString().split('.')[0])} Days</div></div>
-        </div>
-        <div className="highest-price">
-          <div className="labels"><div>Highest priced listing</div></div>
-          <div className="values"><div>{data && (data.highest_priced_sale).toString().split('.')[0].replace(/(.)(?=(.{3})+$)/g,"$1,")} CAD</div></div>
-        </div>
-        <div className="lowest-price">
-          <div className="labels"><div>Lowest priced listing</div></div>
-          <div className="values"><div>{data && (data.lowest_priced_sale).toString().split('.')[0].replace(/(.)(?=(.{3})+$)/g,"$1,")} CAD</div></div>
         </div>
       </div>
     )
