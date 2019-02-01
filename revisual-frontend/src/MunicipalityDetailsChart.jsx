@@ -11,7 +11,7 @@ class MunicipalityDetailsChart extends Component {
     this.state = {
       barChartOptions1: {
         responsive: true,
-        maintainAspectRatio: false,
+        maintainAspectRatio: true,
         tooltips: {
           callbacks: {
               label: function(tooltipItem) {
@@ -65,7 +65,7 @@ class MunicipalityDetailsChart extends Component {
       },
     barChartOptions2: {
       responsive: true,
-      maintainAspectRatio: false,
+      maintainAspectRatio: true,
       tooltips: {
         callbacks: {
             label: function(tooltipItem) {
@@ -113,7 +113,7 @@ class MunicipalityDetailsChart extends Component {
     },
   barChartOptions3: {
     responsive: true,
-    maintainAspectRatio: false,
+    maintainAspectRatio: true,
     tooltips: {
       callbacks: {
           label: function(tooltipItem) {
@@ -255,10 +255,10 @@ class MunicipalityDetailsChart extends Component {
     };
     return (
       <div className="detail-chart">
-        <div><Bar width={800} height={400} data={dataBarPrice} options={this.state.barChartOptions1} /></div>
-        <div><Bar width={800} height={400} data={dataBarNumberofListings} options={this.state.barChartOptions2} /></div>
-        <div><Bar width={800} height={400} data={dataBarNumberofSoldListings} options={this.state.barChartOptions2} /></div>
-        <div><Bar width={800} height={400} data={dataBarDaysOnMarket} options={this.state.barChartOptions3} /></div>   
+        <div><Bar width={400} height={200} data={dataBarPrice} options={this.state.barChartOptions1} /></div>
+        <div><Bar width={400} height={200} data={dataBarNumberofListings} options={this.state.barChartOptions2} /></div>
+        <div><Bar width={400} height={200} data={dataBarNumberofSoldListings} options={this.state.barChartOptions2} /></div>
+        <div><Bar width={400} height={200} data={dataBarDaysOnMarket} options={this.state.barChartOptions3} /></div>   
       </div>
     );
   }
