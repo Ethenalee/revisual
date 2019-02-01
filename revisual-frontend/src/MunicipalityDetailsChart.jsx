@@ -23,8 +23,9 @@ class MunicipalityDetailsChart extends Component {
         },
         plugins: {
           datalabels: {
-             display: 'auto',
-             color: '#030103',
+             display: true,
+             color: 'white',
+             rotation: 270,
              formatter: function(value) {
               return "$" + Number(value).toFixed(0).replace(/./g, function(c, i, a) {
                 return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
@@ -77,7 +78,7 @@ class MunicipalityDetailsChart extends Component {
       plugins: {
         datalabels: {
            display: true,
-           color: '#030103',
+           color: 'white',
            formatter: function(value) {
             return Number(value).toFixed(0).replace(/./g, function(c, i, a) {
               return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
@@ -125,7 +126,8 @@ class MunicipalityDetailsChart extends Component {
     plugins: {
       datalabels: {
          display: 'true',
-         color: '#030103',
+         color: 'white',
+         rotation: 270,
          formatter: function(value) {
           return value + " Days";
         }
