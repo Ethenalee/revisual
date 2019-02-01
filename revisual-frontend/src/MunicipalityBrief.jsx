@@ -31,18 +31,18 @@ class MunicipalityBrief extends Component {
   
   duration= (duration) => {
     if (duration === "1month") {
-      return "current month and last year current month"
+      return "current month"
     } else if (duration === "3months") {
-      return "past 3 months"
+      return "previous 3 months"
     } else {
-      return "past 2 years"
+      return "previous 2 years"
     }
   }
   color = (municipality) => {
     if (municipality === "C01") {
-      return "#013F6F"
+      return "#0B4483"
     } else if (municipality === "W01") {
-      return "#56D6CF"
+      return "#1BC9BB"
     } else {
       return "#4C59D0"
     }
@@ -57,7 +57,7 @@ class MunicipalityBrief extends Component {
     };
     return (
       <div className="brief">
-        <div className="market-trends" style={divStyle}><p id="name">{data && data.municipality.municipality} {this.props.sale_lease} MARKET STATS</p><p id="duration"><span><img className="calendar" src={calendar}/></span> up to date {this.duration(this.props.duration)}</p></div>
+        <div className="market-trends"><p style={divStyle} id="name">{data && data.municipality.municipality} {this.props.sale_lease} Market Stats</p><p id="duration"><span><img className="calendar" src={calendar}/></span> {this.duration(this.props.duration)}</p></div>
         <MunicipalityBriefTable data={this.state.data} sale_lease={this.props.sale_lease}/>
         <MunicipalityBriefChart data={this.state.data}/>
         <Link className="go-to-detail"  to ={{
@@ -69,7 +69,7 @@ class MunicipalityBrief extends Component {
           }}>
           Generate Report
         </Link>
-      </div>
+        </div>
     );
   }
 }

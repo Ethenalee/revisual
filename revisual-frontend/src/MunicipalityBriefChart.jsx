@@ -159,8 +159,8 @@ class MunicipalityBriefChart extends Component {
     };
     return (
       <div className="brief-chart">
-        <div className="charts"><Bar width={300} data={dataBarPrice} options={this.state.barChartOptions1} /></div>
-        <div className="charts"><Bar width={300} data={dataBarNumberofListings} options={this.state.barChartOptions2} /></div>     
+        <div className="charts"><Bar data={dataBarPrice} options={this.state.barChartOptions1} /></div>
+        <div className="charts"><Bar data={dataBarNumberofListings} options={this.state.barChartOptions2} /></div>     
       </div>
     );
   }
