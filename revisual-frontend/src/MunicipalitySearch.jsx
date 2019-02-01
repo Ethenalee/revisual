@@ -13,8 +13,8 @@ class MunicipalitySearch extends Component {
     this.state = {
       areacode: "", 
       municipality: "", 
-      sale_lease: "Sale", 
-      duration: "Today",
+      sale_lease: "", 
+      duration: "",
       introactive: true,
       marketactive: false
     };
@@ -48,7 +48,7 @@ class MunicipalitySearch extends Component {
         <div className="second-middle">
           <MunicipalityMap toggleIntro={this.toggleIntro}/>
           {this.state.introactive &&
-            <MunicipalityIntro/>
+            <MunicipalityIntro sale_lease={this.state.sale_lease} duration={this.state.duration}/>
           }
           {this.state.marketactive &&
             <MunicipalityBrief areacode={this.state.areacode} municipality={this.state.municipality} sale_lease={this.state.sale_lease} duration={this.state.duration}/>
