@@ -364,9 +364,9 @@ label {
 }
 
 .labels {
-  background-image: url("./images/label.png");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-image: url("./images/label.png") !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
   padding: 10px;
   text-align: center;
   width: 300px;
@@ -472,7 +472,11 @@ label {
   size: A4;
   margin: 0;
 }
+
 @media print {
+  
+  * { -webkit-print-color-adjust:exact;}
+
   html, body {
     width: 210mm;
     height: 297mm;
