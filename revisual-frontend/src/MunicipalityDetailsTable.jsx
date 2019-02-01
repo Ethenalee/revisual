@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 
-class MunicipalityBriefTable extends Component {
+class MunicipalityDetailsTable extends Component {
   constructor() {
     super()
     this.state = {
@@ -24,8 +24,8 @@ class MunicipalityBriefTable extends Component {
     return (
       <div className="brief-table">
         <div className="community">
-          <div className="labels"><div className="text">Community</div></div>
-          <div className="values"><div className="text">{this.state.community[municipality]}</div></div>
+          <div className="labels"><div>Community</div></div>
+          <div className="values"><div>{this.state.community[municipality]}</div></div>
         </div>
         <div className="avg-sold-price">
           <div className="labels"><div>Average {this.salelease(this.props.sale_lease)} Price</div></div>
@@ -39,10 +39,6 @@ class MunicipalityBriefTable extends Component {
           <div className="labels"><div>Lowest priced listing</div></div>
           <div className="values"><div>$ {data && (data.lowest_priced_sale).toString().split('.')[0].replace(/(.)(?=(.{3})+$)/g,"$1,")} CAD</div></div>
         </div>
-        <div className="num-days">
-          <div className="labels"><div>Average days on Market</div></div>
-          <div className="values"><div>{data && (data.average_days_on_market.toString().split('.')[0])} Days</div></div>
-        </div>
         <div className="num-listings">
           <div className="labels"><div>Number of listings</div></div>
           <div className="values"><div>{data && (data.number_of_listings).toString().split('.')[0].replace(/(.)(?=(.{3})+$)/g,"1,")}</div></div>
@@ -51,8 +47,12 @@ class MunicipalityBriefTable extends Component {
           <div className="labels"><div>Number of {this.salelease(this.props.sale_lease)} listings</div></div>
           <div className="values"><div>{data && (data.number_of_sold.toString().split('.')[0])}</div></div>
         </div>
+        <div className="num-days">
+          <div className="labels"><div>Average days on Market</div></div>
+          <div className="values"><div>{data && (data.average_days_on_market.toString().split('.')[0])} Days</div></div>
+        </div>
       </div>
     )
   }
 }
-export default MunicipalityBriefTable;
+export default MunicipalityDetailsTable;
