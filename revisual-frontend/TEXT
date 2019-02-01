@@ -1,0 +1,100 @@
+class MunicipalityDetails extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      text: "blank",
+      text_value_in_header: "Report Summary",
+      text_value_in_written_summary:"Insert Text Here",
+      textarea: `SOME RANDOM TEXT TO EDIT`,
+      isDisabled: false,
+      simulateXHR: false,
+      XHRDelay: 450,
+    };
+
+
+  }
+  virtualServerCallback = (newState) => {
+    if (this.state.simulateXHR) {
+    window.setTimeout(function() {
+      this.changeState(newState);
+    }.bind(this), this.state.XHRDelay);
+    } else {
+    this.changeState(newState);
+    }
+  };
+
+  changeState = (newState) => {
+    this.setState(newState);
+  };
+
+  isStringAcceptable = (string) => {
+    return (string.length >= 1);  // Minimum 4 letters long
+  };
+
+  isStringEvenNumber = (string) => {
+    var number = parseInt(string);
+    if (isNaN(number) || !isFinite(number)) return false;
+    return number % 2 == 0;
+  };
+
+  isValidXHRDelay = (text) => {
+    let number = parseInt(text);
+    if (isNaN(number)) return false;
+    return (0 < number) && (number < 50000);
+  };
+
+  formatInteger = (number) => {
+    return number.toString() + " feet";
+  };
+
+  formatMillisecondsAppend = (text) => {
+    return text + " ms";
+  };
+
+  render() {
+    const data = this.props.location.state.data;
+    const duration = this.props.location.state.duration;
+    const sale_lease = this.props.location.state.sale_lease;
+    return (
+      <section className="third-page">
+        <MunicipalityDetailsHead/>
+        <div className="details">
+          <div className="brief">
+          {/* <div>TEST: {this.state.textarea.replace(new RegExp("\n", "g"), "\\n")} </div> */}
+          <div className="step one"><font size="25">
+            <RIEInput
+              value={this.state.text_value_in_header}
+              change={this.virtualServerCallback}
+              propName="text_value_in_header"
+              className={this.state.highlight ? "editable" : ""}
+              classLoading="loading"
+              classInvalid="invalid"
+              isDisabled={this.state.isDisabled} 
+            />
+          </font></div>
+          <div>{data.average_sold_price}</div>
+          <div>{data.municipality.municipality}</div>
+          <div>{duration}</div>
+          <div>{sale_lease}</div>
+          <div>
+            <RIETextArea
+              value={this.state.textarea}
+              change={this.virtualServerCallback}
+              propName="textarea"
+              className={this.state.highlight ? "editable" : ""}
+              validate={this.isStringAcceptable}
+              classLoading="loading"
+              classInvalid="invalid"
+              isDisabled={this.state.isDisabled} 
+              rows="5"
+              column="5"
+            />
+          </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+}
+export default MunicipalityDetails;

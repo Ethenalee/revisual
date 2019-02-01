@@ -426,5 +426,68 @@ label {
 
 .details {
   display: flex;
+  flex-flow: column wrap;
   width: 70%;
+}
+
+.page {
+  width: 21cm;
+  min-height: 29.7cm;
+  padding: 2cm;
+  margin: 1cm auto;
+  border: 1px #D3D3D3 solid;
+  border-radius: 5px;
+  background: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.report{
+  display: flex;
+  justify-content: center;
+}
+
+.reportSummary {
+  width: auto;
+  height: auto;
+  text-align: left;
+}
+
+.reportHead {
+  font-size: 35px;
+}
+
+.reportFooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.reportContact{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@page {
+  size: A4;
+  margin: 0;
+}
+@media print {
+  html, body {
+    width: 210mm;
+    height: 297mm;
+  }
+  .page {
+    margin: 0;
+    border: initial;
+    border-radius: initial;
+    width: initial;
+    min-height: initial;
+    box-shadow: initial;
+    background: initial;
+    page-break-after: always;
+  }
+  .detail-head{
+    display: none;
+  }
 }
