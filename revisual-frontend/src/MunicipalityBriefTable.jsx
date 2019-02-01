@@ -24,20 +24,20 @@ class MunicipalityBriefTable extends Component {
     return (
       <div className="brief-table">
         <div className="community">
-          <div className="labels"><div>Community</div></div>
-          <div className="values"><div>{this.state.community[municipality]}</div></div>
+          <div className="labels"><div className="text">Community</div></div>
+          <div className="values"><div className="text">{this.state.community[municipality]}</div></div>
         </div>
         <div className="avg-sold-price">
           <div className="labels"><div>Average {this.salelease(this.props.sale_lease)} Price</div></div>
-          <div className="values"><div>{data && (data.average_sold_price).toString().split('.')[0].replace(/(.)(?=(.{3})+$)/g,"$1,")} CAD</div></div>
+          <div className="values"><div>$ {data && (data.average_sold_price).toString().split('.')[0].replace(/(.)(?=(.{3})+$)/g,"$1,")} CAD</div></div>
         </div>
         <div className="highest-price">
           <div className="labels"><div>Highest priced listing</div></div>
-          <div className="values"><div>{data && (data.highest_priced_sale).toString().split('.')[0].replace(/(.)(?=(.{3})+$)/g,"$1,")} CAD</div></div>
+          <div className="values"><div>$ {data && (data.highest_priced_sale).toString().split('.')[0].replace(/(.)(?=(.{3})+$)/g,"$1,")} CAD</div></div>
         </div>
         <div className="lowest-price">
           <div className="labels"><div>Lowest priced listing</div></div>
-          <div className="values"><div>{data && (data.lowest_priced_sale).toString().split('.')[0].replace(/(.)(?=(.{3})+$)/g,"$1,")} CAD</div></div>
+          <div className="values"><div>$ {data && (data.lowest_priced_sale).toString().split('.')[0].replace(/(.)(?=(.{3})+$)/g,"$1,")} CAD</div></div>
         </div>
         <div className="num-days">
           <div className="labels"><div>Average days on Market</div></div>
