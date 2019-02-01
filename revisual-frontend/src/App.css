@@ -417,3 +417,14 @@ label {
   background-size: cover;
 }
 
+.detail-chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.details {
+  display: flex;
+  width: 70%;
+}
