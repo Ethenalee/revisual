@@ -357,7 +357,7 @@ label {
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  flex-wrap: wrap;
+  width: 100%;
 }
 
 .community {
@@ -483,7 +483,7 @@ label {
 .market-trends {
   font-weight: bolder;
   font-size: 3vw;
-  background-color: rgb(233, 237, 240);
+  background-color: rgb(52, 67, 141);
   color: white;
   padding: 10px;
   display: flex;
@@ -495,6 +495,9 @@ label {
 
 .charts {
   padding: 10px;
+  display: flex;
+  position: relative;
+  width: 50%;
 }
 
 .go-to-detail {
@@ -538,7 +541,8 @@ label {
 #name {
   font-size: 40px;
   margin:0;
-  text-decoration: underline overline;
+  border-radius: 10px;
+  border: double 5px white;
 }
 
 #duration {
@@ -637,4 +641,37 @@ label {
 
 .calendar {
   width: 1.5vw;
+}
+
+canvas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@page {
+  size: A4;
+  margin: 0;
+}
+@media print {
+  
+  * { -webkit-print-color-adjust:exact;}
+
+  html, body {
+    width: 210mm;
+    height: 297mm;
+  }
+  .page {
+    margin: 0;
+    border: initial;
+    border-radius: initial;
+    width: initial;
+    min-height: initial;
+    box-shadow: initial;
+    background: initial;
+    page-break-after: always;
+  }
+  .detail-head{
+    display: none;
+  }
 }
