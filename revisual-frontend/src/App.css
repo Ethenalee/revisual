@@ -537,7 +537,7 @@ label {
 
 .page {
   width: 21cm;
-  min-height: 29.7cm;
+  min-height: 27.94cm;
   margin: 1cm auto;
   border: 1px #D3D3D3 solid;
   border-radius: 5px;
@@ -550,28 +550,40 @@ label {
   justify-content: center;
 }
 
-.reportSummary {
-  width: auto;
+.report-summary {
+  width: 100%;
+  padding: 10px;
   height: auto;
-  text-align: left;
+  text-align: center;
 }
 
-.reportHead {
+.report-head {
   font-size: 35px;
 }
 
-.reportFooter {
+.report-footer {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+  bottom: 0;
 }
 
-.reportContact{
+.report-contact{
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin: 5px;
 }
-
+.contact-labels {
+  font-weight: bold;
+  color: #0D0C6E !important;
+}
+.report-logo {
+  margin: 10px;
+}
 #name {
   background-color: #F2F1F3;
   border-radius: 10px;
@@ -599,6 +611,7 @@ label {
   background: #F2F1F3 !important;
   border-radius: 10px;
   margin-left:1%;
+  margin-top: 2%;
 }
 
 
@@ -628,7 +641,7 @@ label {
   text-align: center;
   border-style: double;
   width: 100%;
-  font-size: 1vw;
+  font-size: 22px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -645,8 +658,8 @@ label {
   flex-direction: column;
   background: #F2F1F3 !important;
   border-radius: 10px;
-  margin: 2% 0% 2% 2%;
-  font-size: 1vw;
+  margin: 2% 0% 2% 2.6%;
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -656,7 +669,7 @@ label {
   text-align: center;
   border-style: double;
   width: 100%;
-  font-size: 1vw;
+  font-size: 22px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -674,7 +687,7 @@ label {
   background: #F2F1F3 !important;
   border-radius: 10px;
   margin: 2% 2% 2% 2%;
-  font-size: 1vw;
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -684,7 +697,7 @@ label {
   text-align: center;
   border-style: double;
   width: 100%;
-  font-size: 1vw;
+  font-size: 22px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -702,7 +715,7 @@ label {
   background: #F2F1F3 !important;
   border-radius: 10px;
   margin: 2% 0% 2% 0%;
-  font-size: 1vw;
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -712,7 +725,7 @@ label {
   text-align: center;
   border-style: double;
   width: 100%;
-  font-size: 1vw;
+  font-size: 21px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -729,8 +742,8 @@ label {
   flex-direction: column;
   background: #F2F1F3 !important;
   border-radius: 10px;
-  margin: 2% 0% 2% 2%;
-  font-size: 1vw;
+  margin: 2% 0% 2% 0%;
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -740,7 +753,7 @@ label {
   text-align: center;
   border-style: double;
   width: 100%;
-  font-size: 1vw;
+  font-size: 21px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -757,8 +770,8 @@ label {
   flex-direction: column;
   background: #F2F1F3 !important;
   border-radius: 10px;
-  margin: 2% 2% 2% 2%;
-  font-size: 1vw;
+  margin: 2% 1% 2% 2%;
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -768,7 +781,7 @@ label {
   text-align: center;
   border-style: double;
   width: 100%;
-  font-size: 1vw;
+  font-size: 21px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -785,8 +798,8 @@ label {
   flex-direction: column;
   background: #F2F1F3 !important;
   border-radius: 10px;
-  margin: 2% 0% 2% 0%;
-  font-size: 1vw;
+  margin: 2% 1% 2% 0%;
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -819,7 +832,7 @@ label {
 
 #report-name {
   color: white !important;
-  font-size: 3vw !important;
+  font-size: 45px !important;
   font-weight: bolder !important;
 }
 
@@ -830,6 +843,10 @@ label {
 
 .report-calendar {
   width: 3vw;
+}
+
+.report-charts {
+  margin: 3%;
 }
 
 
