@@ -39,6 +39,8 @@ class MunicipalityComparisonSearch extends Component {
     const duration = this.props.duration;
     const sale_lease = this.props.sale_lease;
 
+    console.log(this.state.municipality !== undefined && (this.state.municipality.toUpperCase() !== data[0].municipality))
+
     return (
       <section className="second-page">
         <div>
@@ -53,7 +55,8 @@ class MunicipalityComparisonSearch extends Component {
         </div>
         <div className="compareModalClose">
           <button onClick={
-            () => this.state.municipality !== undefined && (this.state.municipality.toUpperCase() !== data[0].municipality) ? (() => this.props.closeInsideModal(this.state.areacode, this.state.municipality)) : alert("Can't be empty or Matching")
+            () => this.state.municipality !== undefined && (this.state.municipality.toUpperCase() !== data[0].municipality) ? 
+            (this.props.closeInsideModal(this.state.areacode, this.state.municipality)) : alert("Can't be empty or Matching")
           }> 
             Submit Selection 
           </button> 
