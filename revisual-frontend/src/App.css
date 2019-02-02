@@ -111,10 +111,6 @@
   width: 50%;
 }
 
-.market-trend {
-  display: flex;
-}
-
 .dom {
   width: 300px;
   height: auto;
@@ -366,7 +362,7 @@ label {
   align-items: center;
   flex-direction: column;
   width: 98%;
-  background: #F2F1F3;
+  background: #F2F1F3 !important;
   border-radius: 10px;
 }
 
@@ -376,8 +372,8 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
-  background: rgba(96, 102, 230, 0.85);
+  color: white !important;
+  background: rgba(96, 102, 230, 0.85) !important;
   width: 100%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -392,7 +388,7 @@ label {
 }
 
 .avg-sold-price .labels {
-  background: #AC99C1;
+  background: #AC99C1 !important;
   padding: 5px;
   text-align: center;
   border-style: double;
@@ -401,7 +397,7 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: white !important;
   font-weight: bold;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -412,7 +408,7 @@ label {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: #F2F1F3;
+  background: #F2F1F3 !important;
   border-radius: 10px;
   margin: 2% 0% 2% 2%;
   font-size: 1vw;
@@ -420,7 +416,7 @@ label {
 }
 
 .highest-price .labels {
-  background: #AC99C1;
+  background: #AC99C1 !important;
   padding: 5px;
   text-align: center;
   border-style: double;
@@ -429,7 +425,7 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: white !important;
   font-weight: bold;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -440,7 +436,7 @@ label {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: #F2F1F3;
+  background: #F2F1F3 !important;
   border-radius: 10px;
   margin: 2% 2% 2% 2%;
   font-size: 1vw;
@@ -448,7 +444,7 @@ label {
 }
 
 .lowest-price .labels {
-  background: #AC99C1;
+  background: #AC99C1 !important;
   padding: 5px;
   text-align: center;
   border-style: double;
@@ -457,7 +453,7 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: white !important;
   font-weight: bold;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -468,7 +464,7 @@ label {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: #F2F1F3;
+  background: #F2F1F3 !important;
   border-radius: 10px;
   margin: 2% 0% 2% 0%;
   font-size: 1vw;
@@ -542,11 +538,10 @@ label {
 .page {
   width: 21cm;
   min-height: 29.7cm;
-  padding: 2cm;
   margin: 1cm auto;
   border: 1px #D3D3D3 solid;
   border-radius: 5px;
-  background: white;
+  background: white !important;;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -588,9 +583,47 @@ label {
   margin:0;
   color: #E0E0E0;
 }
+.report-table {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
 
-.num-days .labels {
-  background: #96B5C9;
+.report-community {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 98%;
+  background: #F2F1F3 !important;
+  border-radius: 10px;
+  margin-left:1%;
+}
+
+
+.report-community .report-labels {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white !important;
+  background: rgba(96, 102, 230, 0.85) !important;
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-weight: bold;
+  font-size: 30px;
+  border: double;
+}
+
+.report-community .report-values {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.report-avg-sold-price .report-labels {
+  background: #AC99C1 !important;
   padding: 5px;
   text-align: center;
   border-style: double;
@@ -599,26 +632,26 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: white !important;
   font-weight: bold;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 
-.num-days {
+.report-avg-sold-price {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: #F2F1F3;
+  background: #F2F1F3 !important;
   border-radius: 10px;
   margin: 2% 0% 2% 2%;
   font-size: 1vw;
   font-weight: bold;
 }
 
-.num-listings .labels {
-  background: #96B5C9;
+.report-highest-price .report-labels {
+  background: #AC99C1 !important;
   padding: 5px;
   text-align: center;
   border-style: double;
@@ -627,26 +660,26 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: white !important;
   font-weight: bold;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 
-.num-listings {
+.report-highest-price {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: #F2F1F3;
+  background: #F2F1F3 !important;
   border-radius: 10px;
   margin: 2% 2% 2% 2%;
   font-size: 1vw;
   font-weight: bold;
 }
 
-.num-sold .labels {
-  background: #96B5C9;
+.report-lowest-price .report-labels {
+  background: #AC99C1 !important;
   padding: 5px;
   text-align: center;
   border-style: double;
@@ -655,18 +688,102 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: white !important;
   font-weight: bold;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 
-.num-sold {
+.report-lowest-price {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: #F2F1F3;
+  background: #F2F1F3 !important;
+  border-radius: 10px;
+  margin: 2% 0% 2% 0%;
+  font-size: 1vw;
+  font-weight: bold;
+}
+
+.report-num-days .report-labels {
+  background: #96B5C9 !important;
+  padding: 5px;
+  text-align: center;
+  border-style: double;
+  width: 100%;
+  font-size: 1vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white !important;
+  font-weight: bold;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.report-num-days {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #F2F1F3 !important;
+  border-radius: 10px;
+  margin: 2% 0% 2% 2%;
+  font-size: 1vw;
+  font-weight: bold;
+}
+
+.report-num-listings .report-labels {
+  background: #96B5C9 !important;
+  padding: 5px;
+  text-align: center;
+  border-style: double;
+  width: 100%;
+  font-size: 1vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white !important;
+  font-weight: bold;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.report-num-listings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #F2F1F3 !important;
+  border-radius: 10px;
+  margin: 2% 2% 2% 2%;
+  font-size: 1vw;
+  font-weight: bold;
+}
+
+.report-num-sold .report-labels {
+  background: #96B5C9 !important;
+  padding: 5px;
+  text-align: center;
+  border-style: double;
+  width: 100%;
+  font-size: 1vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white !important;
+  font-weight: bold;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.report-num-sold {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #F2F1F3 !important;
   border-radius: 10px;
   margin: 2% 0% 2% 0%;
   font-size: 1vw;
@@ -681,11 +798,41 @@ label {
   width: 1.5vw;
 }
 
-canvas {
+.report-market-trends {
+  font-weight: bolder !important;
+  font-size: 3vw !important;
+  background-color: rgb(52, 67, 141) !important;
+  color: white !important;
+  padding: 10px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  width: 100%;
+  border: solid 3px white !important;
 }
+
+#report-duration {
+  font-size: 20px;
+  margin:0;
+  color: #E0E0E0 !important;
+}
+
+#report-name {
+  color: white !important;
+  font-size: 3vw !important;
+  font-weight: bolder !important;
+}
+
+.report-head-text {
+  color: white !important;
+  background: transparent;
+}
+
+.report-calendar {
+  width: 3vw;
+}
+
+
 
 @page {
   size: A4;
