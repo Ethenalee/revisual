@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Bar } from 'react-chartjs-2';
 import 'chartjs-plugin-datalabels';
+import { DraggableItem } from '@wuweiweiwu/react-shopify-draggable';
 
 class MunicipalityDetailsChart extends Component {
   constructor(props) {
@@ -307,38 +308,38 @@ class MunicipalityDetailsChart extends Component {
     };
     return (
       <div className="detail-chart">
-        <div>
+        <DraggableItem as="div" className="swappable-block">
           <Bar
             width={300}
             height={200}
             data={dataBarPrice}
             options={this.state.barChartOptions1}
           />
-        </div>
-        <div>
+        </DraggableItem>
+        <DraggableItem as="div" className="swappable-block">
           <Bar
             width={300}
             height={200}
             data={dataBarNumberofListings}
             options={this.state.barChartOptions2}
           />
-        </div>
-        <div>
+        </DraggableItem>
+        <DraggableItem as="div" className="swappable-block">
           <Bar
             width={300}
             height={200}
             data={dataBarNumberofSoldListings}
             options={this.state.barChartOptions2}
           />
-        </div>
-        <div>
+        </DraggableItem>
+        <DraggableItem as="div" className="swappable-block">
           <Bar
             width={300}
             height={200}
             data={dataBarDaysOnMarket}
             options={this.state.barChartOptions3}
           />
-        </div>
+        </DraggableItem>
       </div>
     );
   }

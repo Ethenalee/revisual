@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^3.9.0",
     "@material-ui/icons": "^3.0.2",
+    "@wuweiweiwu/react-shopify-draggable": "0.0.5",
     "chartjs-plugin-datalabels": "^0.5.0",
     "mdbreact": "^4.9.0",
     "react": "^16.7.0",
