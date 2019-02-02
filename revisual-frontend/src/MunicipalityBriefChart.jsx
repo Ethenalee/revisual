@@ -8,8 +8,8 @@ class MunicipalityBriefChart extends Component {
     super(props);
 
     this.state = {
-      barChartOptions: {
-        responsive: false,
+      barChartOptions1: {
+        responsive: true,
         maintainAspectRatio: false,
         tooltips: {
           callbacks: {
@@ -22,13 +22,69 @@ class MunicipalityBriefChart extends Component {
         },
         plugins: {
           datalabels: {
-             display: false,
+             display: true,
+             color: 'white',
+             rotation: 270,
+             formatter: function(value) {
+              return "$" + Number(value).toFixed(0).replace(/./g, function(c, i, a) {
+                return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
+            });
+            }
           }
        },
         scales: {
           xAxes: [
               {
+                display: true,
+                barPercentage: 1,
+                gridLines: {
+                  display: false,
+                  color: "rgba(0, 0, 0, 0.1)"
+                }
+              }
+            ],
+          yAxes: [
+            {
+              display: false,
+              gridLines: {
                 display: false,
+                color: "rgba(0, 0, 0, 0.1)"
+              },
+              ticks: {
+                beginAtZero: true
+              }
+            }
+          ]
+        }
+      },
+      barChartOptions2: {
+        responsive: true,
+        maintainAspectRatio: false,
+        tooltips: {
+          callbacks: {
+              label: function(tooltipItem) {
+                  return Number(tooltipItem.yLabel).toFixed(0).replace(/./g, function(c, i, a) {
+                      return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
+                  });
+              }
+          }
+        },
+        plugins: {
+          datalabels: {
+             display: true,
+             color: 'white',
+             rotation: 270,
+             formatter: function(value) {
+              return Number(value).toFixed(0).replace(/./g, function(c, i, a) {
+                return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
+            });
+            }
+          }
+       },
+        scales: {
+          xAxes: [
+              {
+                display: true,
                 barPercentage: 1,
                 gridLines: {
                   display: false,
@@ -55,11 +111,11 @@ class MunicipalityBriefChart extends Component {
 
   label = (data) => {
     if (data && data.monthly_average_sold_price.length === 13) {
-      return ["Current Month", "Last Year Same Month"].reverse()
+      return ["Feb 2019", "Feb 2018"].reverse()
     } else if (data && data.monthly_average_sold_price.length === 3) {
-      return ["Current Month", "Past 2 month", "Past 3 months"].reverse()
+      return ["Feb 2019", "Jan 2019", "Dec 2018"].reverse()
     } else if (data && data.monthly_average_sold_price.length === 24){
-      return ["Current Month", "Past 2 months", "Past 3 months", "Past 4 months", "Past 5 months", "Past 6 months", "Past 7 months", "Past 8 months", "Past 9 months", "Past 10 months", "Past 11 months", "Past 12 months", "Past 13 months", "Past 14 months", "Past 15 months", "Past 16 months", "Past 17 months", "Past 18 months",  "Past 19 months", "Past 20 months", "Past 21 months", "Past 22 months", "Past 23 months"].reverse()
+      return ["Feb 2019", "Jan 2019", "Dec 2018", "Nov 2018", "Oct 2018", "Sep 2018", "Aug 2018", "Jul 2018", "Jun 2018", "May 2018", "Apr 2018", "Mar 2018", "Feb 2018", "Jan 2018", "Dec 2017", "Nov 2017", "Oct 2017", "Sep 2017", "Aug 2017", "Jul 2017", "Jun 2017", "May 2017", "Apr 2017", "Mar 2017"].reverse()
     }
   }
 
@@ -103,8 +159,8 @@ class MunicipalityBriefChart extends Component {
     };
     return (
       <div className="brief-chart">
-        <div className="charts"><Bar data={dataBarPrice} options={this.state.barChartOptions} /></div>
-        <div className="charts"><Bar data={dataBarNumberofListings} options={this.state.barChartOptions} /></div>     
+        <div className="charts"><Bar data={dataBarPrice} options={this.state.barChartOptions1} /></div>
+        <div className="charts"><Bar data={dataBarNumberofListings} options={this.state.barChartOptions2} /></div>     
       </div>
     );
   }
