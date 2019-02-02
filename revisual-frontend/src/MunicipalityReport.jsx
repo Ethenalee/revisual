@@ -19,13 +19,13 @@ class MunicipalityReport extends Component {
     const sale_lease = this.props.sale_lease;
     return (
       <DraggableContainer as="div" type="swappable" className="details-table">
-        <DraggableItem as="div" className="swappable-block">
-          <MunicipalityDetailsTable
-            data={data}
-            duration={duration}
-            sale_lease={sale_lease}
-          />
-        </DraggableItem>
+        {/* <DraggableItem as="div" className="swappable-block"> */}
+        <MunicipalityDetailsTable
+          data={data}
+          duration={duration}
+          sale_lease={sale_lease}
+        />
+        {/* </DraggableItem> */}
 
         <MunicipalityDetailsChart
           data={data}
