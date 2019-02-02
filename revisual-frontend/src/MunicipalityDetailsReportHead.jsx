@@ -63,7 +63,7 @@ class MunicipalityDetailsReportHead extends Component {
             value={this.state.text_value_in_header}
             change={this.virtualServerCallback}
             propName="text_value_in_header"
-            className={this.state.highlight ? "editable" : ""}
+            className={this.state.highlight ? "editable" : "report-head-text"}
             classLoading="loading"
             classInvalid="invalid"
             isDisabled={this.state.isDisabled}/>
