@@ -1,35 +1,43 @@
-# README
+# REvisual
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Visualize and compare Toronto real estate trends across municipalities, and easily create customized municipality-level market reports.
 
-Things you may want to cover:
+## Setting up the Backend
 
-* Ruby version
+1. Navigate into the backend folder: `cd revisual-backend`
 
-* System dependencies
+2. Run `bundle install` to install dependencies
 
-* Configuration
+3. Run `rake db:reset` to set up and seed the db
 
-* Database creation
+4. Import TREB listing data (see [Importing TREB Data from CSV](#importing-treb-data-from-csv))
 
-* Database initialization
+5. Start the server with `rails server`. By default, the backend server listens on port `3001` and responds with JSON
 
-* How to run the test suite
+## Setting up the Frontend
 
-* Services (job queues, cache servers, search engines, etc.)
+1. Navigate into the frontend folder: `cd revisual-frontend`
 
-* Deployment instructions
+2. Run `npm install` to install dependencies
 
-* ...
+3. Run `npm start` to start up the live development server
 
-# Initial Run
-In terminal:
+4. Navigate to `localhost:3000`
 
-1. Use 'Bundle Install' to setup all gem files. 
+## Importing TREB Data from CSV
 
-2. Setup the '.env' file.
+Sample data has already been processed and saved in `revisual-backend/rets/test-sample.csv`.
 
-3. Run 'rake db:migrate' to setup database.
+To import this data into the db from terminal run `rake import:listings`.
 
-4. Run 'rake import:listings' to import sample data. 
+## Dependencies
+
+- Ruby 2.3.5
+
+- Rails 5.2.2
+
+- PostgreSQL 11
+
+- Node.js 11.7
+
+- React.js 16.7
