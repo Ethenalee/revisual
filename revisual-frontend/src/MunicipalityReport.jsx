@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import {
+  DraggableItem,
+  DraggableContainer
+} from '@wuweiweiwu/react-shopify-draggable';
+
 import MunicipalityDetailsTable from './MunicipalityDetailsTable';
 import MunicipalityDetailsChart from './MunicipalityDetailsChart';
 
@@ -13,18 +18,21 @@ class MunicipalityReport extends Component {
     const duration = this.props.duration;
     const sale_lease = this.props.sale_lease;
     return (
-      <div className="details-table">
-        <MunicipalityDetailsTable
-          data={data}
-          duration={duration}
-          sale_lease={sale_lease}
-        />
+      <DraggableContainer as="div" type="swappable" className="details-table">
+        <DraggableItem as="div" className="swappable-block">
+          <MunicipalityDetailsTable
+            data={data}
+            duration={duration}
+            sale_lease={sale_lease}
+          />
+        </DraggableItem>
+
         <MunicipalityDetailsChart
           data={data}
           duration={duration}
           sale_lease={sale_lease}
         />
-      </div>
+      </DraggableContainer>
     );
   }
 }
