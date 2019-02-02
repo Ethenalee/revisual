@@ -52,6 +52,8 @@ class MunicipalityDetails extends Component {
 
   render() {
     const data = this.props.location.state.data;
+    const data01 = Object.values(data);
+    console.log(data01);
     const customStyles = {
       content : {
         top                   : '50%',
@@ -91,7 +93,7 @@ class MunicipalityDetails extends Component {
               <h2 ref={subtitle => this.subtitle = subtitle}> Select A Second Municipality</h2>
               <div className="compareModalClose"> <button onClick={this.closeModal}>X</button> </div>
               <div>
-                <MunicipalityComparisonSearch data={data} sale_lease={this.props.location.state.sale_lease} closeInsideModal={this.closeInsideModal}/>
+                <MunicipalityComparisonSearch data01={data01} sale_lease={this.props.location.state.sale_lease} closeInsideModal={this.closeInsideModal}/>
               </div>
             </Modal>
           </div>
