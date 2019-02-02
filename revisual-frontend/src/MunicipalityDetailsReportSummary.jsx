@@ -7,7 +7,7 @@ class MunicipalityDetailsReportSummary extends Component {
     super();
 
     this.state = {
-        textarea: `Customize Messages for Your Business`,
+        textarea: `Customize Messages for Your Business here`,
         isDisabled: false,
         simulateXHR: false,
         XHRDelay: 450,
