@@ -376,8 +376,8 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
-  background: rgba(96, 102, 230, 0.85);
+  color: white !important;
+  background: rgba(96, 102, 230, 0.85) !important;
   width: 100%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -386,13 +386,17 @@ label {
   border: double;
 }
 
+.labels-text {
+  color: white !important;
+}
+
 .community .values {
   font-weight: bold;
   font-size: 1vw;
 }
 
 .avg-sold-price .labels {
-  background: #AC99C1;
+  background: #AC99C1 !important;
   padding: 5px;
   text-align: center;
   border-style: double;
@@ -401,7 +405,7 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: rgb(253, 214, 214) !important;
   font-weight: bold;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -420,7 +424,7 @@ label {
 }
 
 .highest-price .labels {
-  background: #AC99C1;
+  background: #AC99C1 !important;
   padding: 5px;
   text-align: center;
   border-style: double;
@@ -429,7 +433,7 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: white !important;
   font-weight: bold;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -448,7 +452,7 @@ label {
 }
 
 .lowest-price .labels {
-  background: #AC99C1;
+  background: #AC99C1 !important;
   padding: 5px;
   text-align: center;
   border-style: double;
@@ -457,7 +461,7 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: white !important;
   font-weight: bold;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -571,10 +575,11 @@ label {
   justify-content: flex-start;
 }
 
-.reportContact{
+.reportContact {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
 
 #name {
   font-size: 40px;
@@ -590,7 +595,7 @@ label {
 }
 
 .num-days .labels {
-  background: #96B5C9;
+  background: #96B5C9 !important;
   padding: 5px;
   text-align: center;
   border-style: double;
@@ -599,7 +604,7 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: white !important;
   font-weight: bold;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -618,7 +623,7 @@ label {
 }
 
 .num-listings .labels {
-  background: #96B5C9;
+  background: #96B5C9 !important;
   padding: 5px;
   text-align: center;
   border-style: double;
@@ -627,7 +632,7 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: white !important;
   font-weight: bold;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -638,7 +643,7 @@ label {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: #F2F1F3;
+  background: #F2F1F3 !important;
   border-radius: 10px;
   margin: 2% 2% 2% 2%;
   font-size: 1vw;
@@ -646,7 +651,7 @@ label {
 }
 
 .num-sold .labels {
-  background: #96B5C9;
+  background: #96B5C9 !important;
   padding: 5px;
   text-align: center;
   border-style: double;
@@ -679,6 +684,12 @@ label {
 
 .calendar {
   width: 1.5vw;
+}
+
+.compareModalClose {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
 canvas {
