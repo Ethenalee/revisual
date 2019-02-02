@@ -36,7 +36,7 @@ class MunicipalityDetailsReportSummary extends Component {
   isStringEvenNumber = (string) => {
     var number = parseInt(string);
     if (isNaN(number) || !isFinite(number)) return false;
-    return number % 2 == 0;
+    return number % 2 === 0;
   };
 
   isValidXHRDelay = (text) => {
@@ -56,7 +56,7 @@ class MunicipalityDetailsReportSummary extends Component {
   render() {
 
     return (
-      <div className="reportSummary" >
+      <div className="report-summary" >
         <RIETextArea
           value={this.state.textarea}
           change={this.virtualServerCallback}

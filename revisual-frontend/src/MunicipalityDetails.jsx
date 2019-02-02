@@ -8,9 +8,6 @@ import MunicipalityReportHead from './MunicipalityReportHead';
 
 //Report Details page general content
 class MunicipalityDetails extends Component {
-  constructor() {
-    super();
-  }
 
   render() {
     const data = this.props.location.state.data;
@@ -19,19 +16,13 @@ class MunicipalityDetails extends Component {
     
     return (
       <section className="third-page">
-          <MunicipalityDetailsHead/>
-          <div className="details page">
-            <div className="reportHead">
-            <MunicipalityReportHead data = {data} sale_lease={sale_lease} duration={duration}/>
-            </div>
-            <MunicipalityReport data = {data} sale_lease={sale_lease}/>
-            <div className="reportSummary">
-              <MunicipalityDetailsReportSummary/>
-            </div>
-            <div className="reportFooter">
-              <MunicipalityDetailsFooter/>
-            </div>
-          </div>
+        <MunicipalityDetailsHead/>
+        <div className="details page">
+          <MunicipalityReportHead data = {data} sale_lease={sale_lease} duration={duration}/>
+          <MunicipalityReport data = {data} sale_lease={sale_lease}/>
+          <MunicipalityDetailsReportSummary/>
+          <MunicipalityDetailsFooter/>
+        </div>
       </section>
     );
   }

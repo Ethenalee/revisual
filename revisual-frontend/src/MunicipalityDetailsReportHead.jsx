@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { RIEInput} from 'riek';
 import _ from 'lodash';
-import MunicipalityBriefHead from './MunicipalityBriefHead';
 
 
 class MunicipalityDetailsReportHead extends Component {
@@ -38,7 +37,7 @@ class MunicipalityDetailsReportHead extends Component {
   isStringEvenNumber = (string) => {
     var number = parseInt(string);
     if (isNaN(number) || !isFinite(number)) return false;
-    return number % 2 == 0;
+    return number % 2 === 0;
   };
 
   isValidXHRDelay = (text) => {
@@ -58,7 +57,7 @@ class MunicipalityDetailsReportHead extends Component {
   render() {
     
     return (
-      <div className="reportHead">
+      <div className="report-head">
         <RIEInput
             value={this.state.text_value_in_header}
             change={this.virtualServerCallback}

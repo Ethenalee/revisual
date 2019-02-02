@@ -4,9 +4,6 @@ import MunicipalityDetailsChart from './MunicipalityDetailsChart';
 
 //Report Details page general content
 class MunicipalityReport extends Component {
-  constructor() {
-    super();
-  }
 
   render() {
     const data = this.props.data;

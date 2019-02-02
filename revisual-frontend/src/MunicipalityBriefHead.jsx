@@ -12,7 +12,7 @@ class MunicipalityBriefHead extends Component {
       color: this.props.colorChange(data && data.municipality.municipality)
     };
     return (
-        <div className="market-trends"><p><span style={divStyle} id="name">{data && data.municipality.municipality}</span><span>{this.props.sale_lease} Market Stats</span></p><p id="duration"><span><img className="calendar" src={calendar}/></span> {this.props.durationChange(this.props.duration)}</p></div>
+        <div className="market-trends"><p><span style={divStyle} id="name">{data && data.municipality.municipality}</span><span>{this.props.sale_lease} Market Stats</span></p><p id="duration"><span><img className="calendar" alt="calendar" src={calendar}/></span> {this.props.durationChange(this.props.duration)}</p></div>
     );
   }
 }

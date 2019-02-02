@@ -13,7 +13,7 @@ class MunicipalityReportHead extends Component {
         <div className="report-market-trends">
           <p id="report-name">{data && data.municipality.municipality} {this.props.sale_lease} Market Stats</p>
           <MunicipalityDetailsReportHead data={data}/>
-          <p id="report-duration"><span><img className="report-calendar" src={calendar}/></span> {this.props.duration}</p>
+          <p id="report-duration"><span><img className="report-calendar" alt="calendar" src={calendar}/></span> {this.props.duration}</p>
         </div>
     );
   }
