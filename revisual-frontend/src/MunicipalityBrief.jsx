@@ -50,7 +50,7 @@ class MunicipalityBrief extends Component {
   render() {
     return (
       <div className="brief">
-        <MunicipalityBriefHead data={this.state.data} sale_lease={this.props.sale_lease} duration={this.props.duration} colorChange={this.colorChange} durationChange={this.durationChange}></MunicipalityBriefHead>
+        <MunicipalityBriefHead data={this.state.data} sale_lease={this.props.sale_lease} duration={this.props.duration} colorChange={this.colorChange} durationChange={this.durationChange}/>
         <MunicipalityBriefTable data={this.state.data} sale_lease={this.props.sale_lease}/>
         <MunicipalityBriefChart data={this.state.data}/>
         <Link className="go-to-detail"  to ={{

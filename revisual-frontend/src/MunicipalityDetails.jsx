@@ -4,10 +4,23 @@ import MunicipalityReport from './MunicipalityReport';
 import MunicipalityDetailsReportSummary from './MunicipalityDetailsReportSummary';
 import MunicipalityDetailsFooter from './MunicipalityDetailsFooter';
 import MunicipalityReportHead from './MunicipalityReportHead';
+import MunicipalityDetailsFilter from './MunicipalityDetailsFilter';
+import { SketchPicker } from 'react-color';
+
 
 
 //Report Details page general content
 class MunicipalityDetails extends Component {
+  constructor() {
+    super()
+    this.state = {
+      color: 'rgb(52, 67, 141)'
+    }
+  }
+
+  handleChangeComplete = (colors) => {
+    this.setState({ color: colors.hex });
+  };
 
   render() {
     const data = this.props.location.state.data;
@@ -17,11 +30,14 @@ class MunicipalityDetails extends Component {
     return (
       <section className="third-page">
         <MunicipalityDetailsHead/>
+        <div className="details-main">
+          <MunicipalityDetailsFilter color={this.state.color} handleChangeComplete={this.handleChangeComplete}/>
         <div className="details page">
-          <MunicipalityReportHead data = {data} sale_lease={sale_lease} duration={duration}/>
-          <MunicipalityReport data = {data} sale_lease={sale_lease}/>
+          <MunicipalityReportHead color={this.state.color} data = {data} sale_lease={sale_lease} duration={duration}/>
+          <MunicipalityReport color={this.state.color} data = {data} sale_lease={sale_lease}/>
           <MunicipalityDetailsReportSummary/>
           <MunicipalityDetailsFooter/>
+        </div>
         </div>
       </section>
     );

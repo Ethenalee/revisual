@@ -10,7 +10,11 @@ class MunicipalityReportHead extends Component {
     let data = this.props.data;
 
     return (
-        <div className="report-market-trends">
+        <div className="report-market-trends" ref={(el) => {
+          if (el) {
+            el.style.setProperty('background-color', this.props.color, 'important');
+          }
+        }} >
           <p id="report-name">{data && data.municipality.municipality} {this.props.sale_lease} Market Stats</p>
           <MunicipalityDetailsReportHead data={data}/>
           <p id="report-duration"><span><img className="report-calendar" alt="calendar" src={calendar}/></span> {this.props.duration}</p>
