@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import { RIEInput} from 'riek';
 import _ from 'lodash';
+import MunicipalityBriefHead from './MunicipalityBriefHead';
+
 
 class MunicipalityDetailsReportHead extends Component {
   constructor() {
