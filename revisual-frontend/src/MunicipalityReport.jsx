@@ -11,7 +11,7 @@ class MunicipalityReport extends Component {
     const sale_lease = this.props.sale_lease;
     return (
       <div className="details-table">
-          <MunicipalityDetailsTable data = {data} duration={duration} sale_lease={sale_lease}/>
+          <MunicipalityDetailsTable classNameChange={this.props.classNameChange} color={this.props.color} data = {data} duration={duration} sale_lease={sale_lease}/>
           <MunicipalityDetailsChart data = {data} duration={duration} sale_lease={sale_lease}/>
       </div>
     );

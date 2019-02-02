@@ -929,7 +929,6 @@ label {
 }
 
 .report-head-text {
-  color: white !important;
   background: transparent;
 }
 
@@ -949,6 +948,7 @@ label {
   margin-top: 1cm;
   margin-left: 2%;
   margin-right: 2%;
+  flex-direction: column;
 }
 
 

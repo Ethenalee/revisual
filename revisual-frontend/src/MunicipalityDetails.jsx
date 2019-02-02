@@ -14,13 +14,20 @@ class MunicipalityDetails extends Component {
   constructor() {
     super()
     this.state = {
-      color: 'rgb(52, 67, 141)'
+      color: 'rgb(52, 67, 141)',
+      classNameChange: "None"
     }
   }
 
   handleChangeComplete = (colors) => {
     this.setState({ color: colors.hex });
   };
+
+  classNameChange = (name) => {
+    this.setState({
+    classNameChange: name
+    });
+  }
 
   render() {
     const data = this.props.location.state.data;
@@ -31,10 +38,10 @@ class MunicipalityDetails extends Component {
       <section className="third-page">
         <MunicipalityDetailsHead/>
         <div className="details-main">
-          <MunicipalityDetailsFilter color={this.state.color} handleChangeComplete={this.handleChangeComplete}/>
+          <MunicipalityDetailsFilter color={this.state.color} classNameChange={this.classNameChange} handleChangeComplete={this.handleChangeComplete}/>
         <div className="details page">
-          <MunicipalityReportHead color={this.state.color} data = {data} sale_lease={sale_lease} duration={duration}/>
-          <MunicipalityReport color={this.state.color} data = {data} sale_lease={sale_lease}/>
+          <MunicipalityReportHead classNameChange={this.state.classNameChange} color={this.state.color} data={data} sale_lease={sale_lease} duration={duration}/>
+          <MunicipalityReport  classNameChange={this.state.classNameChange} color={this.state.color} data={data} sale_lease={sale_lease}/>
           <MunicipalityDetailsReportSummary/>
           <MunicipalityDetailsFooter/>
         </div>
