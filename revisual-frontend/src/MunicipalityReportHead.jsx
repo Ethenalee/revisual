@@ -17,6 +17,16 @@ class MunicipalityReportHead extends Component {
     }
   }
 
+  durationChange = (duration) => {
+    if (duration === "1month") {
+      return "current month"
+    } else if (duration === "3months") {
+      return "previous 3 months"
+    } else {
+      return "previous 2 years"
+    }
+  }
+
   render() {
     let data = this.props.data;
 
@@ -36,7 +46,7 @@ class MunicipalityReportHead extends Component {
           if (el && this.refer(this.props.classNameChange) === 'font') {
             el.style.setProperty('color', this.props.color, 'important')
           }
-        }}><span><img className="report-calendar" alt="calendar" src={calendar}/></span> {this.props.duration}</p>
+        }}><span><img className="report-calendar" alt="calendar" src={calendar}/></span> {this.durationChange(this.props.duration)}</p>
         </div>
     );
   }

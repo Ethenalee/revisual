@@ -35,10 +35,10 @@ class MunicipalityDetailsFooter extends Component {
               <span className="contact-labels">Cell: </span><span>{user ? user.phone_cell : ''}</span>&nbsp;&nbsp;<span className="contact-labels">Office: </span><span>{user ? user.phone_office : ''}</span>&nbsp;&nbsp;<span className="contact-labels">Fax: </span><span>{user ? user.phone_fax : ''}</span> 
             </div>
             <div>
-            <span className="contact-labels">Email: </span><span>{user ? user.email : ''}</span>&nbsp;&nbsp;<span className="contact-labels">Website: </span><span>{user ? user.website_url : ''}</span>
+              <span className="contact-labels">Email: </span><span>{user ? user.email : ''}</span>&nbsp;&nbsp;<span className="contact-labels">Website: </span><span>{user ? user.website_url : ''}</span>
             </div>
             <div>
-            <span className="contact-labels">Address: </span><span>{user ? user.address_1 : ''} {user ? user.address_2 : ''} {user ? user.city : ''} </span>
+              <span className="contact-labels">Address: </span><span>{user ? user.address_1 : ''} {user ? user.address_2 : ''} {user ? user.city : ''} </span>
             </div>
           </div>
         </div>

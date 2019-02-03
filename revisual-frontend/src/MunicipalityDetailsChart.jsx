@@ -5,22 +5,22 @@ import 'chartjs-plugin-datalabels';
 
 class MunicipalityDetailsChart extends Component {
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       barChartOptions1: {
         responsive: true,
         maintainAspectRatio: true,
-        tooltips: {
-          callbacks: {
-              label: function(tooltipItem) {
-                  return Number(tooltipItem.yLabel).toFixed(0).replace(/./g, function(c, i, a) {
-                      return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
-                  });
-              }
-          }
-        },
+        // tooltips: {
+        //   callbacks: {
+        //       label: function(tooltipItem) {
+        //           return Number(tooltipItem.yLabel).toFixed(0).replace(/./g, function(c, i, a) {
+        //               return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
+        //           });
+        //       }
+        //   }
+        // },
         plugins: {
           datalabels: {
              display: true,
@@ -66,15 +66,15 @@ class MunicipalityDetailsChart extends Component {
     barChartOptions2: {
       responsive: true,
       maintainAspectRatio: true,
-      tooltips: {
-        callbacks: {
-            label: function(tooltipItem) {
-                return Number(tooltipItem.yLabel).toFixed(0).replace(/./g, function(c, i, a) {
-                    return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
-                });
-            }
-        }
-      },
+      // tooltips: {
+      //   // callbacks: {
+      //   //     label: function(tooltipItem) {
+      //   //         return Number(tooltipItem.yLabel).toFixed(0).replace(/./g, function(c, i, a) {
+      //   //             return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
+      //   //         });
+      //   //     }
+      //   // }
+      // },
       plugins: {
         datalabels: {
            display: true,
@@ -114,15 +114,15 @@ class MunicipalityDetailsChart extends Component {
   barChartOptions3: {
     responsive: true,
     maintainAspectRatio: true,
-    tooltips: {
-      callbacks: {
-          label: function(tooltipItem) {
-              return Number(tooltipItem.yLabel).toFixed(0).replace(/./g, function(c, i, a) {
-                  return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
-              });
-          }
-      }
-    },
+    // tooltips: {
+    //   callbacks: {
+    //       label: function(tooltipItem) {
+    //           return Number(tooltipItem.yLabel).toFixed(0).replace(/./g, function(c, i, a) {
+    //               return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
+    //           });
+    //       }
+    //   }
+    // },
     plugins: {
       datalabels: {
          display: 'true',
@@ -171,9 +171,9 @@ class MunicipalityDetailsChart extends Component {
     }
   }
 
-  dataArrayPrice = (data) => {
+  dataArrayPrices = (data) => {
     if (data && data.monthly_average_sold_price) {
-      return data.monthly_average_sold_price.reverse().map(item => ( 
+      return data && data.monthly_average_sold_price.reverse().map(item => ( 
         Math.floor(item)
       ))
     }
@@ -181,21 +181,21 @@ class MunicipalityDetailsChart extends Component {
 
   dataArrayNumListings = (data) => {
     if (data && data.monthly_number_of_listings) {
-      return data.monthly_number_of_listings.reverse().map(item => ( 
+      return  data && data.monthly_number_of_listings.reverse().map(item => ( 
         Math.floor(item)
       ))
     }
   }
 
-  dataArrayNumListings = (data) => {
+  dataArrayNumSoldListings = (data) => {
     if (data && data.monthly_number_of_sold) {
-      return data.monthly_number_of_sold.reverse();
+      return  data && data.monthly_number_of_sold.reverse();
     }
   }
 
   dataDaysOnMarket = (data) => {
     if (data && data.monthly_average_days_on_market) {
-      return data.monthly_average_days_on_market.reverse().map(item => ( 
+      return  data && data.monthly_average_days_on_market.reverse().map(item => ( 
         Math.floor(item)
       ))
     }
@@ -213,12 +213,12 @@ class MunicipalityDetailsChart extends Component {
   render() {
     let data = this.props.data
     let sale_lease = this.props.sale_lease
-    let dataBarPrice = {
+    let dataBarPrices = {
       labels: this.label(data),
       datasets: [
         {
           label: "Average price",
-          data: this.dataArrayPrice(data),
+          data: this.dataArrayPrices(data) && this.dataArrayPrices(data),
           backgroundColor: "rgba(127, 145, 204, 0.54)"
         }
       ]
@@ -228,7 +228,7 @@ class MunicipalityDetailsChart extends Component {
       datasets: [
         {
           label: "Number of Listings",
-          data: this.dataArrayNumListings(data),
+          data: this.dataArrayNumListings(data) && this.dataArrayNumListings(data),
           backgroundColor: "rgba(63, 127, 191, 0.66)"
         }
       ]
@@ -238,7 +238,7 @@ class MunicipalityDetailsChart extends Component {
       datasets: [
         {
           label:  `Number of ${this.salelease(sale_lease)} Listings`,
-          data: this.dataArrayNumListings(data),
+          data: this.dataArrayNumSoldListings(data) && this.dataArrayNumSoldListings(data),
           backgroundColor: "rgba(179, 103, 207, 0.42)"
         }
       ]
@@ -248,14 +248,14 @@ class MunicipalityDetailsChart extends Component {
       datasets: [
         {
           label:  "Days on Market",
-          data: this.dataArrayNumListings(data),
+          data: this.dataDaysOnMarket(data) && this.dataDaysOnMarket(data),
           backgroundColor: "rgba(169, 173, 192, 0.49)"
         }
       ]
     };
     return (
       <div className="detail-chart">
-        <div className="report-charts"><Bar width={300} height={200} data={dataBarPrice} options={this.state.barChartOptions1} /></div>
+        <div className="report-charts"><Bar width={300} height={200} data={dataBarPrices} options={this.state.barChartOptions1} /></div>
         <div className="report-charts"><Bar width={300} height={200} data={dataBarNumberofListings} options={this.state.barChartOptions2} /></div>
         <div className="report-charts"><Bar width={300} height={200} data={dataBarNumberofSoldListings} options={this.state.barChartOptions2} /></div>
         <div className="report-charts"><Bar width={300} height={200} data={dataBarDaysOnMarket} options={this.state.barChartOptions3} /></div>   

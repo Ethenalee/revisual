@@ -5,7 +5,6 @@ import MunicipalityDetailsReportSummary from './MunicipalityDetailsReportSummary
 import MunicipalityDetailsFooter from './MunicipalityDetailsFooter';
 import MunicipalityReportHead from './MunicipalityReportHead';
 import MunicipalityDetailsFilter from './MunicipalityDetailsFilter';
-import { SketchPicker } from 'react-color';
 
 
 
@@ -39,12 +38,12 @@ class MunicipalityDetails extends Component {
         <MunicipalityDetailsHead/>
         <div className="details-main">
           <MunicipalityDetailsFilter color={this.state.color} classNameChange={this.classNameChange} handleChangeComplete={this.handleChangeComplete}/>
-        <div className="details page">
-          <MunicipalityReportHead classNameChange={this.state.classNameChange} color={this.state.color} data={data} sale_lease={sale_lease} duration={duration}/>
-          <MunicipalityReport  classNameChange={this.state.classNameChange} color={this.state.color} data={data} sale_lease={sale_lease}/>
-          <MunicipalityDetailsReportSummary/>
-          <MunicipalityDetailsFooter/>
-        </div>
+          <div className="details page">
+            <MunicipalityReportHead classNameChange={this.state.classNameChange} color={this.state.color} data={data} sale_lease={sale_lease} duration={duration}/>
+            <MunicipalityReport  classNameChange={this.state.classNameChange} color={this.state.color} data={data} sale_lease={sale_lease}/>
+            <MunicipalityDetailsReportSummary/>
+            <MunicipalityDetailsFooter/>
+          </div>
         </div>
       </section>
     );
