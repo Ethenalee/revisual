@@ -35,6 +35,10 @@
   float: right;
 }
 
+.market-trend {
+  display: flex;
+}
+
 .go-main {
   float: left;
   font-weight: bold;
