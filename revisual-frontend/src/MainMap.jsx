@@ -89,7 +89,7 @@ class Map extends Component {
         <div onClick={this.toggleIntro} className="description">
           {this.state.active &&
             <Jumbotron >
-              <h1>Market reports, reinvented</h1>
+              <h1>Reports, reinvented</h1>
               <p >
                 ✓&emsp;Work with listings in real time <br />
                 ✓&emsp;No need to wait for TREB’s monthly market report <br />
