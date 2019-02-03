@@ -626,8 +626,9 @@ label {
 }
 
 .page {
+  position: relative;
   width: 21cm;
-  min-height: 27.94cm;
+  min-height: 29.7cm;
   margin-top: 1cm;
   margin-bottom: 1cm;
   display: flex;
@@ -647,6 +648,7 @@ label {
   padding: 10px;
   height: auto;
   text-align: center;
+  bottom: 8%;
 }
 
 .report-head {
@@ -669,13 +671,16 @@ label {
   align-items: flex-start;
   margin: 5px;
 }
+
 .contact-labels {
   font-weight: bold;
   color: #0D0C6E !important;
 }
+
 .report-logo {
   margin: 10px;
 }
+
 #name {
   background-color: #F2F1F3;
   border-radius: 10px;
@@ -687,9 +692,10 @@ label {
   margin:0;
   color: #E0E0E0;
 }
+
 .report-table {
   display: flex;
-  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
   flex-direction: row;
 }
@@ -733,7 +739,7 @@ label {
   text-align: center;
   border-style: double;
   width: 100%;
-  font-size: 22px;
+  font-size: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -745,12 +751,12 @@ label {
 
 .report-avg-sold-price {
   display: flex;
+  flex-basis: calc(35% - 40px);
   justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
   background: #F2F1F3 !important;
   border-radius: 10px;
-  margin: 2% 0% 2% 2.6%;
   font-size: 20px;
   font-weight: bold;
 }
@@ -761,7 +767,7 @@ label {
   text-align: center;
   border-style: double;
   width: 100%;
-  font-size: 22px;
+  font-size: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -773,12 +779,12 @@ label {
 
 .report-highest-price {
   display: flex;
+  flex-basis: calc(35% - 40px);
   justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
   background: #F2F1F3 !important;
   border-radius: 10px;
-  margin: 2% 2% 2% 2%;
   font-size: 20px;
   font-weight: bold;
 }
@@ -789,7 +795,7 @@ label {
   text-align: center;
   border-style: double;
   width: 100%;
-  font-size: 22px;
+  font-size: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -801,12 +807,12 @@ label {
 
 .report-lowest-price {
   display: flex;
+  flex-basis: calc(35% - 40px);
   justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
   background: #F2F1F3 !important;
   border-radius: 10px;
-  margin: 2% 0% 2% 0%;
   font-size: 20px;
   font-weight: bold;
 }
@@ -817,7 +823,7 @@ label {
   text-align: center;
   border-style: double;
   width: 100%;
-  font-size: 21px;
+  font-size: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -829,12 +835,12 @@ label {
 
 .report-num-days {
   display: flex;
+  flex-basis: calc(35% - 40px);
   justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
   background: #F2F1F3 !important;
   border-radius: 10px;
-  margin: 2% 0% 2% 0%;
   font-size: 20px;
   font-weight: bold;
 }
@@ -845,7 +851,7 @@ label {
   text-align: center;
   border-style: double;
   width: 100%;
-  font-size: 21px;
+  font-size: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -857,12 +863,12 @@ label {
 
 .report-num-listings {
   display: flex;
+  flex-basis: calc(35% - 40px);
   justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
   background: #F2F1F3 !important;
   border-radius: 10px;
-  margin: 2% 1% 2% 2%;
   font-size: 20px;
   font-weight: bold;
 }
@@ -873,7 +879,7 @@ label {
   text-align: center;
   border-style: double;
   width: 100%;
-  font-size: 21px;
+  font-size: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -885,12 +891,12 @@ label {
 
 .report-num-sold {
   display: flex;
+  flex-basis: calc(35% - 40px);
   justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
   background: #F2F1F3 !important;
   border-radius: 10px;
-  margin: 2% 1% 2% 0%;
   font-size: 20px;
   font-weight: bold;
 }
@@ -929,6 +935,7 @@ label {
 }
 
 .report-head-text {
+  color: white !important;
   background: transparent;
 }
 
@@ -951,6 +958,47 @@ label {
   flex-direction: column;
 }
 
+.prices-values {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 2% 0 2% 0;
+}
+
+.listings-values {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 2% 0 2% 0;
+}
+
+.total {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.details-filter {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.class-filter {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 10px;
+}
+
+.sketch-picker {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 90% !important;
+  margin: 2%;
+}
 
 @page {
   size: A4;
