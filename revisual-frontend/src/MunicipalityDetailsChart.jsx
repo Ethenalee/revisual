@@ -225,33 +225,38 @@ class MunicipalityDetailsChart extends Component {
     }
   };
 
-  dataArrayPrice = data => {
+  dataArrayPrices = data => {
     if (data && data.monthly_average_sold_price) {
-      return data.monthly_average_sold_price
-        .reverse()
-        .map(item => Math.floor(item));
+      return (
+        data &&
+        data.monthly_average_sold_price.reverse().map(item => Math.floor(item))
+      );
     }
   };
 
   dataArrayNumListings = data => {
     if (data && data.monthly_number_of_listings) {
-      return data.monthly_number_of_listings
-        .reverse()
-        .map(item => Math.floor(item));
+      return (
+        data &&
+        data.monthly_number_of_listings.reverse().map(item => Math.floor(item))
+      );
     }
   };
 
-  dataArrayNumListings = data => {
+  dataArrayNumSoldListings = data => {
     if (data && data.monthly_number_of_sold) {
-      return data.monthly_number_of_sold.reverse();
+      return data && data.monthly_number_of_sold.reverse();
     }
   };
 
   dataDaysOnMarket = data => {
     if (data && data.monthly_average_days_on_market) {
-      return data.monthly_average_days_on_market
-        .reverse()
-        .map(item => Math.floor(item));
+      return (
+        data &&
+        data.monthly_average_days_on_market
+          .reverse()
+          .map(item => Math.floor(item))
+      );
     }
   };
 
@@ -263,26 +268,66 @@ class MunicipalityDetailsChart extends Component {
     }
   };
 
+  colorScheme = () => {
+    const first = [
+      'rgba(127, 145, 204, 0.54)',
+      'rgba(63, 127, 191, 0.66)',
+      'rgba(179, 103, 207, 0.42)',
+      'rgba(169, 173, 192, 0.49)'
+    ];
+    const second = [
+      'rgba(12, 145, 204, 0.54)',
+      'rgba(6, 127, 191, 0.66)',
+      'rgba(17, 103, 207, 0.42)',
+      'rgba(16, 173, 192, 0.49)'
+    ];
+    const third = [
+      'rgba(133, 145, 204, 0.54)',
+      'rgba(411, 127, 191, 0.66)',
+      'rgba(333, 103, 207, 0.42)',
+      'rgba(933, 173, 192, 0.49)'
+    ];
+    const forth = [
+      'rgba(243, 239, 185, 0.87)',
+      'rgba(46, 414, 191, 0.66)',
+      'rgba(20, 204, 152, 0.87)',
+      'rgba(177, 204, 197, 0.87)'
+    ];
+
+    if (this.props.chartName === 'set-one') {
+      return second;
+    } else if (this.props.chartName === 'set-two') {
+      return third;
+    } else if (this.props.chartName === 'set-three') {
+      return forth;
+    } else {
+      return first;
+    }
+  };
+
   render() {
     let data = this.props.data;
     let sale_lease = this.props.sale_lease;
-    let dataBarPrice = {
+
+    let dataBarPrices = {
       labels: this.label(data),
       datasets: [
         {
           label: 'Average price',
-          data: this.dataArrayPrice(data),
-          backgroundColor: 'rgba(127, 145, 204, 0.54)'
+          data: this.dataArrayPrices(data) && this.dataArrayPrices(data),
+          backgroundColor: this.colorScheme()[0]
         }
       ]
     };
+
     let dataBarNumberofListings = {
       labels: this.label(data),
       datasets: [
         {
           label: 'Number of Listings',
-          data: this.dataArrayNumListings(data),
-          backgroundColor: 'rgba(63, 127, 191, 0.66)'
+          data:
+            this.dataArrayNumListings(data) && this.dataArrayNumListings(data),
+          backgroundColor: this.colorScheme()[1]
         }
       ]
     };
@@ -291,8 +336,10 @@ class MunicipalityDetailsChart extends Component {
       datasets: [
         {
           label: `Number of ${this.salelease(sale_lease)} Listings`,
-          data: this.dataArrayNumListings(data),
-          backgroundColor: 'rgba(179, 103, 207, 0.42)'
+          data:
+            this.dataArrayNumSoldListings(data) &&
+            this.dataArrayNumSoldListings(data),
+          backgroundColor: this.colorScheme()[2]
         }
       ]
     };
@@ -301,44 +348,52 @@ class MunicipalityDetailsChart extends Component {
       datasets: [
         {
           label: 'Days on Market',
-          data: this.dataArrayNumListings(data),
-          backgroundColor: 'rgba(169, 173, 192, 0.49)'
+          data: this.dataDaysOnMarket(data) && this.dataDaysOnMarket(data),
+          backgroundColor: this.colorScheme()[3]
         }
       ]
     };
     return (
       <div className="detail-chart">
         <DraggableItem as="div" className="swappable-block">
-          <Bar
-            width={300}
-            height={200}
-            data={dataBarPrice}
-            options={this.state.barChartOptions1}
-          />
+          <div className="report-charts">
+            <Bar
+              width={300}
+              height={200}
+              data={dataBarPrices}
+              options={this.state.barChartOptions1}
+            />
+          </div>
         </DraggableItem>
         <DraggableItem as="div" className="swappable-block">
-          <Bar
-            width={300}
-            height={200}
-            data={dataBarNumberofListings}
-            options={this.state.barChartOptions2}
-          />
+          <div className="report-charts">
+            <Bar
+              width={300}
+              height={200}
+              data={dataBarNumberofListings}
+              options={this.state.barChartOptions2}
+            />
+          </div>
         </DraggableItem>
         <DraggableItem as="div" className="swappable-block">
-          <Bar
-            width={300}
-            height={200}
-            data={dataBarNumberofSoldListings}
-            options={this.state.barChartOptions2}
-          />
+          <div className="report-charts">
+            <Bar
+              width={300}
+              height={200}
+              data={dataBarNumberofSoldListings}
+              options={this.state.barChartOptions2}
+            />
+          </div>
         </DraggableItem>
         <DraggableItem as="div" className="swappable-block">
-          <Bar
-            width={300}
-            height={200}
-            data={dataBarDaysOnMarket}
-            options={this.state.barChartOptions3}
-          />
+          <div className="report-charts">
+            <Bar
+              width={300}
+              height={200}
+              data={dataBarDaysOnMarket}
+              options={this.state.barChartOptions3}
+            />
+          </div>{' '}
         </DraggableItem>
       </div>
     );
