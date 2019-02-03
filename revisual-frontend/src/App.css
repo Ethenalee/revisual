@@ -629,6 +629,13 @@ label {
   flex-direction: row;
 }
 
+.details-table {
+  background-image: url("./images/toronto.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: 15em 31em ;
+  background-size: 400px 150px;
+}
+
 .page {
   position: relative;
   width: 21cm;
@@ -1014,7 +1021,7 @@ label {
 
 .report-conact-text {
   display: flex;
-  border: solid white;
+  border: solid transparent;
 }
 
 @page {
