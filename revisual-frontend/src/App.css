@@ -632,8 +632,8 @@ label {
 .details-table {
   background-image: url("./images/toronto.png") !important;
   background-repeat: no-repeat !important;
-  background-position: 15em 31em ;
-  background-size: 400px 150px;
+  background-position: 15em 31em !important;
+  background-size: 400px 150px !important;
 }
 
 .page {
