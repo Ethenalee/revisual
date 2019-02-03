@@ -40,6 +40,7 @@ class MunicipalityDetailsFilter extends Component {
         color={ this.props.color }
         onChangeComplete={ this.props.handleChangeComplete }
         />
+        <button className="print-button" onClick={()=>window.print()} >Print Report</button>
       </div>
     );
   }
