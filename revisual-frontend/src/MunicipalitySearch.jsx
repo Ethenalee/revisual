@@ -31,12 +31,18 @@ class MunicipalitySearch extends Component {
 
   saleChange = (sale) => {
     this.setState({
-     sale_lease: sale
+     sale_lease: sale,
+     duration: this.state.duration,
+     areacode: this.state.areacode, 
+     municipality: this.state.municipality 
     });
   }
   durationChange = (duration) => {
     this.setState({
-      duration: duration
+      sale_lease: this.state.sale_lease,
+      duration: duration,
+      areacode: this.state.areacode, 
+      municipality: this.state.municipality 
     });
   }
 

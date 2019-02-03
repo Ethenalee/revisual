@@ -5,12 +5,34 @@ import MunicipalityReport from './MunicipalityReport';
 import MunicipalityDetailsReportSummary from './MunicipalityDetailsReportSummary';
 import MunicipalityDetailsFooter from './MunicipalityDetailsFooter';
 import MunicipalityReportHead from './MunicipalityReportHead';
+import MunicipalityDetailsFilter from './MunicipalityDetailsFilter';
 
 //Report Details page general content
 class MunicipalityDetails extends Component {
   constructor() {
     super();
+    this.state = {
+      color: 'rgb(52, 67, 141)',
+      classNameChange: 'None',
+      chartNameChange: 'None'
+    };
   }
+
+  handleChangeComplete = colors => {
+    this.setState({ color: colors.hex });
+  };
+
+  classNameChange = name => {
+    this.setState({
+      classNameChange: name
+    });
+  };
+
+  chartNameChange = name => {
+    this.setState({
+      chartNameChange: name
+    });
+  };
 
   render() {
     const data = this.props.location.state.data;
@@ -20,23 +42,29 @@ class MunicipalityDetails extends Component {
     return (
       <section className="third-page">
         <MunicipalityDetailsHead />
-
-        <div className="details page">
-          <div className="reportHead">
+        <div className="details-main">
+          <MunicipalityDetailsFilter
+            color={this.state.color}
+            chartNameChange={this.chartNameChange}
+            classNameChange={this.classNameChange}
+            handleChangeComplete={this.handleChangeComplete}
+          />
+          <div className="details page">
             <MunicipalityReportHead
+              classNameChange={this.state.classNameChange}
+              color={this.state.color}
               data={data}
               sale_lease={sale_lease}
               duration={duration}
             />
-          </div>
-
-          <MunicipalityReport data={data} sale_lease={sale_lease} />
-
-          <div className="reportSummary">
+            <MunicipalityReport
+              chartNameChange={this.state.chartNameChange}
+              classNameChange={this.state.classNameChange}
+              color={this.state.color}
+              data={data}
+              sale_lease={sale_lease}
+            />
             <MunicipalityDetailsReportSummary />
-          </div>
-
-          <div className="reportFooter">
             <MunicipalityDetailsFooter />
           </div>
         </div>
