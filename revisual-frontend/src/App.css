@@ -692,6 +692,12 @@ label {
   justify-content: flex-end;
 }
 
+.compareModalNew {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
 canvas {
   display: flex;
   justify-content: center;
