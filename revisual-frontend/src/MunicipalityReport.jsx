@@ -12,7 +12,7 @@ class MunicipalityReport extends Component {
     return (
       <div className="details-table">
           <MunicipalityDetailsTable classNameChange={this.props.classNameChange} color={this.props.color} data = {data} duration={duration} sale_lease={sale_lease}/>
-          <MunicipalityDetailsChart data = {data} duration={duration} sale_lease={sale_lease}/>
+          <MunicipalityDetailsChart chartName={this.props.chartNameChange} data = {data} duration={duration} sale_lease={sale_lease}/>
       </div>
     );
   }

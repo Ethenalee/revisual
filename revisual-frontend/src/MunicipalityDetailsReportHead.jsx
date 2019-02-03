@@ -8,7 +8,7 @@ class MunicipalityDetailsReportHead extends Component {
     super();
     this.state = {
       text: "blank",
-      text_value_in_header: "Report Summary",
+      text_value_in_header: "Customized Summary",
       text_value_in_written_summary:"Insert Text Here",
       isDisabled: false,
       simulateXHR: false,

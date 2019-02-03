@@ -9,12 +9,25 @@ class MunicipalityDetailsFilter extends Component {
     this.props.classNameChange(e.target.value);
   }
 
+  chartNameChange = (e) => {
+    this.props.chartNameChange(e.target.value);
+  }
+
   render() {
     return (
       <div className="details-filter">
         <div className="class-filter">
           <div className="class-form-group">
-            <label className="class-form-label" htmlFor="color-pick" >Color pick</label>
+            <label className="class-form-label" htmlFor="chart-pick" >Customize Your Own Chart</label>
+            <select onChange={this.chartNameChange} className="form-control">
+              <option value="me">Select</option>
+              <option value="set-one">Color scheme 1</option>
+              <option value="set-two">Color scheme 2</option>
+              <option value="set-three">Color scheme 3</option>
+            </select>
+          </div>
+          <div className="class-form-group">
+            <label className="class-form-label" htmlFor="color-pick" >Customize Your Own</label>
             <select onChange={this.classNameChange} className="form-control">
               <option value="">Select</option>
               <option value="report-market-trends">Head Color</option>

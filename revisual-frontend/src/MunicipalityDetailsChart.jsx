@@ -12,15 +12,15 @@ class MunicipalityDetailsChart extends Component {
       barChartOptions1: {
         responsive: true,
         maintainAspectRatio: true,
-        // tooltips: {
-        //   callbacks: {
-        //       label: function(tooltipItem) {
-        //           return Number(tooltipItem.yLabel).toFixed(0).replace(/./g, function(c, i, a) {
-        //               return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
-        //           });
-        //       }
-        //   }
-        // },
+        tooltips: {
+          callbacks: {
+              label: function(tooltipItem) {
+                  return Number(tooltipItem.yLabel).toFixed(0).replace(/./g, function(c, i, a) {
+                      return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
+                  });
+              }
+          }
+        },
         plugins: {
           datalabels: {
              display: true,
@@ -66,15 +66,15 @@ class MunicipalityDetailsChart extends Component {
     barChartOptions2: {
       responsive: true,
       maintainAspectRatio: true,
-      // tooltips: {
-      //   // callbacks: {
-      //   //     label: function(tooltipItem) {
-      //   //         return Number(tooltipItem.yLabel).toFixed(0).replace(/./g, function(c, i, a) {
-      //   //             return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
-      //   //         });
-      //   //     }
-      //   // }
-      // },
+      tooltips: {
+        callbacks: {
+            label: function(tooltipItem) {
+                return Number(tooltipItem.yLabel).toFixed(0).replace(/./g, function(c, i, a) {
+                    return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
+                });
+            }
+        }
+      },
       plugins: {
         datalabels: {
            display: true,
@@ -114,15 +114,15 @@ class MunicipalityDetailsChart extends Component {
   barChartOptions3: {
     responsive: true,
     maintainAspectRatio: true,
-    // tooltips: {
-    //   callbacks: {
-    //       label: function(tooltipItem) {
-    //           return Number(tooltipItem.yLabel).toFixed(0).replace(/./g, function(c, i, a) {
-    //               return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
-    //           });
-    //       }
-    //   }
-    // },
+    tooltips: {
+      callbacks: {
+          label: function(tooltipItem) {
+              return Number(tooltipItem.yLabel).toFixed(0).replace(/./g, function(c, i, a) {
+                  return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
+              });
+          }
+      }
+    },
     plugins: {
       datalabels: {
          display: 'true',
@@ -210,26 +210,45 @@ class MunicipalityDetailsChart extends Component {
     }
   }
 
+  colorScheme = () => {
+    const first = ["rgba(127, 145, 204, 0.54)", "rgba(63, 127, 191, 0.66)", "rgba(179, 103, 207, 0.42)", "rgba(169, 173, 192, 0.49)"]
+    const second = ["rgba(12, 145, 204, 0.54)", "rgba(6, 127, 191, 0.66)", "rgba(17, 103, 207, 0.42)", "rgba(16, 173, 192, 0.49)"]
+    const third = ["rgba(133, 145, 204, 0.54)", "rgba(411, 127, 191, 0.66)", "rgba(333, 103, 207, 0.42)", "rgba(933, 173, 192, 0.49)"]
+    const forth = ["rgba(12, 39, 204, 0.54)", "rgba(6, 414, 191, 0.66)", "rgba(17, 24, 207, 0.42)", "rgba(16, 13, 192, 0.49)"]
+
+    if (this.props.chartName==='set-one') {
+      return second
+    } else if (this.props.chartName === 'set-two'){
+      return third
+    } else if (this.props.chartName === 'set-three'){
+      return forth
+    } else {
+      return first
+    }
+  }
+
   render() {
     let data = this.props.data
     let sale_lease = this.props.sale_lease
+
     let dataBarPrices = {
       labels: this.label(data),
       datasets: [
         {
           label: "Average price",
           data: this.dataArrayPrices(data) && this.dataArrayPrices(data),
-          backgroundColor: "rgba(127, 145, 204, 0.54)"
+          backgroundColor: this.colorScheme()[0]
         }
       ]
     };
+
     let dataBarNumberofListings = {
       labels: this.label(data),
       datasets: [
         {
           label: "Number of Listings",
           data: this.dataArrayNumListings(data) && this.dataArrayNumListings(data),
-          backgroundColor: "rgba(63, 127, 191, 0.66)"
+          backgroundColor: this.colorScheme()[1]
         }
       ]
     };
@@ -239,7 +258,7 @@ class MunicipalityDetailsChart extends Component {
         {
           label:  `Number of ${this.salelease(sale_lease)} Listings`,
           data: this.dataArrayNumSoldListings(data) && this.dataArrayNumSoldListings(data),
-          backgroundColor: "rgba(179, 103, 207, 0.42)"
+          backgroundColor: this.colorScheme()[2]
         }
       ]
     };
@@ -249,7 +268,7 @@ class MunicipalityDetailsChart extends Component {
         {
           label:  "Days on Market",
           data: this.dataDaysOnMarket(data) && this.dataDaysOnMarket(data),
-          backgroundColor: "rgba(169, 173, 192, 0.49)"
+          backgroundColor: this.colorScheme()[3]
         }
       ]
     };
