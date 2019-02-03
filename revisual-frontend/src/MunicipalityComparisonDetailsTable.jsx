@@ -4,9 +4,6 @@ import React, {Component} from 'react';
 class MunicipalityComparisonDetailsTable extends Component {
   constructor() {
     super()
-    this.state = {
-      community : ["","Newtonbrook East, Willowdale East", "High Park, South Parkdale, Swansea, Roncesvalles Village", "Davisville Village, Midtown Toronto, Lawrence Park South"]
-    }
   }
 
   salelease = (data) => {

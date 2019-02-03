@@ -6,6 +6,23 @@ import MunicipalityComparisonDetailsChart from './MunicipalityComparisonDetailsC
 class MunicipalityComparisonReport extends Component {
   constructor() {
     super();
+    this.state = {
+      comparisonData: null,
+    }
+  }
+
+  componentWillMount = () => {
+    this.updateData(this.props);
+  }
+
+  componentWillReceiveProps = (nextProps) => {
+    this.updateData(nextProps);
+  }
+
+  updateData = (props) => {
+    fetch(`http://localhost:3001/municipalities/${props.comparisonAreacode}?timeframe=${props.duration}&sale_lease=${props.sale_lease}`)
+      .then(response => response.json())
+      .then(comparisonData => this.setState({ comparisonData }));
   }
 
   render() {
@@ -16,11 +33,10 @@ class MunicipalityComparisonReport extends Component {
     const comparisonMunipality = this.props.comparisonMunipality;
     return (
       <div className="details-table">
-          ALT REPORT<br/><br/>
           <div className="centreTable">
-            <MunicipalityComparisonDetailsTable data = {data} duration={duration} comparisonAreacode={comparisonAreacode} comparisonMunipality={comparisonMunipality} sale_lease={sale_lease}/>
+            <MunicipalityComparisonDetailsTable comparisonData={this.state.comparisonData} data = {data} duration={duration} comparisonAreacode={comparisonAreacode} comparisonMunipality={comparisonMunipality} sale_lease={sale_lease}/>
           </div>
-          <MunicipalityComparisonDetailsChart data = {data} duration={duration} comparisonAreacode={comparisonAreacode} comparisonMunipality={comparisonMunipality} sale_lease={sale_lease}/>
+          <MunicipalityComparisonDetailsChart comparisonData={this.state.comparisonData} chartName={this.props.chartNameChange} classNameChange={this.props.classNameChange} color={this.props.color} data = {data} duration={duration} comparisonAreacode={comparisonAreacode} comparisonMunipality={comparisonMunipality} sale_lease={sale_lease}/>
       </div>
     );
   }
