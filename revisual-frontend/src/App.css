@@ -948,7 +948,8 @@ label {
 }
 
 .details-filter {
-  border: solid 2px black;
+  border: solid 2px grey;
+  border-radius: 10px;
   display: flex;
   width: 20%;
   height: 50%;

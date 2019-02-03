@@ -14,7 +14,8 @@ class MunicipalityDetails extends Component {
     super()
     this.state = {
       color: 'rgb(52, 67, 141)',
-      classNameChange: "None"
+      classNameChange: 'None',
+      chartNameChange: 'None'
     }
   }
 
@@ -28,6 +29,14 @@ class MunicipalityDetails extends Component {
     });
   }
 
+  chartNameChange = (name) => {
+    this.setState({
+    chartNameChange: name
+    });
+  }
+
+
+
   render() {
     const data = this.props.location.state.data;
     const sale_lease = this.props.location.state.sale_lease;
@@ -37,10 +46,10 @@ class MunicipalityDetails extends Component {
       <section className="third-page">
         <MunicipalityDetailsHead/>
         <div className="details-main">
-          <MunicipalityDetailsFilter color={this.state.color} classNameChange={this.classNameChange} handleChangeComplete={this.handleChangeComplete}/>
+          <MunicipalityDetailsFilter color={this.state.color} chartNameChange={this.chartNameChange} classNameChange={this.classNameChange} handleChangeComplete={this.handleChangeComplete}/>
           <div className="details page">
             <MunicipalityReportHead classNameChange={this.state.classNameChange} color={this.state.color} data={data} sale_lease={sale_lease} duration={duration}/>
-            <MunicipalityReport  classNameChange={this.state.classNameChange} color={this.state.color} data={data} sale_lease={sale_lease}/>
+            <MunicipalityReport  chartNameChange={this.state.chartNameChange} classNameChange={this.state.classNameChange} color={this.state.color} data={data} sale_lease={sale_lease}/>
             <MunicipalityDetailsReportSummary/>
             <MunicipalityDetailsFooter/>
           </div>
