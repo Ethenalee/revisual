@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^3.9.0",
+    "@material-ui/core": "^3.9.1",
     "@material-ui/icons": "^3.0.2",
     "@wuweiweiwu/react-shopify-draggable": "0.0.5",
     "chartjs-plugin-datalabels": "^0.5.0",
@@ -13,6 +13,7 @@
     "react-chartjs-2": "^2.7.4",
     "react-color": "^2.17.0",
     "react-dom": "^16.7.0",
+    "react-modal": "^3.8.1",
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.3",

@@ -386,6 +386,10 @@ label {
   border: double;
 }
 
+.labels-text {
+  color: white !important;
+}
+
 .community .values {
   font-weight: bold;
   font-size: 1vw;
@@ -993,6 +997,28 @@ label {
 
 .details-filter {
   padding: 10px;
+
+}
+.compareModalClose {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.compareModalNew {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  height: 5%;
+  margin: 2%;
+  margin-top: 3%;
+}
+
+.comparisonTable {
+  border: 1px solid black;
+}
+
+.centreTable{
   display: flex;
   justify-content: center;
   align-items: center;
