@@ -15,53 +15,116 @@ class MunicipalityComparisonDetailsTable extends Component {
     }
   }
 
+  difference = (data1, data2) => {
+    return `${Math.floor(((data1 - data2) / data2) * 100)} %`
+  }
+
+  refer = (name) => {
+    if (name === "report-labels") {
+      return true
+    } else if(name === "font") {
+      return "font"
+    }
+     else {
+      return ""
+    }
+  }
+
   render() {
-    let municipality = this.props.data && this.props.data.municipality.id
-    let data = this.props.data
     return (
-      <div>
+      <div className="centreTable">
         <table cellSpacing='10' className="comparisonTable" align="center" >
-          <tr className="comparisonTable">
-            <th className="comparisonTable" align="center">Type</th>
-            <th className="comparisonTable" align="center">Mun 1</th>
-            <th className="comparisonTable" align="center">Mun 2</th>
-            <th className="comparisonTable" align="center">Comparison</th>
-          </tr>
-          <tr className="comparisonTable">
-            <td className="comparisonTable">X </td>
-            <td className="comparisonTable">Alfreds Futterkiste</td>
-            <td className="comparisonTable">Maria Anders</td>
-            <td className="comparisonTable">Germany</td>
-          </tr>
-          <tr className="comparisonTable">
-            <td className="comparisonTable">X </td>
-            <td className="comparisonTable">Centro comercial Moctezuma</td>
-            <td className="comparisonTable">Francisco Chang</td>
-            <td className="comparisonTable">Mexico</td>
-          </tr>
-          <tr className="comparisonTable">
-            <td className="comparisonTable">X </td>
-            <td className="comparisonTable">Ernst Handel</td>
-            <td className="comparisonTable">Roland Mendel</td>
-            <td className="comparisonTable">Austria</td>
-          </tr>
-          <tr className="comparisonTable">
-            <td className="comparisonTable">X </td>
-            <td className="comparisonTable">Island Trading</td>
-            <td className="comparisonTable">Helen Bennett</td>
-            <td className="comparisonTable">UK</td>
-          </tr>
-          <tr className="comparisonTable">
-            <td className="comparisonTable">X </td>
-            <td className="comparisonTable">Laughing Bacchus Winecellars</td>
-            <td className="comparisonTable">Yoshi Tannamuri</td>
-            <td className="comparisonTable">Canada</td>
+          <tr className="comparisonTable-head">
+            <th ref={(el) => {
+          if (el && this.refer(this.props.classNameChange) === true) {
+            el.style.setProperty('background-color', this.props.color, 'important');
+          } else if (el && this.refer(this.props.classNameChange) === 'font') {
+            el.style.setProperty('color', this.props.color, 'important')
+          }}} >Type</th>
+            <th ref={(el) => {
+          if (el && this.refer(this.props.classNameChange) === true) {
+            el.style.setProperty('background-color', this.props.color, 'important');
+          } else if (el && this.refer(this.props.classNameChange) === 'font') {
+            el.style.setProperty('color', this.props.color, 'important')
+          }}} >{this.props.data && this.props.data.municipality.municipality}</th>
+            <th ref={(el) => {
+          if (el && this.refer(this.props.classNameChange) === true) {
+            el.style.setProperty('background-color', this.props.color, 'important');
+          } else if (el && this.refer(this.props.classNameChange) === 'font') {
+            el.style.setProperty('color', this.props.color, 'important')
+          }}} >{this.props.comparisonMunipality.toUpperCase()}</th>
+            <th ref={(el) => {
+          if (el && this.refer(this.props.classNameChange) === true) {
+            el.style.setProperty('background-color', this.props.color, 'important');
+          } else if (el && this.refer(this.props.classNameChange) === 'font') {
+            el.style.setProperty('color', this.props.color, 'important')
+          }}} >Rate of Change</th>
           </tr>
           <tr>
-            <td className="comparisonTable">X </td>
-            <td className="comparisonTable">Magazzini Alimentari Riuniti</td>
-            <td className="comparisonTable">Giovanni Rovelli</td>
-            <td className="comparisonTable">Italy</td>
+            <td className="comparisonTable-head" ref={(el) => {
+          if (el && this.refer(this.props.classNameChange) === true) {
+            el.style.setProperty('background-color', this.props.color, 'important');
+          } else if (el && this.refer(this.props.classNameChange) === 'font') {
+            el.style.setProperty('color', this.props.color, 'important')
+          }}} >Average Sold Price</td>
+            <td>$ {this.props.data && this.props.data.average_sold_price.toString().split('.')[0].replace(/(.)(?=(.{3})+$)/g,"$1,")} CAD</td>
+            <td>$ {this.props.comparisonData && this.props.comparisonData.average_sold_price.toString().split('.')[0].replace(/(.)(?=(.{3})+$)/g,"$1,")} CAD</td>
+            <td>{this.difference(this.props.data && this.props.data.average_sold_price, this.props.comparisonData && this.props.comparisonData.average_sold_price)}</td>
+          </tr>
+          <tr>
+            <td className="comparisonTable-head" ref={(el) => {
+          if (el && this.refer(this.props.classNameChange) === true) {
+            el.style.setProperty('background-color', this.props.color, 'important');
+          } else if (el && this.refer(this.props.classNameChange) === 'font') {
+            el.style.setProperty('color', this.props.color, 'important')
+          }}} >Highest Priced Listing</td>
+            <td>$ {this.props.data && this.props.data.highest_priced_sale.toString().split('.')[0].replace(/(.)(?=(.{3})+$)/g,"$1,")} CAD</td>
+            <td>$ {this.props.comparisonData && this.props.comparisonData.highest_priced_sale.toString().split('.')[0].replace(/(.)(?=(.{3})+$)/g,"$1,")} CAD</td>
+            <td>{this.difference(this.props.data && this.props.data.highest_priced_sale, this.props.comparisonData && this.props.comparisonData.highest_priced_sale)}</td>
+          </tr>
+          <tr>
+            <td className="comparisonTable-head" ref={(el) => {
+          if (el && this.refer(this.props.classNameChange) === true) {
+            el.style.setProperty('background-color', this.props.color, 'important');
+          } else if (el && this.refer(this.props.classNameChange) === 'font') {
+            el.style.setProperty('color', this.props.color, 'important')
+          }}} > Lowest Priced Listing</td>
+            <td>$ {this.props.data && this.props.data.lowest_priced_sale.toString().split('.')[0].replace(/(.)(?=(.{3})+$)/g,"$1,")} CAD</td>
+            <td>$ {this.props.comparisonData && this.props.comparisonData.lowest_priced_sale.toString().split('.')[0].replace(/(.)(?=(.{3})+$)/g,"$1,")} CAD</td>
+            <td>{this.difference(this.props.data && this.props.data.lowest_priced_sale, this.props.comparisonData && this.props.comparisonData.lowest_priced_sale)}</td>
+          </tr>
+          <tr>
+            <td className="comparisonTable-head" ref={(el) => {
+          if (el && this.refer(this.props.classNameChange) === true) {
+            el.style.setProperty('background-color', this.props.color, 'important');
+          } else if (el && this.refer(this.props.classNameChange) === 'font') {
+            el.style.setProperty('color', this.props.color, 'important')
+          }}} >Number of Total Listings </td>
+            <td>{this.props.data && this.props.data.number_of_listings.toString().split('.')[0].replace(/(.)(?=(.{3})+$)/g,"1,")}</td>
+            <td>{this.props.comparisonData && this.props.comparisonData.number_of_listings.toString().split('.')[0].replace(/(.)(?=(.{3})+$)/g,"1,")}</td>
+            <td>{this.difference(this.props.data && this.props.data.number_of_listings, this.props.comparisonData && this.props.comparisonData.number_of_listings)}</td>
+          </tr>
+          <tr>
+            <td className="comparisonTable-head" ref={(el) => {
+          if (el && this.refer(this.props.classNameChange) === true) {
+            el.style.setProperty('background-color', this.props.color, 'important');
+          } else if (el && this.refer(this.props.classNameChange) === 'font') {
+            el.style.setProperty('color', this.props.color, 'important')
+          }}} >Number of {this.salelease(this.props.sale_lease)} listings</td>
+            <td>{this.props.data && this.props.data.number_of_sold.toString().split('.')[0].replace(/(.)(?=(.{3})+$)/g,"1,")}</td>
+            <td>{this.props.comparisonData && this.props.comparisonData.number_of_sold.toString().split('.')[0].replace(/(.)(?=(.{3})+$)/g,"1,")}</td>
+            <td>{this.difference(this.props.data && this.props.data.number_of_sold, this.props.comparisonData && this.props.comparisonData.number_of_sold)}</td>
+          </tr>
+          <tr>
+            <td className="comparisonTable-head"ref={(el) => {
+          if (el && this.refer(this.props.classNameChange) === true) {
+            el.style.setProperty('background-color', this.props.color, 'important');
+          } else if (el && this.refer(this.props.classNameChange) === 'font') {
+            el.style.setProperty('color', this.props.color, 'important')
+          }}} > Average days on Market</td>
+            <td>{this.props.data && this.props.data.average_days_on_market.toString().split('.')[0].replace(/(.)(?=(.{3})+$)/g,"1,")}</td>
+            <td>{this.props.comparisonData && this.props.comparisonData.average_days_on_market.toString().split('.')[0].replace(/(.)(?=(.{3})+$)/g,"1,")}</td>
+            <td>{this.difference(this.props.data && this.props.data.average_days_on_market, this.props.comparisonData && this.props.comparisonData.average_days_on_market)}</td>
           </tr>
         </table>
       </div>
