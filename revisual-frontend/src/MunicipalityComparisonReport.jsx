@@ -33,9 +33,7 @@ class MunicipalityComparisonReport extends Component {
     const comparisonMunipality = this.props.comparisonMunipality;
     return (
       <div className="details-table">
-          <div className="centreTable">
-            <MunicipalityComparisonDetailsTable comparisonData={this.state.comparisonData} data = {data} duration={duration} comparisonAreacode={comparisonAreacode} comparisonMunipality={comparisonMunipality} sale_lease={sale_lease}/>
-          </div>
+          <MunicipalityComparisonDetailsTable comparisonData={this.state.comparisonData} classNameChange={this.props.classNameChange} color={this.props.color} data = {data} duration={duration} comparisonAreacode={comparisonAreacode} comparisonMunipality={comparisonMunipality} sale_lease={sale_lease}/>
           <MunicipalityComparisonDetailsChart comparisonData={this.state.comparisonData} chartName={this.props.chartNameChange} classNameChange={this.props.classNameChange} color={this.props.color} data = {data} duration={duration} comparisonAreacode={comparisonAreacode} comparisonMunipality={comparisonMunipality} sale_lease={sale_lease}/>
       </div>
     );

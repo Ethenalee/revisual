@@ -615,11 +615,11 @@ label {
 }
 
 .detail-chart {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .details {
@@ -1025,16 +1025,6 @@ label {
   border: solid 2px grey;
 }
 
-.comparisonTable {
-  border: 1px solid black;
-}
-
-.centreTable{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .class-filter {
   display: flex;
   flex-direction: column;
@@ -1069,6 +1059,47 @@ label {
   flex-direction: row;
   flex-wrap: wrap;
   margin: 1%;
+}
+
+th {
+  text-align: center;
+  padding: 1%;
+}
+
+.comparisonTable-head {
+  background: #3F7FBF !important;
+  color: white !important;
+  padding: 1%;
+  font-weight: bold;
+  text-align: left;
+}
+
+.comparisonTable {
+  border: 1px solid white;
+  width: 80%;
+}
+
+.centreTable{
+  width: 100%;
+  margin: 3% auto 3% auto;
+}
+
+.comparison-chart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.comparison-report-charts {
+  display: flex;
+  margin: 2%;
+}
+
+td {
+  text-align: right;
 }
 
 @page {

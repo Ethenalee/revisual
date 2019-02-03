@@ -10,7 +10,7 @@ class MunicipalityDetailsChart extends Component {
 
     this.state = {
       barChartOptions1: {
-        responsive: true,
+        responsive: false,
         maintainAspectRatio: true,
         tooltips: {
           callbacks: {
@@ -64,7 +64,7 @@ class MunicipalityDetailsChart extends Component {
         }
       },
     barChartOptions2: {
-      responsive: true,
+      responsive: false,
       maintainAspectRatio: true,
       tooltips: {
         callbacks: {
@@ -112,7 +112,7 @@ class MunicipalityDetailsChart extends Component {
       }
     },
   barChartOptions3: {
-    responsive: true,
+    responsive: false,
     maintainAspectRatio: true,
     tooltips: {
       callbacks: {
@@ -348,11 +348,11 @@ class MunicipalityDetailsChart extends Component {
       ]
     };
     return (
-      <div className="detail-chart">
-        <div><Bar width={300} height={200} data={dataBarPrice} options={this.state.barChartOptions1} /></div>
-        <div><Bar width={300} height={200} data={dataBarNumberofListings} options={this.state.barChartOptions2} /></div>
-        <div><Bar width={300} height={200} data={dataBarNumberofSoldListings} options={this.state.barChartOptions2} /></div>
-        <div><Bar width={300} height={200} data={dataBarDaysOnMarket} options={this.state.barChartOptions3} /></div>   
+      <div className="comparison-chart">
+        <div className="comparison-report-charts"><Bar width={300} height={200} data={dataBarPrice} options={this.state.barChartOptions1} /></div>
+        <div className="comparison-report-charts"><Bar width={300} height={200} data={dataBarNumberofListings} options={this.state.barChartOptions2} /></div>
+        <div className="comparison-report-charts"><Bar width={300} height={200} data={dataBarNumberofSoldListings} options={this.state.barChartOptions2} /></div>
+        <div className="comparison-report-charts"><Bar width={300} height={200} data={dataBarDaysOnMarket} options={this.state.barChartOptions3} /></div>   
       </div>
     );
   }
