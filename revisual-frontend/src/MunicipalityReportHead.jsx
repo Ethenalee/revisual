@@ -27,6 +27,14 @@ class MunicipalityReportHead extends Component {
     }
   }
 
+  comparison = (comparison) => {
+    if (comparison !== undefined) {
+      return `/ ${comparison}`
+    } else {
+      return ""
+    }
+  }
+
   render() {
     let data = this.props.data;
 
@@ -40,7 +48,7 @@ class MunicipalityReportHead extends Component {
           if (el && this.refer(this.props.classNameChange) === 'font') {
             el.style.setProperty('color', this.props.color, 'important')
           }
-        }} >{data && data.municipality.municipality} {this.props.sale_lease} Market Stats</p>
+        }} >{data && data.municipality.municipality} {this.comparison(this.props.comparisonMunipality).toUpperCase()} {this.props.sale_lease} Market Stats</p>
           <MunicipalityDetailsReportHead data={data}/>
           <p id="report-duration" ref={(el) => {
           if (el && this.refer(this.props.classNameChange) === 'font') {

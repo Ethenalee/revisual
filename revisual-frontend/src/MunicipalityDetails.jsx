@@ -89,7 +89,7 @@ class MunicipalityDetails extends Component {
     let comparisonReport;
 
     if (this.state.comparisonAreacode && this.state.comparisonMunipality) {
-      comparisonReport = <MunicipalityComparisonReport data={data} comparisonAreacode={this.state.comparisonAreacode} comparisonMunipality={this.state.comparisonMunipality}  sale_lease={this.props.location.state.sale_lease}/>
+      comparisonReport = <MunicipalityComparisonReport chartNameChange={this.state.chartNameChange} classNameChange={this.state.classNameChange} data={data} color={this.state.color} comparisonAreacode={this.state.comparisonAreacode} comparisonMunipality={this.state.comparisonMunipality}  sale_lease={sale_lease}/>
     } else {
       comparisonReport = <MunicipalityReport chartNameChange={this.state.chartNameChange} classNameChange={this.state.classNameChange} color={this.state.color} data={data} sale_lease={sale_lease}/>;
     }
@@ -111,13 +111,14 @@ class MunicipalityDetails extends Component {
               data={data}
               sale_lease={sale_lease}
               duration={duration}
+              comparisonMunipality={this.state.comparisonMunipality}
             />
             {comparisonReport}
             <MunicipalityDetailsReportSummary />
             <MunicipalityDetailsFooter />
           </div>
           <div className="compareModalNew">
-            <button onClick={this.openModal}>Open Modal</button>
+            <button className="compare-new" onClick={this.openModal}>Compare Other Municipality</button>
               <Modal
                 isOpen={this.state.modalIsOpen}
                 onAfterOpen={this.afterOpenModal}

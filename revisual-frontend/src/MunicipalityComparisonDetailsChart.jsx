@@ -161,19 +161,44 @@ class MunicipalityDetailsChart extends Component {
   };
   }
 
-  label = (data) => {
+  label = data => {
     if (data && data.monthly_average_sold_price.length === 13) {
-      return ["Current Month", "Last Year Same Month"].reverse()
+      return ['Feb 2019', 'Feb 2018'].reverse();
     } else if (data && data.monthly_average_sold_price.length === 3) {
-      return ["Current Month", "Past 2 month", "Past 3 months"].reverse()
-    } else if (data && data.monthly_average_sold_price.length === 24){
-      return ["Current Month", "Past 2 months", "Past 3 months", "Past 4 months", "Past 5 months", "Past 6 months", "Past 7 months", "Past 8 months", "Past 9 months", "Past 10 months", "Past 11 months", "Past 12 months", "Past 13 months", "Past 14 months", "Past 15 months", "Past 16 months", "Past 17 months", "Past 18 months",  "Past 19 months", "Past 20 months", "Past 21 months", "Past 22 months", "Past 23 months", "Past 24 months"].reverse()
+      return ['Feb 2019', 'Jan 2019', 'Dec 2018'].reverse();
+    } else if (data && data.monthly_average_sold_price.length === 24) {
+      return [
+        'Feb 2019',
+        'Jan 2019',
+        'Dec 2018',
+        'Nov 2018',
+        'Oct 2018',
+        'Sep 2018',
+        'Aug 2018',
+        'Jul 2018',
+        'Jun 2018',
+        'May 2018',
+        'Apr 2018',
+        'Mar 2018',
+        'Feb 2018',
+        'Jan 2018',
+        'Dec 2017',
+        'Nov 2017',
+        'Oct 2017',
+        'Sep 2017',
+        'Aug 2017',
+        'Jul 2017',
+        'Jun 2017',
+        'May 2017',
+        'Apr 2017',
+        'Mar 2017'
+      ].reverse();
     }
-  }
+  };
 
   dataArrayPrice = (data) => {
     if (data && data.monthly_average_sold_price) {
-      return data.monthly_average_sold_price.reverse().map(item => ( 
+      return data && data.monthly_average_sold_price.reverse().map(item => ( 
         Math.floor(item)
       ))
     }
@@ -181,21 +206,35 @@ class MunicipalityDetailsChart extends Component {
 
   dataArrayNumListings = (data) => {
     if (data && data.monthly_number_of_listings) {
-      return data.monthly_number_of_listings.reverse().map(item => ( 
+      return data && data.monthly_number_of_listings.reverse().map(item => ( 
         Math.floor(item)
       ))
     }
   }
 
-  dataArrayNumListings = (data) => {
+  dataArrayNumSoldListings = (data) => {
     if (data && data.monthly_number_of_sold) {
-      return data.monthly_number_of_sold.reverse();
+      return data && data.monthly_number_of_sold.reverse();
+    }
+  }
+
+  comparisonDataArrayNumSoldListings = (data) => {
+    if (data && data.monthly_number_of_sold) {
+      return data && data.monthly_number_of_sold.reverse();
     }
   }
 
   dataDaysOnMarket = (data) => {
     if (data && data.monthly_average_days_on_market) {
-      return data.monthly_average_days_on_market.reverse().map(item => ( 
+      return data && data.monthly_average_days_on_market.reverse().map(item => ( 
+        Math.floor(item)
+      ))
+    }
+  }
+
+  comparisonDataDaysOnMarket = (data) => {
+    if (data && data.monthly_average_days_on_market) {
+      return data && data.monthly_average_days_on_market.reverse().map(item => ( 
         Math.floor(item)
       ))
     }
@@ -210,6 +249,43 @@ class MunicipalityDetailsChart extends Component {
     }
   }
 
+  colorScheme = () => {
+    const first = [
+      'rgba(127, 145, 204, 0.54)',
+      'rgba(63, 127, 191, 0.66)',
+      'rgba(179, 103, 207, 0.42)',
+      'rgba(169, 173, 192, 0.49)'
+    ];
+    const second = [
+      'rgba(12, 145, 204, 0.54)',
+      'rgba(6, 127, 191, 0.66)',
+      'rgba(17, 103, 207, 0.42)',
+      'rgba(16, 173, 192, 0.49)'
+    ];
+    const third = [
+      'rgba(133, 145, 204, 0.54)',
+      'rgba(411, 127, 191, 0.66)',
+      'rgba(333, 103, 207, 0.42)',
+      'rgba(933, 173, 192, 0.49)'
+    ];
+    const forth = [
+      'rgba(243, 239, 185, 0.87)',
+      'rgba(46, 414, 191, 0.66)',
+      'rgba(20, 204, 152, 0.87)',
+      'rgba(177, 204, 197, 0.87)'
+    ];
+
+    if (this.props.chartName === 'set-one') {
+      return second;
+    } else if (this.props.chartName === 'set-two') {
+      return third;
+    } else if (this.props.chartName === 'set-three') {
+      return forth;
+    } else {
+      return first;
+    }
+  };
+
   render() {
     let data = this.props.data
     let sale_lease = this.props.sale_lease
@@ -217,9 +293,13 @@ class MunicipalityDetailsChart extends Component {
       labels: this.label(data),
       datasets: [
         {
-          label: "Average price",
-          data: this.dataArrayPrice(data),
-          backgroundColor: "rgba(127, 145, 204, 0.54)"
+          label: `${this.props.data.municipality.municipality} Average price`,
+          data: this.dataArrayPrice(data) && this.dataArrayPrice(data),
+          backgroundColor: this.colorScheme()[0]
+        }, {
+          label: `${this.props.comparisonMunipality.toUpperCase()} Average price`,
+          data: this.dataArrayPrice(this.props.comparisonData) && this.dataArrayPrice(this.props.comparisonData),
+          backgroundColor: 'rgba(127, 145, 204, 1)'
         }
       ]
     };
@@ -227,9 +307,13 @@ class MunicipalityDetailsChart extends Component {
       labels: this.label(data),
       datasets: [
         {
-          label: "Number of Listings",
-          data: this.dataArrayNumListings(data),
-          backgroundColor: "rgba(63, 127, 191, 0.66)"
+          label: `${this.props.data.municipality.municipality} Number of Listings`,
+          data: this.dataArrayNumListings(data) && this.dataArrayNumListings(data),
+          backgroundColor: this.colorScheme()[1]
+        }, {
+          label: `${this.props.comparisonMunipality.toUpperCase()} Number of Listings`,
+          data: this.dataArrayNumListings(this.props.comparisonData) && this.dataArrayNumListings(this.props.comparisonData),
+          backgroundColor: 'rgba(63, 127, 191, 1)'
         }
       ]
     };
@@ -237,9 +321,14 @@ class MunicipalityDetailsChart extends Component {
       labels: this.label(data),
       datasets: [
         {
-          label:  `Number of ${this.salelease(sale_lease)} Listings`,
-          data: this.dataArrayNumListings(data),
-          backgroundColor: "rgba(179, 103, 207, 0.42)"
+          label: `${this.props.data.municipality.municipality} Number of ${this.salelease(sale_lease)} Listings`,
+          data: this.dataArrayNumSoldListings(data) && this.dataArrayNumSoldListings(data),
+          backgroundColor: this.colorScheme()[2]
+        },
+        {
+          label:  `${this.props.comparisonMunipality.toUpperCase()} Number of ${this.salelease(sale_lease)} Listings`,
+          data: this.dataArrayNumSoldListings(this.props.comparisonData) && this.dataArrayNumSoldListings(this.props.comparisonData),
+          backgroundColor: 'rgba(179, 103, 207, 1)'
         }
       ]
     };
@@ -247,9 +336,14 @@ class MunicipalityDetailsChart extends Component {
       labels: this.label(data),
       datasets: [
         {
-          label:  "Days on Market",
-          data: this.dataArrayNumListings(data),
-          backgroundColor: "rgba(169, 173, 192, 0.49)"
+          label: `${this.props.data.municipality.municipality}Days on Market`,
+          data: this.dataDaysOnMarket(data) && this.dataDaysOnMarket(data),
+          backgroundColor: this.colorScheme()[3]
+        },
+        {
+          label:  `${this.props.comparisonMunipality.toUpperCase()} Days on Market`,
+          data: this.dataDaysOnMarket(this.props.comparisonData) && this.dataDaysOnMarket(this.props.comparisonData),
+          backgroundColor: 'rgba(169, 173, 192, 1)'
         }
       ]
     };
