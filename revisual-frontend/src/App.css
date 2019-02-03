@@ -632,8 +632,8 @@ label {
 .details-table {
   background-image: url("./images/toronto.png") !important;
   background-repeat: no-repeat !important;
-  background-position: 15em 31em !important;
-  background-size: 400px 150px !important;
+  background-position: 50% 68% !important;
+  background-size: 40% 10% !important;
 }
 
 .page {
@@ -955,7 +955,8 @@ label {
 }
 
 .report-charts {
-  margin: 3%;
+  margin: 4%;
+  width: 100%;
 }
 
 .details-filter {
@@ -1022,6 +1023,15 @@ label {
 .report-conact-text {
   display: flex;
   border: solid transparent;
+}
+
+.swappable-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 1%;
 }
 
 @page {

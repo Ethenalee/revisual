@@ -9,7 +9,7 @@ class MunicipalityDetailsChart extends Component {
 
     this.state = {
       barChartOptions1: {
-        responsive: true,
+        responsive: false,
         maintainAspectRatio: true,
         tooltips: {
           callbacks: {
@@ -81,7 +81,7 @@ class MunicipalityDetailsChart extends Component {
         }
       },
       barChartOptions2: {
-        responsive: true,
+        responsive: false,
         maintainAspectRatio: true,
         tooltips: {
           callbacks: {
@@ -137,7 +137,7 @@ class MunicipalityDetailsChart extends Component {
         }
       },
       barChartOptions3: {
-        responsive: true,
+        responsive: false,
         maintainAspectRatio: true,
         tooltips: {
           callbacks: {
