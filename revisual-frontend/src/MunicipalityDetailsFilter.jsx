@@ -21,9 +21,9 @@ class MunicipalityDetailsFilter extends Component {
             <label className="class-form-label" htmlFor="chart-pick" >Customize Your Own Chart</label>
             <select onChange={this.chartNameChange} className="form-control">
               <option value="me">Select</option>
-              <option value="set-one">Color scheme 1</option>
-              <option value="set-two">Color scheme 2</option>
-              <option value="set-three">Color scheme 3</option>
+              <option value="set-one">Color scheme 1: Blue</option>
+              <option value="set-two">Color scheme 2: Pink</option>
+              <option value="set-three">Color scheme 3: Green</option>
             </select>
           </div>
           <div className="class-form-group">

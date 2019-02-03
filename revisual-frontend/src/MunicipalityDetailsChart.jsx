@@ -214,7 +214,7 @@ class MunicipalityDetailsChart extends Component {
     const first = ["rgba(127, 145, 204, 0.54)", "rgba(63, 127, 191, 0.66)", "rgba(179, 103, 207, 0.42)", "rgba(169, 173, 192, 0.49)"]
     const second = ["rgba(12, 145, 204, 0.54)", "rgba(6, 127, 191, 0.66)", "rgba(17, 103, 207, 0.42)", "rgba(16, 173, 192, 0.49)"]
     const third = ["rgba(133, 145, 204, 0.54)", "rgba(411, 127, 191, 0.66)", "rgba(333, 103, 207, 0.42)", "rgba(933, 173, 192, 0.49)"]
-    const forth = ["rgba(12, 39, 204, 0.54)", "rgba(6, 414, 191, 0.66)", "rgba(17, 24, 207, 0.42)", "rgba(16, 13, 192, 0.49)"]
+    const forth = ["rgba(243, 239, 185, 0.87)", "rgba(46, 414, 191, 0.66)", "rgba(20, 204, 152, 0.87)", "rgba(177, 204, 197, 0.87)"]
 
     if (this.props.chartName==='set-one') {
       return second
