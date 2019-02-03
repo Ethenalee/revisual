@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import MunicipalityComparisonDetailsTable from './MunicipalityDetailsTable';
-import MunicipalityComparisonDetailsChart from './MunicipalityDetailsChart';
+import MunicipalityComparisonDetailsTable from './MunicipalityComparisonDetailsTable';
+import MunicipalityComparisonDetailsChart from './MunicipalityComparisonDetailsChart';
 
 //Report Details page general content
 class MunicipalityComparisonReport extends Component {
@@ -17,7 +17,9 @@ class MunicipalityComparisonReport extends Component {
     return (
       <div className="details-table">
           ALT REPORT<br/><br/>
-          <MunicipalityComparisonDetailsTable data = {data} duration={duration} comparisonAreacode={comparisonAreacode} comparisonMunipality={comparisonMunipality} sale_lease={sale_lease}/>
+          <div className="centreTable">
+            <MunicipalityComparisonDetailsTable data = {data} duration={duration} comparisonAreacode={comparisonAreacode} comparisonMunipality={comparisonMunipality} sale_lease={sale_lease}/>
+          </div>
           <MunicipalityComparisonDetailsChart data = {data} duration={duration} comparisonAreacode={comparisonAreacode} comparisonMunipality={comparisonMunipality} sale_lease={sale_lease}/>
       </div>
     );

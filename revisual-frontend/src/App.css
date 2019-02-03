@@ -698,9 +698,19 @@ label {
   justify-content: flex-end;
 }
 
-canvas {
+.comparisonTable {
+  border: 1px solid black;
+}
+
+.centreTable{
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+canvas {
+  display: flex;
+  flex-direction: row;
   align-items: center;
 }
 

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 
-class MunicipalityDetailsTable extends Component {
+class MunicipalityComparisonDetailsTable extends Component {
   constructor() {
     super()
     this.state = {
@@ -22,37 +22,53 @@ class MunicipalityDetailsTable extends Component {
     let municipality = this.props.data && this.props.data.municipality.id
     let data = this.props.data
     return (
-      <div className="brief-table">
-        <div className="community">
-          <div className="labels"><div className="labels-text">Community</div></div>
-          <div className="values"><div>{this.state.community[municipality]}</div></div>
-        </div>
-        <div className="avg-sold-price">
-          <div className="labels"><div className="labels-text">Average {this.salelease(this.props.sale_lease)} Price</div></div>
-          <div className="values"><div>$ {data && (data.average_sold_price).toString().split('.')[0].replace(/(.)(?=(.{3})+$)/g,"$1,")} CAD</div></div>
-        </div>
-        <div className="highest-price">
-          <div className="labels"><div className="labels-text">Highest priced listing</div></div>
-          <div className="values"><div>$ {data && (data.highest_priced_sale).toString().split('.')[0].replace(/(.)(?=(.{3})+$)/g,"$1,")} CAD</div></div>
-        </div>
-        <div className="lowest-price">
-          <div className="labels"><div className="labels-text">Lowest priced listing</div></div>
-          <div className="values"><div>$ {data && (data.lowest_priced_sale).toString().split('.')[0].replace(/(.)(?=(.{3})+$)/g,"$1,")} CAD</div></div>
-        </div>
-        <div className="num-listings">
-          <div className="labels"><div className="labels-text">Number of listings</div></div>
-          <div className="values"><div>{data && (data.number_of_listings).toString().split('.')[0].replace(/(.)(?=(.{3})+$)/g,"1,")}</div></div>
-        </div>
-        <div className="num-sold">
-          <div className="labels"><div className="labels-text">Number of {this.salelease(this.props.sale_lease)} listings</div></div>
-          <div className="values"><div>{data && (data.number_of_sold.toString().split('.')[0])}</div></div>
-        </div>
-        <div className="num-days">
-          <div className="labels"><div className="labels-text">Average days on Market</div></div>
-          <div className="values"><div>{data && (data.average_days_on_market.toString().split('.')[0])} Days</div></div>
-        </div>
+      <div>
+        <table cellSpacing='10' className="comparisonTable" align="center" >
+          <tr className="comparisonTable">
+            <th className="comparisonTable" align="center">Type</th>
+            <th className="comparisonTable" align="center">Mun 1</th>
+            <th className="comparisonTable" align="center">Mun 2</th>
+            <th className="comparisonTable" align="center">Comparison</th>
+          </tr>
+          <tr className="comparisonTable">
+            <td className="comparisonTable">X </td>
+            <td className="comparisonTable">Alfreds Futterkiste</td>
+            <td className="comparisonTable">Maria Anders</td>
+            <td className="comparisonTable">Germany</td>
+          </tr>
+          <tr className="comparisonTable">
+            <td className="comparisonTable">X </td>
+            <td className="comparisonTable">Centro comercial Moctezuma</td>
+            <td className="comparisonTable">Francisco Chang</td>
+            <td className="comparisonTable">Mexico</td>
+          </tr>
+          <tr className="comparisonTable">
+            <td className="comparisonTable">X </td>
+            <td className="comparisonTable">Ernst Handel</td>
+            <td className="comparisonTable">Roland Mendel</td>
+            <td className="comparisonTable">Austria</td>
+          </tr>
+          <tr className="comparisonTable">
+            <td className="comparisonTable">X </td>
+            <td className="comparisonTable">Island Trading</td>
+            <td className="comparisonTable">Helen Bennett</td>
+            <td className="comparisonTable">UK</td>
+          </tr>
+          <tr className="comparisonTable">
+            <td className="comparisonTable">X </td>
+            <td className="comparisonTable">Laughing Bacchus Winecellars</td>
+            <td className="comparisonTable">Yoshi Tannamuri</td>
+            <td className="comparisonTable">Canada</td>
+          </tr>
+          <tr>
+            <td className="comparisonTable">X </td>
+            <td className="comparisonTable">Magazzini Alimentari Riuniti</td>
+            <td className="comparisonTable">Giovanni Rovelli</td>
+            <td className="comparisonTable">Italy</td>
+          </tr>
+        </table>
       </div>
     )
   }
 }
-export default MunicipalityDetailsTable;
+export default MunicipalityComparisonDetailsTable;
