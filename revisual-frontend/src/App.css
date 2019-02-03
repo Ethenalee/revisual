@@ -662,14 +662,14 @@ label {
   align-items: center;
   padding: 10px;
   width: 100%;
-  bottom: 0;
+  bottom: 5%;
 }
 
 .report-contact{
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: flex-start;
-  margin: 5px;
 }
 
 .contact-labels {
@@ -999,6 +999,18 @@ label {
   padding: 10px;
   width: 90% !important;
   margin: 2%;
+}
+
+.print-button {
+  margin: 10px;
+  border-radius: 5px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.report-conact-text {
+  display: flex;
+  border: solid white;
 }
 
 @page {
