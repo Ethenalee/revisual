@@ -1,6 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { Bar } from "react-chartjs-2";
 import 'chartjs-plugin-datalabels';
+import { DraggableContainer, DraggableItem } from '@wuweiweiwu/react-shopify-draggable';
 
 
 class MunicipalityDetailsChart extends Component {
@@ -14,80 +15,27 @@ class MunicipalityDetailsChart extends Component {
         maintainAspectRatio: true,
         tooltips: {
           callbacks: {
-              label: function(tooltipItem) {
-                  return Number(tooltipItem.yLabel).toFixed(0).replace(/./g, function(c, i, a) {
-                      return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
-                  });
-              }
+            label: function (tooltipItem) {
+              return Number(tooltipItem.yLabel).toFixed(0).replace(/./g, function (c, i, a) {
+                return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
+              });
+            }
           }
         },
         plugins: {
           datalabels: {
-             display: true,
-             color: 'white',
-             rotation: 270,
-             formatter: function(value) {
-              return "$" + Number(value).toFixed(0).replace(/./g, function(c, i, a) {
+            display: true,
+            color: 'white',
+            rotation: 270,
+            formatter: function (value) {
+              return "$" + Number(value).toFixed(0).replace(/./g, function (c, i, a) {
                 return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
-            });
+              });
             }
           }
-       },
+        },
         scales: {
           xAxes: [
-              {
-                display: true,
-                barPercentage: 1,
-                gridLines: {
-                  display: false,
-                  color: "rgba(0, 0, 0, 0.1)"
-                }
-              }
-            ],
-          yAxes: [
-            {
-              display: true,
-              gridLines: {
-                display: false,
-                color: "rgba(0, 0, 0, 0.1)"
-              },
-              ticks: {
-                beginAtZero: true,
-                callback: function(value) {
-                  return "$" + Number(value).toFixed(0).replace(/./g, function(c, i, a) {
-                    return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
-                  });
-                }
-              }
-            }
-          ]
-        }
-      },
-    barChartOptions2: {
-      responsive: false,
-      maintainAspectRatio: true,
-      tooltips: {
-        callbacks: {
-            label: function(tooltipItem) {
-                return Number(tooltipItem.yLabel).toFixed(0).replace(/./g, function(c, i, a) {
-                    return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
-                });
-            }
-        }
-      },
-      plugins: {
-        datalabels: {
-           display: true,
-           color: 'white',
-           formatter: function(value) {
-            return Number(value).toFixed(0).replace(/./g, function(c, i, a) {
-              return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
-          });
-          }
-        }
-     },
-      scales: {
-        xAxes: [
             {
               display: true,
               barPercentage: 1,
@@ -97,68 +45,121 @@ class MunicipalityDetailsChart extends Component {
               }
             }
           ],
-        yAxes: [
-          {
-            display: true,
-            gridLines: {
-              display: false,
-              color: "rgba(0, 0, 0, 0.1)"
-            },
-            ticks: {
-              beginAtZero: true
-            },
-          }
-        ]
-      }
-    },
-  barChartOptions3: {
-    responsive: false,
-    maintainAspectRatio: true,
-    tooltips: {
-      callbacks: {
-          label: function(tooltipItem) {
-              return Number(tooltipItem.yLabel).toFixed(0).replace(/./g, function(c, i, a) {
-                  return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
-              });
-          }
-      }
-    },
-    plugins: {
-      datalabels: {
-         display: 'true',
-         color: 'white',
-         rotation: 270,
-         formatter: function(value) {
-          return value + " Days";
+          yAxes: [
+            {
+              display: true,
+              gridLines: {
+                display: false,
+                color: "rgba(0, 0, 0, 0.1)"
+              },
+              ticks: {
+                beginAtZero: true,
+                callback: function (value) {
+                  return "$" + Number(value).toFixed(0).replace(/./g, function (c, i, a) {
+                    return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
+                  });
+                }
+              }
+            }
+          ]
         }
-      }
-   },
-    scales: {
-      xAxes: [
-          {
-            display: true,
-            barPercentage: 1,
-            gridLines: {
-              display: false,
-              color: "rgba(0, 0, 0, 0.1)"
+      },
+      barChartOptions2: {
+        responsive: false,
+        maintainAspectRatio: true,
+        tooltips: {
+          callbacks: {
+            label: function (tooltipItem) {
+              return Number(tooltipItem.yLabel).toFixed(0).replace(/./g, function (c, i, a) {
+                return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
+              });
             }
           }
-        ],
-      yAxes: [
-        {
-          display: true,
-          gridLines: {
-            display: false,
-            color: "rgba(0, 0, 0, 0.1)"
-          },
-          ticks: {
-            beginAtZero: true
-          },
+        },
+        plugins: {
+          datalabels: {
+            display: true,
+            color: 'white',
+            formatter: function (value) {
+              return Number(value).toFixed(0).replace(/./g, function (c, i, a) {
+                return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
+              });
+            }
+          }
+        },
+        scales: {
+          xAxes: [
+            {
+              display: true,
+              barPercentage: 1,
+              gridLines: {
+                display: false,
+                color: "rgba(0, 0, 0, 0.1)"
+              }
+            }
+          ],
+          yAxes: [
+            {
+              display: true,
+              gridLines: {
+                display: false,
+                color: "rgba(0, 0, 0, 0.1)"
+              },
+              ticks: {
+                beginAtZero: true
+              },
+            }
+          ]
         }
-      ]
-    }
-  }
-  };
+      },
+      barChartOptions3: {
+        responsive: false,
+        maintainAspectRatio: true,
+        tooltips: {
+          callbacks: {
+            label: function (tooltipItem) {
+              return Number(tooltipItem.yLabel).toFixed(0).replace(/./g, function (c, i, a) {
+                return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
+              });
+            }
+          }
+        },
+        plugins: {
+          datalabels: {
+            display: 'true',
+            color: 'white',
+            rotation: 270,
+            formatter: function (value) {
+              return value + " Days";
+            }
+          }
+        },
+        scales: {
+          xAxes: [
+            {
+              display: true,
+              barPercentage: 1,
+              gridLines: {
+                display: false,
+                color: "rgba(0, 0, 0, 0.1)"
+              }
+            }
+          ],
+          yAxes: [
+            {
+              display: true,
+              gridLines: {
+                display: false,
+                color: "rgba(0, 0, 0, 0.1)"
+              },
+              ticks: {
+                beginAtZero: true
+              },
+            }
+          ]
+        }
+      }
+    };
   }
 
   label = data => {
@@ -198,7 +199,7 @@ class MunicipalityDetailsChart extends Component {
 
   dataArrayPrice = (data) => {
     if (data && data.monthly_average_sold_price) {
-      return data && data.monthly_average_sold_price.reverse().map(item => ( 
+      return data && data.monthly_average_sold_price.reverse().map(item => (
         Math.floor(item)
       ))
     }
@@ -206,7 +207,7 @@ class MunicipalityDetailsChart extends Component {
 
   dataArrayNumListings = (data) => {
     if (data && data.monthly_number_of_listings) {
-      return data && data.monthly_number_of_listings.reverse().map(item => ( 
+      return data && data.monthly_number_of_listings.reverse().map(item => (
         Math.floor(item)
       ))
     }
@@ -226,7 +227,7 @@ class MunicipalityDetailsChart extends Component {
 
   dataDaysOnMarket = (data) => {
     if (data && data.monthly_average_days_on_market) {
-      return data && data.monthly_average_days_on_market.reverse().map(item => ( 
+      return data && data.monthly_average_days_on_market.reverse().map(item => (
         Math.floor(item)
       ))
     }
@@ -234,7 +235,7 @@ class MunicipalityDetailsChart extends Component {
 
   comparisonDataDaysOnMarket = (data) => {
     if (data && data.monthly_average_days_on_market) {
-      return data && data.monthly_average_days_on_market.reverse().map(item => ( 
+      return data && data.monthly_average_days_on_market.reverse().map(item => (
         Math.floor(item)
       ))
     }
@@ -326,7 +327,7 @@ class MunicipalityDetailsChart extends Component {
           backgroundColor: this.colorScheme()[2]
         },
         {
-          label:  `${this.props.comparisonMunipality.toUpperCase()} Number of ${this.salelease(sale_lease)} Listings`,
+          label: `${this.props.comparisonMunipality.toUpperCase()} Number of ${this.salelease(sale_lease)} Listings`,
           data: this.dataArrayNumSoldListings(this.props.comparisonData) && this.dataArrayNumSoldListings(this.props.comparisonData),
           backgroundColor: 'rgba(179, 103, 207, 1)'
         }
@@ -341,18 +342,32 @@ class MunicipalityDetailsChart extends Component {
           backgroundColor: this.colorScheme()[3]
         },
         {
-          label:  `${this.props.comparisonMunipality.toUpperCase()} Days on Market`,
+          label: `${this.props.comparisonMunipality.toUpperCase()} Days on Market`,
           data: this.dataDaysOnMarket(this.props.comparisonData) && this.dataDaysOnMarket(this.props.comparisonData),
           backgroundColor: 'rgba(169, 173, 192, 1)'
         }
       ]
     };
+
     return (
       <div className="comparison-chart">
-        <div className="comparison-report-charts"><Bar width={300} height={200} data={dataBarPrice} options={this.state.barChartOptions1} /></div>
-        <div className="comparison-report-charts"><Bar width={300} height={200} data={dataBarNumberofListings} options={this.state.barChartOptions2} /></div>
-        <div className="comparison-report-charts"><Bar width={300} height={200} data={dataBarNumberofSoldListings} options={this.state.barChartOptions2} /></div>
-        <div className="comparison-report-charts"><Bar width={300} height={200} data={dataBarDaysOnMarket} options={this.state.barChartOptions3} /></div>   
+        <DraggableContainer as="div" type="swappable" className="details-table">
+          <DraggableItem as="div">
+            <div className="comparison-report-charts"><Bar width={300} height={200} data={dataBarPrice} options={this.state.barChartOptions1} /></div>
+          </DraggableItem>
+
+          <DraggableItem as="div">
+            <div className="comparison-report-charts"><Bar width={300} height={200} data={dataBarNumberofListings} options={this.state.barChartOptions2} /></div>
+          </DraggableItem>
+
+          <DraggableItem as="div">
+            <div className="comparison-report-charts"><Bar width={300} height={200} data={dataBarNumberofSoldListings} options={this.state.barChartOptions2} /></div>
+          </DraggableItem>
+
+          <DraggableItem as="div">
+            <div className="comparison-report-charts"><Bar width={300} height={200} data={dataBarDaysOnMarket} options={this.state.barChartOptions3} /></div>
+          </DraggableItem>
+        </DraggableContainer>
       </div>
     );
   }
