@@ -1136,6 +1136,11 @@ td {
   font-size: 1.3vw;
 }
 
+.draggable-source {
+  display: flex;
+  margin: 2%;
+}
+
 @page {
   size: A4;
   margin: 0;
