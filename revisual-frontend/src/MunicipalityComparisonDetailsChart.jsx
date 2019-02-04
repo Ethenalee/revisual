@@ -351,7 +351,7 @@ class MunicipalityDetailsChart extends Component {
 
     return (
       <div className="comparison-chart">
-        <DraggableContainer as="div" type="swappable" className="details-table">
+        <DraggableContainer as="div" type="swappable" className="comparison-chart">
           <DraggableItem as="div">
             <div className="comparison-report-charts"><Bar width={300} height={200} data={dataBarPrice} options={this.state.barChartOptions1} /></div>
           </DraggableItem>
