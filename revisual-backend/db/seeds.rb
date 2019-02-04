@@ -117,5 +117,5 @@ puts "Creating Report Templates ..."
 
 user1.report_templates.find_or_create_by!(
   primary_color: "#555555",
-  logo_url: "https://i.redd.it/4y087bkpopd21.jpg"
+  logo_url: "https://i.imgur.com/u3KSh5I.png"
 )
