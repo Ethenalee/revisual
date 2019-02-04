@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 // Report Details header
 class MunicipalityDetailsHead extends Component {
@@ -7,7 +7,7 @@ class MunicipalityDetailsHead extends Component {
     return (
       <div className="detail-head">
         <div className="head-small">
-          <span>Customize your own market stats !</span>&nbsp;<span>Build your business!</span>
+          <span>Customize your report to build and reinforce your branding</span>
         </div>
       </div>
     );
