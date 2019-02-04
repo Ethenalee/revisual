@@ -1,0 +1,17 @@
+version: '3'
+services:
+  db:
+    image: postgres:9.6-alpine
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/10/main
+    # ports:
+    #   - "5432:5432"
+  web:
+    build: .
+    command: bundle exec rails s -p 3001 -b '0.0.0.0'
+    volumes:
+      - .:/lighthouse/revisual/revisual-backend/
+    ports:
+      - "3001:3001"
+    depends_on:
+      - db
