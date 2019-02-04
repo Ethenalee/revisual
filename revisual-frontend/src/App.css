@@ -999,6 +999,10 @@ label {
   padding: 10px;
 
 }
+
+button {
+  cursor: url("./images/hand.png"), auto;
+}
 .compareModalClose {
   display: flex;
   flex-direction: row;
@@ -1064,6 +1068,7 @@ label {
 th {
   text-align: center;
   padding: 1%;
+  color: white !important;
 }
 
 .comparisonTable-head {
@@ -1099,7 +1104,36 @@ th {
 }
 
 td {
+  padding-right: 8px;
   text-align: right;
+}
+
+.second-page-head, h2 {
+  font-family: "Montserrat";
+  font-weight: bold;
+  opacity: 0.7;
+  background-image: url(https://media.giphy.com/media/3o6fJ8RGDy8b9eNNy8/giphy.gif);
+  color: transparent;
+  -webkit-background-clip: text;
+  font-size: 3vw;
+  font-weight: bold;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.modal-button {
+  border-radius: 5px;
+  font-weight: bold;
+  color: grey;
+}
+.modal-button-2 {
+  border-radius: 5px;
+  font-weight: bold;
+  color: grey;
+}
+.second-page {
+  cursor: url("./images/pointer.png"), auto;
+  font-size: 1.3vw;
 }
 
 @page {

@@ -26,22 +26,13 @@ class MunicipalityDetails extends Component {
       comparisonAreacode: undefined,
       comparisonMunipality: undefined, 
     }
-
-    this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
   }
 
-  openModal() {
+  openModal = () => {
     this.setState({modalIsOpen: true});
   }
  
-  afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    this.subtitle.style.color = 'black';
-  }
- 
-  closeModal() {
+  closeModal = () => {
     this.setState({modalIsOpen: false});
   } 
 
@@ -125,8 +116,8 @@ class MunicipalityDetails extends Component {
                 onRequestClose={this.closeModal}
                 style={customStyles}
                 contentLabel="Example Modal"> 
-                <h2 ref={subtitle => this.subtitle = subtitle}> Select A Second Municipality</h2>
-                <div className="compareModalClose"> <button onClick={this.closeModal}>X</button> </div>
+                <h2 className="second-page-head" ref={subtitle => this.subtitle = subtitle}> Select A Second Municipality</h2>
+                <div className="compareModalClose"> <button className="modal-button" onClick={this.closeModal}>Close</button> </div>
                 <div>
                   <MunicipalityComparisonSearch data01={data01} sale_lease={this.props.location.state.sale_lease} closeInsideModal={this.closeInsideModal}/>
                 </div>

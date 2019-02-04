@@ -46,7 +46,6 @@ class MunicipalityComparisonSearch extends Component {
         <div>
           Selected Municipality: {data[0].municipality}
         </div>
-        <br/>
         <div>
           Municipality to compare: {this.state.municipality ? (this.state.municipality).toUpperCase() : ""}
         </div>
@@ -54,7 +53,7 @@ class MunicipalityComparisonSearch extends Component {
           <MunicipalityComparisonMap data={data} duration={duration} sale_lease={sale_lease} munSelect={this.munSelect}/>
         </div>
         <div className="compareModalClose">
-          <button onClick={
+          <button className="modal-button-2" onClick={
             () => this.state.municipality !== undefined && (this.state.municipality.toUpperCase() !== data[0].municipality) ? 
             (this.props.closeInsideModal(this.state.areacode, this.state.municipality)) : alert("Can't be empty or Matching")
           }> 
