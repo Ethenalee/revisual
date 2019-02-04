@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {RIETextArea} from 'riek';
+import React, { Component } from 'react';
+import { RIETextArea } from 'riek';
 import _ from 'lodash';
 
 class MunicipalityDetailsReportSummary extends Component {
@@ -7,17 +7,17 @@ class MunicipalityDetailsReportSummary extends Component {
     super();
 
     this.state = {
-        textarea: `Customize Messages for Your Business here`,
-        isDisabled: false,
-        simulateXHR: false,
-        XHRDelay: 450,
+      textarea: `CLICK HERE to enter a custom footer`,
+      isDisabled: false,
+      simulateXHR: false,
+      XHRDelay: 450,
     };
 
   }
 
   virtualServerCallback = (newState) => {
     if (this.state.simulateXHR) {
-      window.setTimeout(function() {
+      window.setTimeout(function () {
         this.changeState(newState);
       }.bind(this), this.state.XHRDelay);
     } else {
@@ -65,7 +65,7 @@ class MunicipalityDetailsReportSummary extends Component {
           validate={this.isStringAcceptable}
           classLoading="loading"
           classInvalid="invalid"
-          isDisabled={this.state.isDisabled} 
+          isDisabled={this.state.isDisabled}
           rows="10"
           cols="70"
         />
