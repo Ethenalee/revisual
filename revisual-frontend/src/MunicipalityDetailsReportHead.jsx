@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import { RIEInput} from 'riek';
+import React, { Component } from 'react';
+import { RIEInput } from 'riek';
 import _ from 'lodash';
 
 
@@ -8,8 +8,8 @@ class MunicipalityDetailsReportHead extends Component {
     super();
     this.state = {
       text: "blank",
-      text_value_in_header: "Customize Your Own Summary",
-      text_value_in_written_summary:"Insert Text Here",
+      text_value_in_header: "CLICK HERE to enter a custom header",
+      text_value_in_written_summary: "Insert Text Here",
       isDisabled: false,
       simulateXHR: false,
       XHRDelay: 450,
@@ -18,11 +18,11 @@ class MunicipalityDetailsReportHead extends Component {
 
   virtualServerCallback = (newState) => {
     if (this.state.simulateXHR) {
-    window.setTimeout(function() {
-      this.changeState(newState);
-    }.bind(this), this.state.XHRDelay);
+      window.setTimeout(function () {
+        this.changeState(newState);
+      }.bind(this), this.state.XHRDelay);
     } else {
-    this.changeState(newState);
+      this.changeState(newState);
     }
   };
 
@@ -55,18 +55,18 @@ class MunicipalityDetailsReportHead extends Component {
   };
 
   render() {
-    
+
     return (
       <div className="report-head" >
         <RIEInput
-            value={this.state.text_value_in_header}
-            change={this.virtualServerCallback}
-            propName="text_value_in_header"
-            className={this.state.highlight ? "editable" : "report-head-text"}
-            classLoading="loading"
-            classInvalid="invalid"
-            isDisabled={this.state.isDisabled}
-            />
+          value={this.state.text_value_in_header}
+          change={this.virtualServerCallback}
+          propName="text_value_in_header"
+          className={this.state.highlight ? "editable" : "report-head-text"}
+          classLoading="loading"
+          classInvalid="invalid"
+          isDisabled={this.state.isDisabled}
+        />
       </div>
     );
   }
