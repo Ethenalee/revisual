@@ -3,8 +3,7 @@ import React, {Component} from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import MunicipalityBriefChart from './MunicipalityBriefChart';
 import MunicipalityBriefTable from './MunicipalityBriefTable';
-import calendar from './images/calendar.png'
-
+import MunicipalityBriefHead from './MunicipalityBriefHead';
 
 // Municipality Search page post click detail summary and link to Municipality Search
 class MunicipalityBrief extends Component {
@@ -29,7 +28,7 @@ class MunicipalityBrief extends Component {
       .then(data => this.setState({ data }));
   }
   
-  duration= (duration) => {
+  durationChange = (duration) => {
     if (duration === "1month") {
       return "current month"
     } else if (duration === "3months") {
@@ -38,7 +37,7 @@ class MunicipalityBrief extends Component {
       return "previous 2 years"
     }
   }
-  color = (municipality) => {
+  colorChange = (municipality) => {
     if (municipality === "C01") {
       return "#0B4483"
     } else if (municipality === "W01") {
@@ -48,23 +47,18 @@ class MunicipalityBrief extends Component {
     }
   }
 
-
-
   render() {
-    let data = this.state.data;
-    const divStyle = {
-      backgroundColor: this.color(data && data.municipality.municipality)
-    };
     return (
       <div className="brief">
-        <div className="market-trends"><p style={divStyle} id="name">{data && data.municipality.municipality} {this.props.sale_lease} Market Stats</p><p id="duration"><span><img className="calendar" src={calendar}/></span> {this.duration(this.props.duration)}</p></div>
+        <MunicipalityBriefHead data={this.state.data} sale_lease={this.props.sale_lease} duration={this.props.duration} colorChange={this.colorChange} durationChange={this.durationChange}/>
         <MunicipalityBriefTable data={this.state.data} sale_lease={this.props.sale_lease}/>
         <MunicipalityBriefChart data={this.state.data}/>
         <Link className="go-to-detail"  to ={{
           pathname: `/municipalities/${this.props.areacode}`, 
           state: { 
               data: this.state.data,
-              sale_lease: this.props.sale_lease
+              sale_lease: this.props.sale_lease,
+              duration: this.props.duration
           }
           }}>
           Generate Report

@@ -2,12 +2,13 @@ import React, {Component} from 'react';
 import { RIEInput} from 'riek';
 import _ from 'lodash';
 
+
 class MunicipalityDetailsReportHead extends Component {
   constructor() {
     super();
     this.state = {
       text: "blank",
-      text_value_in_header: "Report Summary",
+      text_value_in_header: "Customize Your Own Summary",
       text_value_in_written_summary:"Insert Text Here",
       isDisabled: false,
       simulateXHR: false,
@@ -36,7 +37,7 @@ class MunicipalityDetailsReportHead extends Component {
   isStringEvenNumber = (string) => {
     var number = parseInt(string);
     if (isNaN(number) || !isFinite(number)) return false;
-    return number % 2 == 0;
+    return number % 2 === 0;
   };
 
   isValidXHRDelay = (text) => {
@@ -56,15 +57,16 @@ class MunicipalityDetailsReportHead extends Component {
   render() {
     
     return (
-      <div className="reportHead">
+      <div className="report-head" >
         <RIEInput
             value={this.state.text_value_in_header}
             change={this.virtualServerCallback}
             propName="text_value_in_header"
-            className={this.state.highlight ? "editable" : ""}
+            className={this.state.highlight ? "editable" : "report-head-text"}
             classLoading="loading"
             classInvalid="invalid"
-            isDisabled={this.state.isDisabled}/>
+            isDisabled={this.state.isDisabled}
+            />
       </div>
     );
   }
