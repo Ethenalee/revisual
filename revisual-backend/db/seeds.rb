@@ -102,7 +102,7 @@ user1 = User.find_or_create_by!(
   name: "Bobert Thompkins",
   phone_cell: "555 555 5555",
   phone_office: "555 555 5556",
-  phone_fax: "911",
+  phone_fax: "555 555 5557",
   address_1: "35 Rawlings Ave",
   address_2: "Apt. 101",
   city: "Richmond Hill",
