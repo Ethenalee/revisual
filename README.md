@@ -30,13 +30,30 @@ Sample data has already been processed and saved in `revisual-backend/rets/test-
 
 To import this data into the db from terminal run `rake import:listings`.
 
+## Setup through Docker (WIP)
+
+1. `cd revisual-backend`
+
+2. `docker-compose build`
+
+3. `docker-compose run --rm web rake db:setup import:listings`
+
+4. `docker-compuse up`
+
+5. `cd ../revisual-frontend`
+
+6. `docker-compose build`
+
+7. `docker-compuse up`
+
+
 ## Dependencies
 
 - Ruby 2.3.5
 
 - Rails 5.2.2
 
-- PostgreSQL 11
+- PostgreSQL 9.6
 
 - Node.js 11.7
 
