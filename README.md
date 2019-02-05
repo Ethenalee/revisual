@@ -36,7 +36,7 @@ To import this data into the db from terminal run `rake import:listings`.
 
 2. `docker-compose build`
 
-3. `docker-compose run web rake db:setup import:listings`
+3. `docker-compose run --rm web rake db:setup import:listings`
 
 4. `docker-compuse up`
 
