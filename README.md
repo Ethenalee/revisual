@@ -49,7 +49,7 @@ To import this data into the db from terminal run `rake import:listings`.
 
 ## Dependencies
 
-- Ruby 2.3.5
+- Ruby 2.3.8
 
 - Rails 5.2.2
 
