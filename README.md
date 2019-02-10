@@ -26,7 +26,7 @@ Visualize and compare Toronto real estate trends across municipalities, and easi
 
 ## Importing TREB Data from CSV
 
-Sample data has already been processed and saved in `revisual-backend/rets/test-sample.csv`.
+Save csv data to `revisual-backend/rets/test-sample.csv`.
 
 To import this data into the db from terminal run `rake import:listings`.
 
