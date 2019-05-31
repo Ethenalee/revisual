@@ -85,7 +85,7 @@ class Map extends Component {
   render() {
     return (
       <div className="map">
-        <div className="map-img-div"><img className="map-img" alt='' src={MapImg} useMap="Map2" /></div>
+        <div className="map-img-div"><img className="map-img" alt='' src={MapImg} useMap="#Map2" /></div>
         <div onClick={this.toggleIntro} className="description">
           {this.state.active &&
             <Jumbotron >

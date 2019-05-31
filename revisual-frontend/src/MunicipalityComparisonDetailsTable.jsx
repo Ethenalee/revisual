@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 
 
 class MunicipalityComparisonDetailsTable extends Component {
-  constructor() {
-    super()
-  }
 
   salelease = (data) => {
     if (data === "Sale") {

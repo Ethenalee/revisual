@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { RIETextArea } from 'riek';
-import _ from 'lodash';
 
 class MunicipalityDetailsReportSummary extends Component {
   constructor() {

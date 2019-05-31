@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-  DraggableItem,
   DraggableContainer
 } from '@wuweiweiwu/react-shopify-draggable';
 

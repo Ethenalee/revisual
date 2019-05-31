@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { RIEInput } from 'riek';
-import _ from 'lodash';
 
 
 class MunicipalityDetailsReportHead extends Component {
