@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import Intro from './MainIntro.jsx';
-import Map from './MainMap.jsx';
-import Footer from './MainFooter.jsx';
+import Intro from './components/main/MainIntro.jsx/index.js';
+import Map from './components/main/MainMap.jsx/index.js';
+import Footer from './components/main/MainFooter.jsx/index.js';
 
 class Home extends Component {
-  
+
   render() {
     return (
         <div className="home">

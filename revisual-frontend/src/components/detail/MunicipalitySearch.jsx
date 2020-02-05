@@ -3,7 +3,7 @@ import MunicipalityHead from './MunicipalityHead';
 import MunicipalityMap from './MunicipalityMap';
 import MunicipalityFilter from './MunicipalityFilter';
 import MunicipalityIntro from './MunicipalityIntro';
-import MunicipalityBrief from './MunicipalityBrief';
+import MunicipalityBrief from '../brief/MunicipalityBrief';
 
 //Municipality Search page which loads when landing page "Gettings Started" is clicked.
 class MunicipalitySearch extends Component {
@@ -11,9 +11,9 @@ class MunicipalitySearch extends Component {
     super();
 
     this.state = {
-      areacode: "", 
-      municipality: "", 
-      sale_lease: "", 
+      areacode: "",
+      municipality: "",
+      sale_lease: "",
       duration: "",
       introactive: true,
       marketactive: false
@@ -24,7 +24,7 @@ class MunicipalitySearch extends Component {
     this.setState({
       introactive: false,
       marketactive: true,
-      areacode: id, 
+      areacode: id,
       municipality: municipality
     });
   }
@@ -33,16 +33,16 @@ class MunicipalitySearch extends Component {
     this.setState({
      sale_lease: sale,
      duration: this.state.duration,
-     areacode: this.state.areacode, 
-     municipality: this.state.municipality 
+     areacode: this.state.areacode,
+     municipality: this.state.municipality
     });
   }
   durationChange = (duration) => {
     this.setState({
       sale_lease: this.state.sale_lease,
       duration: duration,
-      areacode: this.state.areacode, 
-      municipality: this.state.municipality 
+      areacode: this.state.areacode,
+      municipality: this.state.municipality
     });
   }
 

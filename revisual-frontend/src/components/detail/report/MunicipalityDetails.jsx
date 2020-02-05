@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import Modal from 'react-modal';
 
 import MunicipalityDetailsHead from './MunicipalityDetailsHead';
-import MunicipalityReport from './MunicipalityReport';
+import MunicipalityReport from '../MunicipalityReport';
 import MunicipalityDetailsReportSummary from './MunicipalityDetailsReportSummary';
 import MunicipalityDetailsFooter from './MunicipalityDetailsFooter';
-import MunicipalityReportHead from './MunicipalityReportHead';
+import MunicipalityReportHead from '../MunicipalityReportHead';
 import MunicipalityDetailsFilter from './MunicipalityDetailsFilter';
 import MunicipalityComparisonSearch from './MunicipalityComparisonSearch';
 import MunicipalityComparisonReport from './MunicipalityComparisonReport';

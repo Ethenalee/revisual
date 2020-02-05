@@ -3,10 +3,10 @@ import './App.css';
 // eslint-disable-next-line
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-import Nav from './Nav';
-import Home from './Home';
-import MunicipalitySearch from './MunicipalitySearch';
-import MunicipalityDetails from './MunicipalityDetails';
+import Nav from '../../Nav';
+import Home from '../../Home';
+import MunicipalitySearch from '../../MunicipalitySearch';
+import MunicipalityDetails from '../../MunicipalityDetails';
 
 class App extends Component {
   render() {
